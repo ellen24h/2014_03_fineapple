@@ -17,9 +17,11 @@
 		34F8D47B1A2D6313000D257B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8D47A1A2D6313000D257B /* LoginViewController.m */; };
 		34F8D47E1A2D6393000D257B /* RegisterEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8D47D1A2D6393000D257B /* RegisterEmailViewController.m */; };
 		34F8D4871A2D692C000D257B /* inputBar_registerEmail.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F8D4841A2D692C000D257B /* inputBar_registerEmail.png */; };
-		34F8D4881A2D692C000D257B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F8D4851A2D692C000D257B /* logo.png */; };
 		34F8D4891A2D692C000D257B /* verticalBar_registerEamil.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F8D4861A2D692C000D257B /* verticalBar_registerEamil.png */; };
 		34F8D48D1A2D6A11000D257B /* InitProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8D48C1A2D6A11000D257B /* InitProfileViewController.m */; };
+		5C6E3F421A2DA8C500E50A7E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E3F401A2DA8C500E50A7E /* logo.png */; };
+		5C6E3F431A2DA8C500E50A7E /* underline.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E3F411A2DA8C500E50A7E /* underline.png */; };
+		5CB742C91A2DAE2A006EA127 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CB742C81A2DAE2A006EA127 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +53,12 @@
 		34F8D47C1A2D6393000D257B /* RegisterEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterEmailViewController.h; path = RegisterEmail/RegisterEmailViewController.h; sourceTree = "<group>"; };
 		34F8D47D1A2D6393000D257B /* RegisterEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterEmailViewController.m; path = RegisterEmail/RegisterEmailViewController.m; sourceTree = "<group>"; };
 		34F8D4841A2D692C000D257B /* inputBar_registerEmail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inputBar_registerEmail.png; sourceTree = "<group>"; };
-		34F8D4851A2D692C000D257B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		34F8D4861A2D692C000D257B /* verticalBar_registerEamil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = verticalBar_registerEamil.png; sourceTree = "<group>"; };
 		34F8D48B1A2D6A11000D257B /* InitProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitProfileViewController.h; path = InitProfile/InitProfileViewController.h; sourceTree = "<group>"; };
 		34F8D48C1A2D6A11000D257B /* InitProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitProfileViewController.m; path = InitProfile/InitProfileViewController.m; sourceTree = "<group>"; };
+		5C6E3F401A2DA8C500E50A7E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Login/imgSource/logo.png; sourceTree = "<group>"; };
+		5C6E3F411A2DA8C500E50A7E /* underline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = underline.png; path = Login/imgSource/underline.png; sourceTree = "<group>"; };
+		5CB742C81A2DAE2A006EA127 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Login/imgSource/logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,8 @@
 		34F8D4781A2D62D5000D257B /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				5C6E3F401A2DA8C500E50A7E /* logo.png */,
+				5C6E3F411A2DA8C500E50A7E /* underline.png */,
 				34F8D4791A2D6313000D257B /* LoginViewController.h */,
 				34F8D47A1A2D6313000D257B /* LoginViewController.m */,
 			);
@@ -168,9 +174,9 @@
 		34F8D48A1A2D692F000D257B /* imgSorce */ = {
 			isa = PBXGroup;
 			children = (
+				5CB742C81A2DAE2A006EA127 /* logo.png */,
 				34F8D4861A2D692C000D257B /* verticalBar_registerEamil.png */,
 				34F8D4841A2D692C000D257B /* inputBar_registerEmail.png */,
-				34F8D4851A2D692C000D257B /* logo.png */,
 			);
 			name = imgSorce;
 			sourceTree = "<group>";
@@ -256,10 +262,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F8D45E1A2D6228000D257B /* Main.storyboard in Resources */,
-				34F8D4881A2D692C000D257B /* logo.png in Resources */,
 				34F8D4631A2D6228000D257B /* LaunchScreen.xib in Resources */,
 				34F8D4891A2D692C000D257B /* verticalBar_registerEamil.png in Resources */,
+				5C6E3F421A2DA8C500E50A7E /* logo.png in Resources */,
+				5CB742C91A2DAE2A006EA127 /* logo.png in Resources */,
 				34F8D4871A2D692C000D257B /* inputBar_registerEmail.png in Resources */,
+				5C6E3F431A2DA8C500E50A7E /* underline.png in Resources */,
 				34F8D4601A2D6228000D257B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
