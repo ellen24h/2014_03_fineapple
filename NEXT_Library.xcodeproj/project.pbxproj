@@ -14,6 +14,9 @@
 		34F8D4601A2D6228000D257B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F8D45F1A2D6228000D257B /* Images.xcassets */; };
 		34F8D4631A2D6228000D257B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F8D4611A2D6228000D257B /* LaunchScreen.xib */; };
 		34F8D46F1A2D6228000D257B /* NEXT_LibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8D46E1A2D6228000D257B /* NEXT_LibraryTests.m */; };
+		34F8D47B1A2D6313000D257B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8D47A1A2D6313000D257B /* LoginViewController.m */; };
+		34F8D47E1A2D6393000D257B /* RegisterEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8D47D1A2D6393000D257B /* RegisterEmailViewController.m */; };
+		34F8D4831A2D646F000D257B /* InitProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8D4821A2D646F000D257B /* InitProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		34F8D4681A2D6228000D257B /* NEXT_LibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NEXT_LibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F8D46D1A2D6228000D257B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34F8D46E1A2D6228000D257B /* NEXT_LibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEXT_LibraryTests.m; sourceTree = "<group>"; };
+		34F8D4791A2D6313000D257B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Login/LoginViewController.h; sourceTree = "<group>"; };
+		34F8D47A1A2D6313000D257B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Login/LoginViewController.m; sourceTree = "<group>"; };
+		34F8D47C1A2D6393000D257B /* RegisterEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterEmailViewController.h; path = RegisterEmail/RegisterEmailViewController.h; sourceTree = "<group>"; };
+		34F8D47D1A2D6393000D257B /* RegisterEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterEmailViewController.m; path = RegisterEmail/RegisterEmailViewController.m; sourceTree = "<group>"; };
+		34F8D4811A2D646F000D257B /* InitProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitProfileViewController.h; sourceTree = "<group>"; };
+		34F8D4821A2D646F000D257B /* InitProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,11 +91,14 @@
 			isa = PBXGroup;
 			children = (
 				34F8D4561A2D6228000D257B /* AppDelegate.h */,
+				34F8D47F1A2D639F000D257B /* RegisterEmail */,
+				34F8D4781A2D62D5000D257B /* Login */,
 				34F8D4571A2D6228000D257B /* AppDelegate.m */,
 				34F8D4591A2D6228000D257B /* ViewController.h */,
 				34F8D45A1A2D6228000D257B /* ViewController.m */,
 				34F8D45C1A2D6228000D257B /* Main.storyboard */,
 				34F8D45F1A2D6228000D257B /* Images.xcassets */,
+				34F8D4801A2D6444000D257B /* InitProfile */,
 				34F8D4611A2D6228000D257B /* LaunchScreen.xib */,
 				34F8D4521A2D6228000D257B /* Supporting Files */,
 			);
@@ -117,6 +129,33 @@
 				34F8D46D1A2D6228000D257B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		34F8D4781A2D62D5000D257B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				34F8D4791A2D6313000D257B /* LoginViewController.h */,
+				34F8D47A1A2D6313000D257B /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		34F8D47F1A2D639F000D257B /* RegisterEmail */ = {
+			isa = PBXGroup;
+			children = (
+				34F8D47D1A2D6393000D257B /* RegisterEmailViewController.m */,
+				34F8D47C1A2D6393000D257B /* RegisterEmailViewController.h */,
+			);
+			name = RegisterEmail;
+			sourceTree = "<group>";
+		};
+		34F8D4801A2D6444000D257B /* InitProfile */ = {
+			isa = PBXGroup;
+			children = (
+				34F8D4811A2D646F000D257B /* InitProfileViewController.h */,
+				34F8D4821A2D646F000D257B /* InitProfileViewController.m */,
+			);
+			name = InitProfile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +258,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34F8D47B1A2D6313000D257B /* LoginViewController.m in Sources */,
 				34F8D45B1A2D6228000D257B /* ViewController.m in Sources */,
+				34F8D4831A2D646F000D257B /* InitProfileViewController.m in Sources */,
 				34F8D4581A2D6228000D257B /* AppDelegate.m in Sources */,
 				34F8D4551A2D6228000D257B /* main.m in Sources */,
+				34F8D47E1A2D6393000D257B /* RegisterEmailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
