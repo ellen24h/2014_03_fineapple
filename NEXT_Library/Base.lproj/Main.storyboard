@@ -22,24 +22,6 @@
             </objects>
             <point key="canvasLocation" x="-727" y="354"/>
         </scene>
-        <!--RegisterEmail-->
-        <scene sceneID="JZA-r3-3Va">
-            <objects>
-                <viewController title="RegisterEmail" id="Un5-eS-40u" customClass="RegisterEmailViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vGF-nO-ol4"/>
-                        <viewControllerLayoutGuide type="bottom" id="559-U8-OQd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="umo-Ee-hqm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cnW-Cm-haB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-262" y="-11"/>
-        </scene>
         <!--InitProfile-->
         <scene sceneID="zIZ-1D-aj4">
             <objects>
@@ -58,7 +40,149 @@
             </objects>
             <point key="canvasLocation" x="202" y="-33"/>
         </scene>
+        <!--RegisterEmail-->
+        <scene sceneID="4ot-sL-mXC">
+            <objects>
+                <viewController storyboardIdentifier="register" title="RegisterEmail" id="aTv-Rn-cBG" customClass="RegisterView" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CH3-c7-Wd1"/>
+                        <viewControllerLayoutGuide type="bottom" id="6m8-ND-atu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3BG-gs-JKT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="inputBar_registerEmail.png" translatesAutoresizingMaskIntoConstraints="NO" id="g0q-bm-0O9">
+                                <rect key="frame" x="29" y="261" width="261" height="40"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="inputBar_registerEmail.png" translatesAutoresizingMaskIntoConstraints="NO" id="VZ0-12-Nff">
+                                <rect key="frame" x="29" y="205" width="261" height="40"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="inputBar_registerEmail.png" translatesAutoresizingMaskIntoConstraints="NO" id="BTb-lv-rsT">
+                                <rect key="frame" x="29" y="318" width="261" height="40"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="inputBar_registerEmail.png" translatesAutoresizingMaskIntoConstraints="NO" id="ze9-QE-ewd">
+                                <rect key="frame" x="29" y="376" width="261" height="40"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="verticalBar_registerEamil.png" translatesAutoresizingMaskIntoConstraints="NO" id="QYG-mR-065">
+                                <rect key="frame" x="43" y="205" width="261" height="40"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="verticalBar_registerEamil.png" translatesAutoresizingMaskIntoConstraints="NO" id="cgG-76-Zby">
+                                <rect key="frame" x="43" y="261" width="261" height="40"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="verticalBar_registerEamil.png" translatesAutoresizingMaskIntoConstraints="NO" id="0x6-Sr-dgc">
+                                <rect key="frame" x="43" y="318" width="261" height="40"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="verticalBar_registerEamil.png" translatesAutoresizingMaskIntoConstraints="NO" id="acV-NV-za7">
+                                <rect key="frame" x="43" y="376" width="261" height="40"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="ER0-uo-FGi">
+                                <rect key="frame" x="31" y="62" width="259" height="83"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="E-MAIL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IN-IZ-WkJ">
+                                <rect key="frame" x="43" y="215" width="69" height="21"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="비밀번호" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHU-Ux-17F">
+                                <rect key="frame" x="43" y="271" width="69" height="21"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="확인" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SA-V1-Xjg">
+                                <rect key="frame" x="35" y="328" width="70" height="21"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이름" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvh-Lm-zst">
+                                <rect key="frame" x="29" y="386" width="83" height="21"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="비밀번호 확인" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ods-zx-zhA">
+                                <rect key="frame" x="120" y="324" width="172" height="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="checkPwBegin:" destination="aTv-Rn-cBG" eventType="editingDidBegin" id="SjD-oG-rZA"/>
+                                    <action selector="checkPwEnd:" destination="aTv-Rn-cBG" eventType="editingDidEnd" id="4iw-ou-DGJ"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YK0-UU-X59">
+                                <rect key="frame" x="29" y="471" width="261" height="48"/>
+                                <color key="backgroundColor" red="0.098039215690000001" green="0.74117647060000003" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="확  인">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="success:" destination="aTv-Rn-cBG" eventType="touchUpInside" id="fQ9-Sh-AKI"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="비밀번호" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NGg-1p-ayi">
+                                <rect key="frame" x="120" y="267" width="172" height="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="passwordBegin:" destination="aTv-Rn-cBG" eventType="editingDidBegin" id="GOb-UB-fLU"/>
+                                    <action selector="passwordEnd:" destination="aTv-Rn-cBG" eventType="editingDidEnd" id="Ela-fc-IFT"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNf-iD-Ezs">
+                                <rect key="frame" x="29" y="424" width="261" height="39"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="이메일을 입력하세요." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jkm-Uw-lOf">
+                                <rect key="frame" x="120" y="211" width="172" height="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="EmailBegin:" destination="aTv-Rn-cBG" eventType="editingDidBegin" id="GRi-0J-Qw2"/>
+                                    <action selector="EmailEnd:" destination="aTv-Rn-cBG" eventType="editingDidEnd" id="CNe-3e-4IH"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="이름을 입력하세요." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lY0-jf-1a0">
+                                <rect key="frame" x="120" y="382" width="172" height="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nameBegin:" destination="aTv-Rn-cBG" eventType="editingDidBegin" id="6VQ-2b-v7n"/>
+                                    <action selector="nameEnd:" destination="aTv-Rn-cBG" eventType="editingDidEnd" id="6rx-BR-Jfd"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.96470588239999999" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="checkpassword" destination="Ods-zx-zhA" id="HiZ-hJ-ZRH"/>
+                        <outlet property="emailField" destination="jkm-Uw-lOf" id="tm3-W3-dGa"/>
+                        <outlet property="errormethod" destination="wNf-iD-Ezs" id="sRI-TE-wE6"/>
+                        <outlet property="nameField" destination="lY0-jf-1a0" id="vYB-97-gkG"/>
+                        <outlet property="passwordField" destination="NGg-1p-ayi" id="vMy-lz-Oab"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HPB-R3-Jq1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-305" y="-33"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="inputBar_registerEmail.png" width="261" height="40"/>
+        <image name="logo.png" width="600" height="193"/>
+        <image name="verticalBar_registerEamil.png" width="261" height="40"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
