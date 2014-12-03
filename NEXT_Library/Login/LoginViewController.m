@@ -10,62 +10,52 @@
 
 
 @implementation LoginViewController
-
+//viewDidLoad
+//  
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     @autoreleasepool {
-        
-    request = [[NSMutableURLRequest alloc]init];
-    [self setInitialFieldProperty];
-    isViewPosUp = NO;
-    curFocusField = -1;
-
-    NSUserDefaults * pref = [NSUserDefaults standardUserDefaults];
-    NSString * session = [pref stringForKey:@"session"];
+    [self initialize];
+    NSString * session = [self getSessionFromUserDefault];
     if(session != NULL){
         NSLog(@"%@",session);
-        [self veryFirstConnect:pref];
+        [self veryFirstConnect:session];
     }
     }
-}
-
-- (void) veryFirstConnect:(NSUserDefaults *)userSession{
-    NSString * session = [userSession stringForKey:@"session"];
-    NSLog(@"session : %@",session);
-    NSData * postData = [session dataUsingEncoding:NSUTF8StringEncoding];
-    NSString * dataLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
-    NSURL * url = [NSURL URLWithString:@"http://127.0.0.1:5009/veryFirstConnect"];
-    
-    [request setURL:url];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:dataLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:postData];
-    NSURLConnection * connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-    if(connection){
-        recvData = [[NSMutableData alloc] init];
-        NSLog(@"connection success");
-    }
-    else{
-        NSLog(@"connection fail");
-    }
-    
-}
-
-- (void)setInitialFieldProperty {
+ }
+- (void)initialize {
+    request = [[NSMutableURLRequest alloc]init];
+    recvData = [[NSMutableData alloc] init];
     _emailField.textAlignment = NSTextAlignmentCenter;
     _emailField.font = [UIFont systemFontOfSize:17];
     [_emailField setReturnKeyType:UIReturnKeyDone];
     _passwordField.textAlignment = NSTextAlignmentCenter;
     _passwordField.font = [UIFont systemFontOfSize:17];
     [_passwordField setReturnKeyType:UIReturnKeyDone];
-    
+    isViewPosUp = NO;
+    curFocusField = -1;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSString *)getSessionFromUserDefault{
+    NSUserDefaults * pref = [NSUserDefaults standardUserDefaults];
+    NSString * session = [pref stringForKey:@"session"];
+    return session;
+}
+
+- (void) veryFirstConnect:(NSString *)session{
+    NSLog(@"session : %@",session);
+
+    NSURL * url = [NSURL URLWithString:@"http://127.0.0.1:5009/veryFirstConnect"];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"Cookie" forHTTPHeaderField:session];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    NSURLConnection * connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
+    if(connection)
+        NSLog(@"connection success");
+    else
+        NSLog(@"connection fail");
 }
 
 - (IBAction)textFieldTouchCancel:(id)sender {
@@ -90,17 +80,14 @@
     else if(curFocusField ==1){
         _emailField.backgroundColor = [UIColor clearColor];
     }
-    
     if(isViewPosUp == NO){
         isViewPosUp = YES;
         [self moveScreen:up];
     }
-    
 }
 
 -(int)setCurFocusField:(NSObject *)obj{
     int ret;
-    
     if(obj == _emailField){
         curFocusField = 0;
         ret = 0;
@@ -112,26 +99,26 @@
     else{
         ret = -1;
     }
-    
     return ret;
 }
 
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if(isViewPosUp == YES)
+    if(isViewPosUp == YES){
         [self moveScreen:SCREEN_DOWN];
-    _passwordField.backgroundColor = [UIColor clearColor];
-    _emailField.backgroundColor = [UIColor clearColor];
-    [self.view endEditing:YES];
-    isViewPosUp = NO;
-    curFocusField = -1;
+        _passwordField.backgroundColor = [UIColor clearColor];
+        _emailField.backgroundColor = [UIColor clearColor];
+        [self.view endEditing:YES];
+        isViewPosUp = NO;
+        curFocusField = -1;
+    }
 }
 
 - (void)moveScreen:(BOOL)upOrDown{
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
     CGRect rect = self.view.frame;
-    
     if(upOrDown){
         rect.origin.y -= kOFFSET_FOR_KEYBOARD;
         rect.size.height += kOFFSET_FOR_KEYBOARD;
@@ -140,9 +127,9 @@
         rect.size.height -= kOFFSET_FOR_KEYBOARD;
     }
     self.view.frame = rect;
-    
     [UIView commitAnimations];
 }
+
 - (IBAction)signinTouch:(id)sender {
     NSString * email;
     NSString * password;
@@ -157,14 +144,9 @@
     }
     else{
         [self setLoginComment:LOGIN_FAIL color:UIColorFromRGB(0xEF4089)];
-        return;
     }
-    
 }
 
-- (void)initializingConnect{
-    request = [[NSMutableURLRequest alloc] init];
-}
 
 - (BOOL)authenticate:(NSString *)email password:(NSString *)password{
     @autoreleasepool {
@@ -173,8 +155,6 @@
         NSData * postData = [userData dataUsingEncoding:NSUTF8StringEncoding];
         NSString * dataLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
         NSURL * url = [NSURL URLWithString:@"http://127.0.0.1:5009/login"];
-
-        
         [request setURL:url];
         [request setHTTPMethod:@"POST"];
         [request setValue:dataLength forHTTPHeaderField:@"Content-Length"];
@@ -197,34 +177,27 @@
 {
     const char *cstr = [input cStringUsingEncoding:NSUTF8StringEncoding];
     NSData *data = [NSData dataWithBytes:cstr length:input.length];
-    
     uint8_t digest[CC_SHA1_DIGEST_LENGTH];
-    
     CC_SHA1(data.bytes, data.length, digest);
-    
     NSMutableString* output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
-    
     for(int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++)
         [output appendFormat:@"%02x", digest[i]];
-    
     return output;
-    
 }
 
 
 -(void) connection:(NSURLConnection *) connection didReceiveResponse:(NSURLResponse *)response
 {
-    NSLog(@"%@",response);
-    [recvData setLength:0];
+    NSLog(@"response from Server : %@",response);
+    NSLog(@"%@",request);
+
     NSUserDefaults * pref;
     NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse*)response;
     NSDictionary * dictionary;
     if ([response respondsToSelector:@selector(allHeaderFields)]) {
         dictionary = [httpResponse allHeaderFields];
     }
-    NSLog(@"%@",request);
     NSArray * keys = [dictionary allKeys];
-    NSLog(@"%@",keys);
     if([keys containsObject:@"Set-Cookie"] == YES){
         NSLog([dictionary valueForKey:@"Set-Cookie"]);
         [pref setObject:[dictionary valueForKey:@"Set-Cookie"] forKey : @"session"];
@@ -265,9 +238,10 @@
     _comment.textColor = commentColor;
     _comment.text = comment;
 }
-- (IBAction)test:(id)sender {
-    
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
-
-
 @end
