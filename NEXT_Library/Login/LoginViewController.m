@@ -224,8 +224,9 @@
     }
     NSLog(@"%@",request);
     NSArray * keys = [dictionary allKeys];
+    NSLog(@"%@",keys);
     if([keys containsObject:@"Set-Cookie"] == YES){
-        [request setValue:@"Set-Cookie" forHTTPHeaderField:[dictionary valueForKey:@"Set-Cookie"]];
+        NSLog([dictionary valueForKey:@"Set-Cookie"]);
         [pref setObject:[dictionary valueForKey:@"Set-Cookie"] forKey : @"session"];
         [pref synchronize];
     }
