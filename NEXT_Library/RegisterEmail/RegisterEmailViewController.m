@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *checkpassword;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UILabel *errormethod;
+@property(nonatomic, readonly, getter=isEditing) BOOL editing;
 @end
 
 @implementation RegisterEmailViewController
@@ -25,8 +26,8 @@
     //self.checkpassword.text = @"";
     //self.nameField.text = @""; // 굳이 초기화 작업이 진행될 필요는 없을 것 같음.
     // Do any additional setup after loading the view.
-    //UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector];
-    //[self.view addGestureRecognizer:tap];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
 }
 
 -(void)didTap:(UITapGestureRecognizer*)tap {
@@ -236,6 +237,29 @@
     if ([result  isEqual: @"None"]){
         return YES;
     } else return NO;
+}
+
+-(void)dismissKeyboard
+{
+    UITextField *activeTextField = nil;
+    if ([self.emailField isEditing]) {
+        activeTextField = self.emailField;
+    }
+    else if ([self.passwordField isEditing]) {
+        activeTextField = self.passwordField;
+    }
+    else if ([self.checkpassword isEditing]) {
+        activeTextField = self.checkpassword;
+    }
+    else if ([self.checkpassword isEditing]) {
+        activeTextField = self.checkpassword;
+    }
+    else if ([self.nameField isEditing]) {
+        activeTextField = self.checkpassword;
+    }
+    if (activeTextField) {
+        [activeTextField resignFirstResponder];
+    }
 }
 
 
