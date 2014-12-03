@@ -11,7 +11,10 @@
 
 @implementation LoginViewController
 //viewDidLoad
-//  
+//  1. status, textfield 설정 초기화
+//  2. userDefault로부터 session 값 가져오기
+//      2-1.if, session 값이 있으면 veryFirstConnect 진행
+//      2-2.else, login 화면 띄우기
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -24,6 +27,11 @@
     }
     }
  }
+
+//initialize
+//  loginViewController class variable들 초기화
+//  request, recvData alloc
+//  textField 설정 및 status 값들 init
 - (void)initialize {
     request = [[NSMutableURLRequest alloc]init];
     recvData = [[NSMutableData alloc] init];
@@ -37,12 +45,15 @@
     curFocusField = -1;
 }
 
+//getSessionFromUserDefault
+//  userDefault로부터 key값 session에 해당하는 value 가져와서 return
 - (NSString *)getSessionFromUserDefault{
     NSUserDefaults * pref = [NSUserDefaults standardUserDefaults];
     NSString * session = [pref stringForKey:@"session"];
     return session;
 }
-
+//verFirstConnect
+//  userDefault에 session값이 있으면 server에 접속해서 현재 사용자에게 보여줘야 할 화면 세팅
 - (void) veryFirstConnect:(NSString *)session{
     NSLog(@"session : %@",session);
 
@@ -58,6 +69,8 @@
         NSLog(@"connection fail");
 }
 
+//textFieldTouchCancel
+// Done버튼을 눌렀을 경우 전체 frame yPos내리고 isViewPosUp 값 변경
 - (IBAction)textFieldTouchCancel:(id)sender {
     BOOL down = NO;
     UITextField * tmp = sender;
@@ -68,7 +81,8 @@
         [self moveScreen:down];
     }
 }
-
+//textFieldTouchDown
+//  textField터치 했을 때, 터치된 textfield 색 변경
 - (IBAction)textFieldTouchDown:(id)sender {
     BOOL up = YES;
     UITextField * tmp = sender;
@@ -85,7 +99,8 @@
         [self moveScreen:up];
     }
 }
-
+//setCurFocusField
+//  현재 focus되어 있는 textfield에 해당하는 값을 curFocusField에 저장
 -(int)setCurFocusField:(NSObject *)obj{
     int ret;
     if(obj == _emailField){
@@ -101,8 +116,8 @@
     }
     return ret;
 }
-
-
+//touchesBegan
+//  textfield 편집하다가 화면의 다른부분 눌렀을 경우 키보드를 내리고 화면을 내린다.
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     if(isViewPosUp == YES){
@@ -114,7 +129,9 @@
         curFocusField = -1;
     }
 }
-
+//moveScreen
+//  Bool값을 받아서 화면을 내리거나 올린다.
+//  up : NO, down : YES
 - (void)moveScreen:(BOOL)upOrDown{
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
@@ -123,13 +140,16 @@
         rect.origin.y -= kOFFSET_FOR_KEYBOARD;
         rect.size.height += kOFFSET_FOR_KEYBOARD;
     }
-    else{rect.origin.y += kOFFSET_FOR_KEYBOARD;
+    else{
+        rect.origin.y += kOFFSET_FOR_KEYBOARD;
         rect.size.height -= kOFFSET_FOR_KEYBOARD;
     }
     self.view.frame = rect;
     [UIView commitAnimations];
 }
-
+//Signintouch
+//  Signin버튼을 눌렀을때, authenticate 함수를 이용하여 server에 쿼리
+//  textfield 값이 비어 있을 때만, server에 쿼리
 - (IBAction)signinTouch:(id)sender {
     NSString * email;
     NSString * password;
@@ -147,7 +167,9 @@
     }
 }
 
-
+//authenticate
+//  서버에 사용자 이메일과 비밀번호를 post data로 전송
+//  비밀번호의 경우 sha1함수로 encrypt하여 전송
 - (BOOL)authenticate:(NSString *)email password:(NSString *)password{
     @autoreleasepool {
         
@@ -172,7 +194,8 @@
         }
     }
 }
-
+//sha1
+//  input NSString을 sha1 방식으로 encrypt
 -(NSString*) sha1:(NSString*)input
 {
     const char *cstr = [input cStringUsingEncoding:NSUTF8StringEncoding];
@@ -185,11 +208,12 @@
     return output;
 }
 
-
+//connection : didReceiveResponse
+//  서버로부터 response를 받았을 때
+//  userDefault에 session 값을 저장
 -(void) connection:(NSURLConnection *) connection didReceiveResponse:(NSURLResponse *)response
 {
     NSLog(@"response from Server : %@",response);
-    NSLog(@"%@",request);
 
     NSUserDefaults * pref;
     NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse*)response;
@@ -205,6 +229,8 @@
     }
 }
 
+//connection : didReceiveData
+//  server로부터 data 수신을 완료했을때, data의 값을 가지고 사용자가 봐야할 화면으로 화면전환
 -(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     [recvData appendData:data];
@@ -233,7 +259,8 @@
         [self setLoginComment:@"recommend" color:UIColorFromRGB(0x19BDC4)];
     }
 }
-
+//setLoginComment
+//  로그인 성공, 실패시 comment label에 해당하는 text 보여줌
 -(void) setLoginComment:(NSString *)comment color:(UIColor *)commentColor{
     _comment.textColor = commentColor;
     _comment.text = comment;
