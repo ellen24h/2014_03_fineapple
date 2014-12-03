@@ -14,6 +14,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    @autoreleasepool {
+        
     request = [[NSMutableURLRequest alloc]init];
     [self setInitialFieldProperty];
     isViewPosUp = NO;
@@ -25,7 +27,7 @@
         NSLog(@"%@",session);
         [self veryFirstConnect:pref];
     }
-    
+    }
 }
 
 - (void) veryFirstConnect:(NSUserDefaults *)userSession{
@@ -145,9 +147,6 @@
     NSString * email;
     NSString * password;
     
-    NSLog(@"%@",_emailField);
-    NSLog(@"%@",_passwordField);
-    
     if( [_emailField.text isEqualToString:@""] != YES &&
        [_passwordField.text isEqualToString:@""] != YES ){
         _comment.text =@"";
@@ -215,6 +214,7 @@
 
 -(void) connection:(NSURLConnection *) connection didReceiveResponse:(NSURLResponse *)response
 {
+    NSLog(@"%@",response);
     [recvData setLength:0];
     NSUserDefaults * pref;
     NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse*)response;
@@ -222,9 +222,13 @@
     if ([response respondsToSelector:@selector(allHeaderFields)]) {
         dictionary = [httpResponse allHeaderFields];
     }
-    [request setValue:@"Set-Cookie" forHTTPHeaderField:[dictionary valueForKey:@"Set-Cookie"]];
-    [pref setObject:[dictionary valueForKey:@"Set-Cookie"] forKey : @"session"];
-    [pref synchronize];
+    NSLog(@"%@",request);
+    NSArray * keys = [dictionary allKeys];
+    if([keys containsObject:@"Set-Cookie"] == YES){
+        [request setValue:@"Set-Cookie" forHTTPHeaderField:[dictionary valueForKey:@"Set-Cookie"]];
+        [pref setObject:[dictionary valueForKey:@"Set-Cookie"] forKey : @"session"];
+        [pref synchronize];
+    }
 }
 
 -(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
