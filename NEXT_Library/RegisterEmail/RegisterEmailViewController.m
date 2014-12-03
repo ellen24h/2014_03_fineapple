@@ -26,6 +26,7 @@
     //self.checkpassword.text = @"";
     //self.nameField.text = @""; // 굳이 초기화 작업이 진행될 필요는 없을 것 같음.
     // Do any additional setup after loading the view.
+    // 택스트 필드 외에 탭을 할 시에 키보드가 사라지는 기능.
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
 }
@@ -67,7 +68,6 @@
         self.errormethod.textColor = [UIColor redColor];
         self.emailField.textColor = [UIColor redColor];
     }
-    [self.view endEditing:YES];
 }
 
 //비밀번호 입력 시작
@@ -86,7 +86,6 @@
         self.errormethod.textColor = [UIColor redColor];
         return;
     }
-    [self.view endEditing:YES];
 }
 
 //비밀번호 확인 입력 시작
@@ -114,7 +113,6 @@
         self.checkpassword.textColor = [UIColor redColor];
         return;
     }
-    [self.view endEditing:YES];
 }
 
 //이름 입력 시작
@@ -131,7 +129,6 @@
         self.errormethod.textColor = [UIColor redColor];
         return;
     }
-    [self.view endEditing:YES];
 }
 
 //확인 버튼을 누름
@@ -230,6 +227,7 @@
     NSData * resultData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     NSString * result = [NSString stringWithUTF8String:resultData.bytes];
+    result = [NSString stringWithFormat:@"%s"];
     
     NSLog(@"response = %ld", (long)response.statusCode);
     NSLog(@"result = %@", result);
@@ -239,6 +237,7 @@
     } else return NO;
 }
 
+// 활동중인 텍스트 필드 설정
 -(void)dismissKeyboard
 {
     UITextField *activeTextField = nil;
@@ -255,7 +254,7 @@
         activeTextField = self.checkpassword;
     }
     else if ([self.nameField isEditing]) {
-        activeTextField = self.checkpassword;
+        activeTextField = self.nameField;
     }
     if (activeTextField) {
         [activeTextField resignFirstResponder];
