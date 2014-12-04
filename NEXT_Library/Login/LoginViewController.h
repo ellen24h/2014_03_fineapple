@@ -16,6 +16,8 @@
 #define SCREEN_UP 1
 #define SCREEN_DOWN 0
 #define kOFFSET_FOR_KEYBOARD 80.0
+
+#define LOADING_IMG_VIEW 4
 //RGB값으로 UIColor 객체를 생성해주는 함수메크로
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \

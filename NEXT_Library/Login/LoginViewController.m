@@ -60,11 +60,13 @@
     NSURL * url = [NSURL URLWithString:@"http://127.0.0.1:5009/veryFirstConnect"];
     [request setURL:url];
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"Cookie" forHTTPHeaderField:session];
+    [request setValue:session forHTTPHeaderField:@"Cookie"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     NSURLConnection * connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-    if(connection)
+    if(connection){
+        [self setLoadingAnimation];
         NSLog(@"connection success");
+    }
     else
         NSLog(@"connection fail");
 }
@@ -131,7 +133,7 @@
 }
 //moveScreen
 //  Bool값을 받아서 화면을 내리거나 올린다.
-//  up : NO, down : YES
+//  up : YES, down : NO
 - (void)moveScreen:(BOOL)upOrDown{
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
@@ -186,6 +188,7 @@
         if(connection){
             recvData = [[NSMutableData alloc] init];
             NSLog(@"connection success");
+            [self setLoadingAnimation];
             return YES;
         }
         else{
@@ -233,6 +236,7 @@
 //  server로부터 data 수신을 완료했을때, data의 값을 가지고 사용자가 봐야할 화면으로 화면전환
 -(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
+    [self removeLoadingAnimation];
     [recvData appendData:data];
     NSString * recvData_str =[[NSString alloc]initWithData:recvData encoding:NSUTF8StringEncoding];
     
@@ -261,11 +265,77 @@
 }
 //setLoginComment
 //  로그인 성공, 실패시 comment label에 해당하는 text 보여줌
--(void) setLoginComment:(NSString *)comment color:(UIColor *)commentColor{
+-(void)setLoginComment:(NSString *)comment color:(UIColor *)commentColor{
     _comment.textColor = commentColor;
     _comment.text = comment;
 }
 
+-(void)setLoadingAnimation{
+    NSLog(@"ASFDS");
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(110, 229, 100, 100)];
+    imgView.animationImages = [NSArray arrayWithObjects:
+                               [UIImage imageNamed:@"frame-000000.png"],
+                               [UIImage imageNamed:@"frame-000001.png"],
+                               [UIImage imageNamed:@"frame-000002.png"],
+                               [UIImage imageNamed:@"frame-000003.png"],
+                               [UIImage imageNamed:@"frame-000004.png"],
+                               [UIImage imageNamed:@"frame-000005.png"],
+                               [UIImage imageNamed:@"frame-000006.png"],
+                               [UIImage imageNamed:@"frame-000007.png"],
+                               [UIImage imageNamed:@"frame-000008.png"],
+                               [UIImage imageNamed:@"frame-000009.png"],
+                               [UIImage imageNamed:@"frame-000010.png"],
+                               [UIImage imageNamed:@"frame-000011.png"],
+                               [UIImage imageNamed:@"frame-000012.png"],
+                               [UIImage imageNamed:@"frame-000013.png"],
+                               [UIImage imageNamed:@"frame-000014.png"],
+                               [UIImage imageNamed:@"frame-000015.png"],
+                               [UIImage imageNamed:@"frame-000016.png"],
+                               [UIImage imageNamed:@"frame-000017.png"],
+                               [UIImage imageNamed:@"frame-000018.png"],
+                               [UIImage imageNamed:@"frame-000019.png"],
+                               [UIImage imageNamed:@"frame-000020.png"],
+                               [UIImage imageNamed:@"frame-000021.png"],
+                               [UIImage imageNamed:@"frame-000022.png"],
+                               [UIImage imageNamed:@"frame-000023.png"],
+                               [UIImage imageNamed:@"frame-000024.png"],
+                               [UIImage imageNamed:@"frame-000025.png"],
+                               [UIImage imageNamed:@"frame-000026.png"],
+                               [UIImage imageNamed:@"frame-000027.png"],
+                               [UIImage imageNamed:@"frame-000028.png"],
+                               [UIImage imageNamed:@"frame-000029.png"],
+                               [UIImage imageNamed:@"frame-000030.png"],
+                               [UIImage imageNamed:@"frame-000031.png"],
+                               [UIImage imageNamed:@"frame-000032.png"],
+                               [UIImage imageNamed:@"frame-000033.png"],
+                               [UIImage imageNamed:@"frame-000034.png"],
+                               [UIImage imageNamed:@"frame-000035.png"],
+                               [UIImage imageNamed:@"frame-000036.png"],
+                               [UIImage imageNamed:@"frame-000037.png"],
+                               [UIImage imageNamed:@"frame-000038.png"],
+                               [UIImage imageNamed:@"frame-000039.png"],
+                               [UIImage imageNamed:@"frame-000040.png"],
+                               [UIImage imageNamed:@"frame-000041.png"],
+                               [UIImage imageNamed:@"frame-000042.png"],
+                               [UIImage imageNamed:@"frame-000043.png"],
+                               [UIImage imageNamed:@"frame-000044.png"],
+                               [UIImage imageNamed:@"frame-000045.png"],
+                               [UIImage imageNamed:@"frame-000046.png"],
+                               [UIImage imageNamed:@"frame-000047.png"],
+                               [UIImage imageNamed:@"frame-000048.png"],
+                               [UIImage imageNamed:@"frame-000049.png"],                             nil];
+    [imgView setAnimationRepeatCount:-1];
+    imgView.animationDuration = 1.5;
+    imgView.contentMode = UIViewContentModeScaleAspectFit;
+    [imgView startAnimating];
+    imgView.tag = LOADING_IMG_VIEW;
+    [self.view addSubview:imgView];
+}
+-(void)removeLoadingAnimation{
+    UIImageView * tmp = [self.view viewWithTag:LOADING_IMG_VIEW];
+    [tmp stopAnimating];
+    [[self.view viewWithTag:LOADING_IMG_VIEW] removeFromSuperview];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
