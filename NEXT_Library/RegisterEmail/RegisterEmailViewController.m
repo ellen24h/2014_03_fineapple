@@ -227,12 +227,12 @@
     NSData * resultData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     NSString * result = [NSString stringWithUTF8String:resultData.bytes];
-    result = [NSString stringWithFormat:@"%s"];
+    //result = [NSString stringWithFormat:@"%s"];
     
     NSLog(@"response = %ld", (long)response.statusCode);
     NSLog(@"result = %@", result);
     
-    if ([result  isEqual: @"None"]){
+    if ([result isEqual: @"None"]){
         return YES;
     } else return NO;
 }
