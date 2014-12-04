@@ -25,8 +25,6 @@
     //self.checkpassword.text = @"";
     //self.nameField.text = @""; // 굳이 초기화 작업이 진행될 필요는 없을 것 같음.
     // Do any additional setup after loading the view.
-    //UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector];
-    //[self.view addGestureRecognizer:tap];
 }
 
 -(void)didTap:(UITapGestureRecognizer*)tap {
