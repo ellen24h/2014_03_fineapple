@@ -12,19 +12,20 @@
 @implementation LoginViewController
 //viewDidLoad
 //  1. status, textfield 설정 초기화
-//  2. userDefault로부터 session 값 가져오기
-//      2-1.if, session 값이 있으면 veryFirstConnect 진행
+//  2. userDefault로부터 remember_token,session 값 가져오기
+//      2-1.if, remember_token,session 값이 있으면 veryFirstConnect 진행
 //      2-2.else, login 화면 띄우기
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
     @autoreleasepool {
-    [self initialize];
-    NSString * session = [self getSessionFromUserDefault];
-    if(session != NULL){
-        NSLog(@"%@",session);
-        [self veryFirstConnect:session];
-    }
+        [self initialize];
+        NSString * session = [[NSUserDefaults standardUserDefaults] objectForKey:@"session"];
+        NSString * rememberToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"remember_token"];
+        NSLog(@"rememberToken : %@ / session : %@",rememberToken,session);
+        if(session != NULL && rememberToken != NULL){
+            [self veryFirstConnect:session rememberToken:rememberToken];
+        }
     }
  }
 
@@ -45,22 +46,16 @@
     curFocusField = -1;
 }
 
-//getSessionFromUserDefault
-//  userDefault로부터 key값 session에 해당하는 value 가져와서 return
-- (NSString *)getSessionFromUserDefault{
-    NSUserDefaults * pref = [NSUserDefaults standardUserDefaults];
-    NSString * session = [pref stringForKey:@"session"];
-    return session;
-}
 //verFirstConnect
 //  userDefault에 session값이 있으면 server에 접속해서 현재 사용자에게 보여줘야 할 화면 세팅
-- (void) veryFirstConnect:(NSString *)session{
-    NSLog(@"session : %@",session);
+- (void) veryFirstConnect:(NSString *)session rememberToken:(NSString *)rememberToken{
 
     NSURL * url = [NSURL URLWithString:@"http://127.0.0.1:5009/veryFirstConnect"];
     [request setURL:url];
     [request setHTTPMethod:@"POST"];
-    [request setValue:session forHTTPHeaderField:@"Cookie"];
+    [request setValue:[NSString stringWithFormat:@"remember_token=%@; session=%@;",rememberToken,session] forHTTPHeaderField:@"Cookie"];
+    //application/x-www-form-urlencoded 방식을 선택하면, key-value 형태로 인코딩 하게 된다.
+    //따라서 POST 방식으로 전송할 때 Content-Type을 application/x-www-form-urlencoded로 써야 한다.
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     NSURLConnection * connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
     if(connection){
@@ -216,21 +211,26 @@
 //  userDefault에 session 값을 저장
 -(void) connection:(NSURLConnection *) connection didReceiveResponse:(NSURLResponse *)response
 {
-    NSLog(@"response from Server : %@",response);
-
-    NSUserDefaults * pref;
-    NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse*)response;
-    NSDictionary * dictionary;
-    if ([response respondsToSelector:@selector(allHeaderFields)]) {
-        dictionary = [httpResponse allHeaderFields];
-    }
-    NSArray * keys = [dictionary allKeys];
-    if([keys containsObject:@"Set-Cookie"] == YES){
-        NSLog([dictionary valueForKey:@"Set-Cookie"]);
-        [pref setObject:[dictionary valueForKey:@"Set-Cookie"] forKey : @"session"];
-        [pref synchronize];
+    NSUserDefaults * pref = [NSUserDefaults standardUserDefaults];
+    if([pref objectForKey:@"session"] == NULL || [pref objectForKey:@"remember_token"] == NULL){
+        NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse*)response;
+        NSDictionary * dictionary;
+        if ([response respondsToSelector:@selector(allHeaderFields)]) {
+            dictionary = [httpResponse allHeaderFields];
+        }
+        NSArray * keys = [dictionary allKeys];
+            if([keys containsObject:@"Set-Cookie"] == YES){
+                NSString * cookie_str = [[dictionary valueForKey:@"Set-Cookie"]stringByReplacingOccurrencesOfString:@"Path=/," withString:@""];
+                NSArray * cookie_arr = [cookie_str componentsSeparatedByString:@";"];
+                NSString * rememberToken = [[[cookie_arr objectAtIndex:0] componentsSeparatedByString:@"="]objectAtIndex:1];
+                NSString * session = [[[cookie_arr objectAtIndex:2] componentsSeparatedByString:@"="]objectAtIndex:1];
+                [pref setObject:rememberToken forKey : @"remember_token"];
+                [pref setObject:session forKey : @"session"];
+                [pref synchronize];
+            }
     }
 }
+
 
 //connection : didReceiveData
 //  server로부터 data 수신을 완료했을때, data의 값을 가지고 사용자가 봐야할 화면으로 화면전환
@@ -240,7 +240,7 @@
     [recvData appendData:data];
     NSString * recvData_str =[[NSString alloc]initWithData:recvData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"%@",recvData_str);
+    NSLog(@"recvData From Server : %@",recvData_str);
     
     if([recvData_str compare:@"NO"] == 0){
         NSLog(@"%@",LOGIN_FAIL);
@@ -250,17 +250,17 @@
         NSLog(@"%@",LOGIN_SUCCESS);
         [self setLoginComment:LOGIN_SUCCESS color:UIColorFromRGB(0x19BDC4)];
     }
-    else if([recvData_str compare:@"setProfile"] == 0){
+    else if([recvData_str compare:@"initProfile"] == 0){
         NSLog(@"%@",LOGIN_SUCCESS);
-        [self setLoginComment:@"setProfile" color:UIColorFromRGB(0x19BDC4)];
+        [self setLoginComment:@"redirect to initProfile" color:UIColorFromRGB(0x19BDC4)];
     }
     else if([recvData_str compare:@"setBookFirst"] == 0){
         NSLog(@"%@",LOGIN_SUCCESS);
-        [self setLoginComment:@"setBookFirst" color:UIColorFromRGB(0x19BDC4)];
+        [self setLoginComment:@"redirect to setBookFirst" color:UIColorFromRGB(0x19BDC4)];
     }
     else if([recvData_str compare:@"recommend"] == 0){
         NSLog(@"%@",LOGIN_SUCCESS);
-        [self setLoginComment:@"recommend" color:UIColorFromRGB(0x19BDC4)];
+        [self setLoginComment:@"redirect to recommend" color:UIColorFromRGB(0x19BDC4)];
     }
 }
 //setLoginComment
@@ -271,8 +271,8 @@
 }
 
 -(void)setLoadingAnimation{
-    NSLog(@"ASFDS");
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(110, 229, 100, 100)];
+    UIView * backView = [[UIView alloc]initWithFrame:CGRectMake(0,0,500,800)];
     imgView.animationImages = [NSArray arrayWithObjects:
                                [UIImage imageNamed:@"frame-000000.png"],
                                [UIImage imageNamed:@"frame-000001.png"],
@@ -329,12 +329,19 @@
     imgView.contentMode = UIViewContentModeScaleAspectFit;
     [imgView startAnimating];
     imgView.tag = LOADING_IMG_VIEW;
+    backView.backgroundColor = UIColorFromRGB(0xFFFFFF);
+    backView.alpha = 0.8;
+    backView.tag = LOADING_BACK_VIEW;
+    [self.view addSubview:backView];
     [self.view addSubview:imgView];
+
 }
 -(void)removeLoadingAnimation{
-    UIImageView * tmp = [self.view viewWithTag:LOADING_IMG_VIEW];
-    [tmp stopAnimating];
-    [[self.view viewWithTag:LOADING_IMG_VIEW] removeFromSuperview];
+    UIImageView * imgView = [self.view viewWithTag:LOADING_IMG_VIEW];
+    UIView * backView = [self.view viewWithTag:LOADING_BACK_VIEW];
+    [imgView stopAnimating];
+    [imgView removeFromSuperview];
+    [backView removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning {
