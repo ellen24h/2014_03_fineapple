@@ -28,6 +28,8 @@
 		5C29683C1A35DF0F0029CBD0 /* timeline_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2968381A35DF0F0029CBD0 /* timeline_icon.png */; };
 		5C6E3F421A2DA8C500E50A7E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E3F401A2DA8C500E50A7E /* logo.png */; };
 		5C6E3F431A2DA8C500E50A7E /* underline.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E3F411A2DA8C500E50A7E /* underline.png */; };
+		5C8D13021A38560000628527 /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8D13011A38560000628527 /* MainTabViewController.m */; };
+		5C8D13051A3859BA00628527 /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8D13041A3859BA00628527 /* RecommendViewController.m */; };
 		5CAF805E1A2F927A00B114F9 /* frame-000000.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF802C1A2F927900B114F9 /* frame-000000.png */; };
 		5CAF805F1A2F927A00B114F9 /* frame-000001.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF802D1A2F927900B114F9 /* frame-000001.png */; };
 		5CAF80601A2F927A00B114F9 /* frame-000002.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF802E1A2F927900B114F9 /* frame-000002.png */; };
@@ -125,6 +127,10 @@
 		5C2968381A35DF0F0029CBD0 /* timeline_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline_icon.png; sourceTree = "<group>"; };
 		5C6E3F401A2DA8C500E50A7E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Login/imgSource/logo.png; sourceTree = "<group>"; };
 		5C6E3F411A2DA8C500E50A7E /* underline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = underline.png; path = Login/imgSource/underline.png; sourceTree = "<group>"; };
+		5C8D13001A38560000628527 /* MainTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTabViewController.h; path = MainTab/MainTabViewController.h; sourceTree = "<group>"; };
+		5C8D13011A38560000628527 /* MainTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTabViewController.m; path = MainTab/MainTabViewController.m; sourceTree = "<group>"; };
+		5C8D13031A3859BA00628527 /* RecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecommendViewController.h; path = Recommend/RecommendViewController.h; sourceTree = "<group>"; };
+		5C8D13041A3859BA00628527 /* RecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecommendViewController.m; path = Recommend/RecommendViewController.m; sourceTree = "<group>"; };
 		5CAF802C1A2F927900B114F9 /* frame-000000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-000000.png"; sourceTree = "<group>"; };
 		5CAF802D1A2F927900B114F9 /* frame-000001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-000001.png"; sourceTree = "<group>"; };
 		5CAF802E1A2F927900B114F9 /* frame-000002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-000002.png"; sourceTree = "<group>"; };
@@ -217,6 +223,7 @@
 		34F8D4511A2D6228000D257B /* NEXT_Library */ = {
 			isa = PBXGroup;
 			children = (
+				5C8D12FF1A3855B300628527 /* MainTab */,
 				5C06315F1A36952E0009D042 /* Recommend */,
 				34F8D4561A2D6228000D257B /* AppDelegate.h */,
 				5C2968301A35D3420029CBD0 /* Timeline */,
@@ -306,6 +313,8 @@
 		5C06315F1A36952E0009D042 /* Recommend */ = {
 			isa = PBXGroup;
 			children = (
+				5C8D13031A3859BA00628527 /* RecommendViewController.h */,
+				5C8D13041A3859BA00628527 /* RecommendViewController.m */,
 			);
 			name = Recommend;
 			sourceTree = "<group>";
@@ -332,6 +341,15 @@
 			);
 			name = imgSource;
 			path = Timeline/imgSource;
+			sourceTree = "<group>";
+		};
+		5C8D12FF1A3855B300628527 /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				5C8D13001A38560000628527 /* MainTabViewController.h */,
+				5C8D13011A38560000628527 /* MainTabViewController.m */,
+			);
+			name = MainTab;
 			sourceTree = "<group>";
 		};
 		5CAF802B1A2F927900B114F9 /* loading */ = {
@@ -553,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F8D47B1A2D6313000D257B /* LoginViewController.m in Sources */,
+				5C8D13021A38560000628527 /* MainTabViewController.m in Sources */,
 				5C2968331A35D3740029CBD0 /* TimelineNavViewController.m in Sources */,
 				5C06316B1A36CF860009D042 /* LoginModel.m in Sources */,
 				34F8D45B1A2D6228000D257B /* ViewController.m in Sources */,
@@ -560,6 +579,7 @@
 				34F8D4581A2D6228000D257B /* AppDelegate.m in Sources */,
 				34F8D4551A2D6228000D257B /* main.m in Sources */,
 				5C0631651A3697EF0009D042 /* TimelineTableViewController.m in Sources */,
+				5C8D13051A3859BA00628527 /* RecommendViewController.m in Sources */,
 				34F8D47E1A2D6393000D257B /* RegisterEmailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

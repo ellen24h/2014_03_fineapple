@@ -202,11 +202,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JYF-Bv-Mqw">
+                            <rect key="frame" x="-23" y="-15" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="go to timeline">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jcy-DQ-ue6">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jcy-DQ-ue6" id="k4R-L6-5Cu">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="this is recommend page" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6S-iT-QDc">
+                                            <rect key="frame" x="82" y="11" width="185" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -221,13 +236,14 @@
             </objects>
             <point key="canvasLocation" x="743" y="-691"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab View Controller-->
         <scene sceneID="JZg-Nv-urS">
             <objects>
-                <tabBarController id="rmn-ch-ovb" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTab" id="rmn-ch-ovb" customClass="MainTabViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="2oW-4R-8bM"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="6tP-2o-cn4">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="6tP-2o-cn4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -246,6 +262,7 @@
             <objects>
                 <navigationController storyboardIdentifier="Timeline" id="L3f-f9-SUn" customClass="TimelineNavViewController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="N0N-31-XNL"/>
+                    <navigationItem key="navigationItem" id="vFr-qz-BSa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0wV-vu-MJA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -256,7 +273,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mx3-5j-pmQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="251" y="77"/>
+            <point key="canvasLocation" x="154" y="135"/>
         </scene>
         <!--Timeline Table View Controller-->
         <scene sceneID="uFp-UJ-Vvd">
@@ -288,9 +305,9 @@
         <!--Item-->
         <scene sceneID="ycc-we-Fr4">
             <objects>
-                <navigationController storyboardIdentifier="Recommend" id="IZM-Ue-lUa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Qxn-wR-I4O"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fzt-bZ-k0k">
+                <navigationController storyboardIdentifier="Recommend" id="IZM-Ue-lUa" customClass="RecommendViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" enabled="NO" title="Item" selectedImage="recommand_icon.png" id="Qxn-wR-I4O"/>
+                    <navigationBar key="navigationBar" alpha="0.59999999999999964" contentMode="scaleAspectFit" id="fzt-bZ-k0k">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -300,7 +317,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KFP-rf-0uy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="-691"/>
+            <point key="canvasLocation" x="131" y="-603"/>
         </scene>
         <!--RegisterEmail-->
         <scene sceneID="4ot-sL-mXC">
@@ -445,6 +462,7 @@
     <resources>
         <image name="inputBar_registerEmail.png" width="261" height="40"/>
         <image name="logo.png" width="800" height="257"/>
+        <image name="recommand_icon.png" width="103" height="94"/>
         <image name="underline.png" width="800" height="131"/>
         <image name="verticalBar_registerEamil.png" width="261" height="40"/>
     </resources>
