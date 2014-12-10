@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CommonCrypto/CommonDigest.h>
+#import "LoginModel.h"
+//서버 ip, port
+#define SERVER_ADDR @"10.73.45.83"
+#define SERVER_PORT @"5013"
 //로그인 성공 혹은 실패시 comment field에 나오는 멘트
 #define LOGIN_FAIL @"잘못된 정보를 입력하셨습니다."
 #define LOGIN_SUCCESS @"Longin Success!"
@@ -31,8 +34,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @public
     BOOL isViewPosUp;
     int curFocusField;
-    NSMutableData * recvData;
-    NSMutableURLRequest * request;
+    LoginModel * model;
 }
 
 

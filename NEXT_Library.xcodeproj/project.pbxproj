@@ -19,6 +19,13 @@
 		34F8D4871A2D692C000D257B /* inputBar_registerEmail.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F8D4841A2D692C000D257B /* inputBar_registerEmail.png */; };
 		34F8D4891A2D692C000D257B /* verticalBar_registerEamil.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F8D4861A2D692C000D257B /* verticalBar_registerEamil.png */; };
 		34F8D48D1A2D6A11000D257B /* InitProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8D48C1A2D6A11000D257B /* InitProfileViewController.m */; };
+		5C0631651A3697EF0009D042 /* TimelineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0631641A3697EF0009D042 /* TimelineTableViewController.m */; };
+		5C06316B1A36CF860009D042 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C06316A1A36CF860009D042 /* LoginModel.m */; };
+		5C2968331A35D3740029CBD0 /* TimelineNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2968321A35D3740029CBD0 /* TimelineNavViewController.m */; };
+		5C2968391A35DF0F0029CBD0 /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2968351A35DF0F0029CBD0 /* profile_icon.png */; };
+		5C29683A1A35DF0F0029CBD0 /* recommand_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2968361A35DF0F0029CBD0 /* recommand_icon.png */; };
+		5C29683B1A35DF0F0029CBD0 /* search_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2968371A35DF0F0029CBD0 /* search_icon.png */; };
+		5C29683C1A35DF0F0029CBD0 /* timeline_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2968381A35DF0F0029CBD0 /* timeline_icon.png */; };
 		5C6E3F421A2DA8C500E50A7E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E3F401A2DA8C500E50A7E /* logo.png */; };
 		5C6E3F431A2DA8C500E50A7E /* underline.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E3F411A2DA8C500E50A7E /* underline.png */; };
 		5CAF805E1A2F927A00B114F9 /* frame-000000.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF802C1A2F927900B114F9 /* frame-000000.png */; };
@@ -106,6 +113,16 @@
 		34F8D4861A2D692C000D257B /* verticalBar_registerEamil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = verticalBar_registerEamil.png; sourceTree = "<group>"; };
 		34F8D48B1A2D6A11000D257B /* InitProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitProfileViewController.h; path = InitProfile/InitProfileViewController.h; sourceTree = "<group>"; };
 		34F8D48C1A2D6A11000D257B /* InitProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitProfileViewController.m; path = InitProfile/InitProfileViewController.m; sourceTree = "<group>"; };
+		5C0631631A3697EF0009D042 /* TimelineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineTableViewController.h; path = Timeline/TimelineTableViewController.h; sourceTree = "<group>"; };
+		5C0631641A3697EF0009D042 /* TimelineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineTableViewController.m; path = Timeline/TimelineTableViewController.m; sourceTree = "<group>"; };
+		5C0631691A36CF860009D042 /* LoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginModel.h; path = Login/LoginModel.h; sourceTree = "<group>"; };
+		5C06316A1A36CF860009D042 /* LoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginModel.m; path = Login/LoginModel.m; sourceTree = "<group>"; };
+		5C2968311A35D3740029CBD0 /* TimelineNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineNavViewController.h; path = Timeline/TimelineNavViewController.h; sourceTree = "<group>"; };
+		5C2968321A35D3740029CBD0 /* TimelineNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineNavViewController.m; path = Timeline/TimelineNavViewController.m; sourceTree = "<group>"; };
+		5C2968351A35DF0F0029CBD0 /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
+		5C2968361A35DF0F0029CBD0 /* recommand_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recommand_icon.png; sourceTree = "<group>"; };
+		5C2968371A35DF0F0029CBD0 /* search_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_icon.png; sourceTree = "<group>"; };
+		5C2968381A35DF0F0029CBD0 /* timeline_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline_icon.png; sourceTree = "<group>"; };
 		5C6E3F401A2DA8C500E50A7E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Login/imgSource/logo.png; sourceTree = "<group>"; };
 		5C6E3F411A2DA8C500E50A7E /* underline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = underline.png; path = Login/imgSource/underline.png; sourceTree = "<group>"; };
 		5CAF802C1A2F927900B114F9 /* frame-000000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-000000.png"; sourceTree = "<group>"; };
@@ -200,7 +217,9 @@
 		34F8D4511A2D6228000D257B /* NEXT_Library */ = {
 			isa = PBXGroup;
 			children = (
+				5C06315F1A36952E0009D042 /* Recommend */,
 				34F8D4561A2D6228000D257B /* AppDelegate.h */,
+				5C2968301A35D3420029CBD0 /* Timeline */,
 				34F8D47F1A2D639F000D257B /* RegisterEmail */,
 				34F8D4781A2D62D5000D257B /* Login */,
 				34F8D4571A2D6228000D257B /* AppDelegate.m */,
@@ -250,6 +269,8 @@
 				5C6E3F411A2DA8C500E50A7E /* underline.png */,
 				34F8D4791A2D6313000D257B /* LoginViewController.h */,
 				34F8D47A1A2D6313000D257B /* LoginViewController.m */,
+				5C0631691A36CF860009D042 /* LoginModel.h */,
+				5C06316A1A36CF860009D042 /* LoginModel.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -280,6 +301,37 @@
 				34F8D4841A2D692C000D257B /* inputBar_registerEmail.png */,
 			);
 			name = imgSorce;
+			sourceTree = "<group>";
+		};
+		5C06315F1A36952E0009D042 /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Recommend;
+			sourceTree = "<group>";
+		};
+		5C2968301A35D3420029CBD0 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				5C2968341A35DF0F0029CBD0 /* imgSource */,
+				5C2968311A35D3740029CBD0 /* TimelineNavViewController.h */,
+				5C2968321A35D3740029CBD0 /* TimelineNavViewController.m */,
+				5C0631631A3697EF0009D042 /* TimelineTableViewController.h */,
+				5C0631641A3697EF0009D042 /* TimelineTableViewController.m */,
+			);
+			name = Timeline;
+			sourceTree = "<group>";
+		};
+		5C2968341A35DF0F0029CBD0 /* imgSource */ = {
+			isa = PBXGroup;
+			children = (
+				5C2968351A35DF0F0029CBD0 /* profile_icon.png */,
+				5C2968361A35DF0F0029CBD0 /* recommand_icon.png */,
+				5C2968371A35DF0F0029CBD0 /* search_icon.png */,
+				5C2968381A35DF0F0029CBD0 /* timeline_icon.png */,
+			);
+			name = imgSource;
+			path = Timeline/imgSource;
 			sourceTree = "<group>";
 		};
 		5CAF802B1A2F927900B114F9 /* loading */ = {
@@ -422,11 +474,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CAF80771A2F927A00B114F9 /* frame-000025.png in Resources */,
+				5C2968391A35DF0F0029CBD0 /* profile_icon.png in Resources */,
 				5CAF80751A2F927A00B114F9 /* frame-000023.png in Resources */,
+				5C29683A1A35DF0F0029CBD0 /* recommand_icon.png in Resources */,
 				34F8D45E1A2D6228000D257B /* Main.storyboard in Resources */,
 				34F8D4631A2D6228000D257B /* LaunchScreen.xib in Resources */,
 				5CAF80651A2F927A00B114F9 /* frame-000007.png in Resources */,
 				5CAF806F1A2F927A00B114F9 /* frame-000017.png in Resources */,
+				5C29683B1A35DF0F0029CBD0 /* search_icon.png in Resources */,
 				5CAF808D1A2F927A00B114F9 /* frame-000047.png in Resources */,
 				5CAF80861A2F927A00B114F9 /* frame-000040.png in Resources */,
 				5CAF80801A2F927A00B114F9 /* frame-000034.png in Resources */,
@@ -451,6 +506,7 @@
 				5CAF80851A2F927A00B114F9 /* frame-000039.png in Resources */,
 				5CB742C91A2DAE2A006EA127 /* logo.png in Resources */,
 				5CAF80841A2F927A00B114F9 /* frame-000038.png in Resources */,
+				5C29683C1A35DF0F0029CBD0 /* timeline_icon.png in Resources */,
 				5CAF80741A2F927A00B114F9 /* frame-000022.png in Resources */,
 				34F8D4871A2D692C000D257B /* inputBar_registerEmail.png in Resources */,
 				5CAF808E1A2F927A00B114F9 /* frame-000048.png in Resources */,
@@ -497,10 +553,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F8D47B1A2D6313000D257B /* LoginViewController.m in Sources */,
+				5C2968331A35D3740029CBD0 /* TimelineNavViewController.m in Sources */,
+				5C06316B1A36CF860009D042 /* LoginModel.m in Sources */,
 				34F8D45B1A2D6228000D257B /* ViewController.m in Sources */,
 				34F8D48D1A2D6A11000D257B /* InitProfileViewController.m in Sources */,
 				34F8D4581A2D6228000D257B /* AppDelegate.m in Sources */,
 				34F8D4551A2D6228000D257B /* main.m in Sources */,
+				5C0631651A3697EF0009D042 /* TimelineTableViewController.m in Sources */,
 				34F8D47E1A2D6393000D257B /* RegisterEmailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
