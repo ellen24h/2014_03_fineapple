@@ -18,7 +18,6 @@
 		34F8D47E1A2D6393000D257B /* RegisterEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8D47D1A2D6393000D257B /* RegisterEmailViewController.m */; };
 		34F8D4871A2D692C000D257B /* inputBar_registerEmail.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F8D4841A2D692C000D257B /* inputBar_registerEmail.png */; };
 		34F8D4891A2D692C000D257B /* verticalBar_registerEamil.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F8D4861A2D692C000D257B /* verticalBar_registerEamil.png */; };
-		34F8D48D1A2D6A11000D257B /* InitProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8D48C1A2D6A11000D257B /* InitProfileViewController.m */; };
 		5C0631651A3697EF0009D042 /* TimelineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0631641A3697EF0009D042 /* TimelineTableViewController.m */; };
 		5C06316B1A36CF860009D042 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C06316A1A36CF860009D042 /* LoginModel.m */; };
 		5C2968331A35D3740029CBD0 /* TimelineNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2968321A35D3740029CBD0 /* TimelineNavViewController.m */; };
@@ -113,8 +112,6 @@
 		34F8D47D1A2D6393000D257B /* RegisterEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterEmailViewController.m; path = RegisterEmail/RegisterEmailViewController.m; sourceTree = "<group>"; };
 		34F8D4841A2D692C000D257B /* inputBar_registerEmail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inputBar_registerEmail.png; sourceTree = "<group>"; };
 		34F8D4861A2D692C000D257B /* verticalBar_registerEamil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = verticalBar_registerEamil.png; sourceTree = "<group>"; };
-		34F8D48B1A2D6A11000D257B /* InitProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitProfileViewController.h; path = InitProfile/InitProfileViewController.h; sourceTree = "<group>"; };
-		34F8D48C1A2D6A11000D257B /* InitProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitProfileViewController.m; path = InitProfile/InitProfileViewController.m; sourceTree = "<group>"; };
 		5C0631631A3697EF0009D042 /* TimelineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineTableViewController.h; path = Timeline/TimelineTableViewController.h; sourceTree = "<group>"; };
 		5C0631641A3697EF0009D042 /* TimelineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineTableViewController.m; path = Timeline/TimelineTableViewController.m; sourceTree = "<group>"; };
 		5C0631691A36CF860009D042 /* LoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginModel.h; path = Login/LoginModel.h; sourceTree = "<group>"; };
@@ -231,7 +228,6 @@
 				34F8D4781A2D62D5000D257B /* Login */,
 				34F8D4571A2D6228000D257B /* AppDelegate.m */,
 				34F8D4591A2D6228000D257B /* ViewController.h */,
-				34F8D4801A2D6444000D257B /* InitProfile */,
 				34F8D48A1A2D692F000D257B /* imgSorce */,
 				34F8D45A1A2D6228000D257B /* ViewController.m */,
 				34F8D45C1A2D6228000D257B /* Main.storyboard */,
@@ -289,15 +285,6 @@
 				34F8D47C1A2D6393000D257B /* RegisterEmailViewController.h */,
 			);
 			name = RegisterEmail;
-			sourceTree = "<group>";
-		};
-		34F8D4801A2D6444000D257B /* InitProfile */ = {
-			isa = PBXGroup;
-			children = (
-				34F8D48B1A2D6A11000D257B /* InitProfileViewController.h */,
-				34F8D48C1A2D6A11000D257B /* InitProfileViewController.m */,
-			);
-			name = InitProfile;
 			sourceTree = "<group>";
 		};
 		34F8D48A1A2D692F000D257B /* imgSorce */ = {
@@ -575,7 +562,6 @@
 				5C2968331A35D3740029CBD0 /* TimelineNavViewController.m in Sources */,
 				5C06316B1A36CF860009D042 /* LoginModel.m in Sources */,
 				34F8D45B1A2D6228000D257B /* ViewController.m in Sources */,
-				34F8D48D1A2D6A11000D257B /* InitProfileViewController.m in Sources */,
 				34F8D4581A2D6228000D257B /* AppDelegate.m in Sources */,
 				34F8D4551A2D6228000D257B /* main.m in Sources */,
 				5C0631651A3697EF0009D042 /* TimelineTableViewController.m in Sources */,
