@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7ak-lY-KlV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7ak-lY-KlV">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -125,7 +125,6 @@
         <!--InitProfile-->
         <scene sceneID="zIZ-1D-aj4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="96R-7t-wrl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="InitProfile" title="InitProfile" id="tU7-57-Ymh" customClass="InitProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zFI-0Z-nav"/>
@@ -155,13 +154,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="WVp-Kf-UQW"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="96R-7t-wrl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1111" y="-51"/>
         </scene>
         <!--Set Book First-->
         <scene sceneID="5qK-Hn-9E1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yQO-KT-gsw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SetBookFirst" id="uhS-VR-eCb" customClass="setBookFirst" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FVB-ge-EqB"/>
@@ -191,6 +190,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="rCh-0U-HHj"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yQO-KT-gsw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-725" y="-51"/>
         </scene>
@@ -279,15 +279,24 @@
         <scene sceneID="uFp-UJ-Vvd">
             <objects>
                 <tableViewController id="Bcm-3w-7Mw" customClass="TimelineTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hQK-rh-Fz1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="343" sectionHeaderHeight="22" sectionFooterHeight="22" id="hQK-rh-Fz1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="x13-Kd-CTD">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="343" id="x13-Kd-CTD">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x13-Kd-CTD" id="CBt-3T-YaA">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="textfield" translatesAutoresizingMaskIntoConstraints="NO" id="CZe-s2-lGD">
+                                            <rect key="frame" x="0.0" y="74" width="320" height="195"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -300,7 +309,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjG-F1-hu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="683" y="77"/>
+            <point key="canvasLocation" x="683" y="76"/>
         </scene>
         <!--Item-->
         <scene sceneID="ycc-we-Fr4">
