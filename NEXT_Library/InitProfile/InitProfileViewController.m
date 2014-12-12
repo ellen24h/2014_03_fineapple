@@ -13,8 +13,7 @@
     int attendOrNotIdx;
     int semesterNumIdx;
     int majorFirstIdx;
-    int majorSecondIdx;
-}
+    int majorSecondIdx;}
 @property (weak, nonatomic) IBOutlet UILabel *attendOrNot;
 @property (weak, nonatomic) IBOutlet UILabel *semesterNum;
 @property (weak, nonatomic) IBOutlet UILabel *majorFirst;
