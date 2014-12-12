@@ -30,11 +30,11 @@
 
 //UserDefaults로부터 session과 remember_token을 받아온다.
 -(NSString *)getSessionFromUserDefault{
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"session"];
+        return [[NSUserDefaults standardUserDefaults] objectForKey:@"session"];
 }
 
 -(NSString *)getRememberTokenFromUserDefault{
-    return [[NSUserDefaults standardUserDefaults]objectForKey:@"remember_token"];
+        return [[NSUserDefaults standardUserDefaults]objectForKey:@"remember_token"];
 }
 
 //getFisrtSceneNameFromServer
