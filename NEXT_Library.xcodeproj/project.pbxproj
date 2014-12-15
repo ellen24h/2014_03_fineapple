@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34219F5F1A3F04660040CE38 /* SetBookFirstTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34219F5E1A3F04660040CE38 /* SetBookFirstTableViewController.m */; };
+		34219F621A3F048C0040CE38 /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34219F611A3F048C0040CE38 /* BookTableViewCell.m */; };
+		34219F671A3F04CB0040CE38 /* NXBookDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34219F661A3F04CB0040CE38 /* NXBookDataModel.m */; };
 		34F8D4551A2D6228000D257B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8D4541A2D6228000D257B /* main.m */; };
 		34F8D4581A2D6228000D257B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8D4571A2D6228000D257B /* AppDelegate.m */; };
 		34F8D45B1A2D6228000D257B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8D45A1A2D6228000D257B /* ViewController.m */; };
@@ -85,6 +88,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		34219F5D1A3F04660040CE38 /* SetBookFirstTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetBookFirstTableViewController.h; sourceTree = "<group>"; };
+		34219F5E1A3F04660040CE38 /* SetBookFirstTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetBookFirstTableViewController.m; sourceTree = "<group>"; };
+		34219F601A3F048C0040CE38 /* BookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookTableViewCell.h; path = SetBookFirst/BookTableViewCell.h; sourceTree = "<group>"; };
+		34219F611A3F048C0040CE38 /* BookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookTableViewCell.m; path = SetBookFirst/BookTableViewCell.m; sourceTree = "<group>"; };
+		34219F651A3F04CB0040CE38 /* NXBookDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXBookDataModel.h; sourceTree = "<group>"; };
+		34219F661A3F04CB0040CE38 /* NXBookDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXBookDataModel.m; sourceTree = "<group>"; };
 		34F8D44F1A2D6228000D257B /* NEXT_Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEXT_Library.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F8D4531A2D6228000D257B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34F8D4541A2D6228000D257B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -179,6 +188,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34219F641A3F04A30040CE38 /* SetBookFirst */ = {
+			isa = PBXGroup;
+			children = (
+				34219F5D1A3F04660040CE38 /* SetBookFirstTableViewController.h */,
+				34219F5E1A3F04660040CE38 /* SetBookFirstTableViewController.m */,
+				34219F601A3F048C0040CE38 /* BookTableViewCell.h */,
+				34219F611A3F048C0040CE38 /* BookTableViewCell.m */,
+				34219F651A3F04CB0040CE38 /* NXBookDataModel.h */,
+				34219F661A3F04CB0040CE38 /* NXBookDataModel.m */,
+			);
+			name = SetBookFirst;
+			sourceTree = "<group>";
+		};
 		34F8D4461A2D6228000D257B = {
 			isa = PBXGroup;
 			children = (
@@ -200,17 +222,18 @@
 		34F8D4511A2D6228000D257B /* NEXT_Library */ = {
 			isa = PBXGroup;
 			children = (
-				34F8D4561A2D6228000D257B /* AppDelegate.h */,
+				34219F641A3F04A30040CE38 /* SetBookFirst */,
 				34F8D47F1A2D639F000D257B /* RegisterEmail */,
 				34F8D4781A2D62D5000D257B /* Login */,
-				34F8D4571A2D6228000D257B /* AppDelegate.m */,
-				34F8D4591A2D6228000D257B /* ViewController.h */,
 				34F8D4801A2D6444000D257B /* InitProfile */,
 				34F8D48A1A2D692F000D257B /* imgSorce */,
-				34F8D45A1A2D6228000D257B /* ViewController.m */,
-				34F8D45C1A2D6228000D257B /* Main.storyboard */,
 				34F8D45F1A2D6228000D257B /* Images.xcassets */,
+				34F8D4571A2D6228000D257B /* AppDelegate.m */,
+				34F8D4561A2D6228000D257B /* AppDelegate.h */,
+				34F8D45A1A2D6228000D257B /* ViewController.m */,
+				34F8D4591A2D6228000D257B /* ViewController.h */,
 				34F8D4611A2D6228000D257B /* LaunchScreen.xib */,
+				34F8D45C1A2D6228000D257B /* Main.storyboard */,
 				34F8D4521A2D6228000D257B /* Supporting Files */,
 			);
 			path = NEXT_Library;
@@ -496,11 +519,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34219F671A3F04CB0040CE38 /* NXBookDataModel.m in Sources */,
 				34F8D47B1A2D6313000D257B /* LoginViewController.m in Sources */,
 				34F8D45B1A2D6228000D257B /* ViewController.m in Sources */,
 				34F8D48D1A2D6A11000D257B /* InitProfileViewController.m in Sources */,
 				34F8D4581A2D6228000D257B /* AppDelegate.m in Sources */,
+				34219F621A3F048C0040CE38 /* BookTableViewCell.m in Sources */,
 				34F8D4551A2D6228000D257B /* main.m in Sources */,
+				34219F5F1A3F04660040CE38 /* SetBookFirstTableViewController.m in Sources */,
 				34F8D47E1A2D6393000D257B /* RegisterEmailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
