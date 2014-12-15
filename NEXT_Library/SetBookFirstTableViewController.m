@@ -26,38 +26,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    myObject = [[NSMutableArray alloc] init];
-    
-    NSData *jsonSource = [NSData dataWithContentsOfURL:
-                          [NSURL URLWithString:@"http://gooruism.com/feed/json"]];
-    
-    id jsonObjects = [NSJSONSerialization JSONObjectWithData:
-                      jsonSource options:NSJSONReadingMutableContainers error:nil];
-    
-    for (NSDictionary *dataDict in jsonObjects) {
-        NSString *title_data = [dataDict objectForKey:@"title"];
-        NSString *thumbnail_data = [dataDict objectForKey:@"thumbnail"];
-        NSString *author_data = [dataDict objectForKey:@"author"];
-        
-        NSLog(@"TITLE: %@",title_data);
-        NSLog(@"THUMBNAIL: %@",thumbnail_data);
-        NSLog(@"AUTHOR: %@",author_data);
-        
-        dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                      title_data, title,
-                      thumbnail_data, thumbnail,
-                      author_data,author,
-                      nil];
-        [myObject addObject:dictionary];
-    }
-    self.letterData = [@[@"A",@"B",@"C",@"D",@"E"] mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,7 +42,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.letterData count];
+    return 1;
 }
 
 
@@ -86,30 +54,8 @@
         cell = [[BookTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    NSDictionary *tmpDict = [myObject objectAtIndex:indexPath.row];
-    
-    NSMutableString *text;
-    //text = [NSString stringWithFormat:@"%@",[tmpDict objectForKey:title]];
-    text = [NSMutableString stringWithFormat:@"%@",
-            [tmpDict objectForKeyedSubscript:title]];
-    
-    NSMutableString *detail;
-    detail = [NSMutableString stringWithFormat:@"Author: %@ ",
-              [tmpDict objectForKey:author]];
-    
-    NSMutableString *images;
-    images = [NSMutableString stringWithFormat:@"%@ ",
-              [tmpDict objectForKey:thumbnail]];
-    
-    NSURL *url = [NSURL URLWithString:[tmpDict objectForKey:thumbnail]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *img = [[UIImage alloc]initWithData:data];
-    
-    cell.bookTitle.text = text;
-    cell.bookWriter.text = detail;
-    cell.bookImg.frame = CGRectMake(0,0,80,70);
-    cell.bookImg.image = img;
-
+    cell.bookTitle.text = @"text";
+    cell.bookWriter.text = @"detail";
 
     return cell;
 }
