@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3E5-GQ-Mkz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Uw5-GN-l6W">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -119,7 +119,7 @@
             </objects>
             <point key="canvasLocation" x="-1115" y="-47"/>
         </scene>
-        <!--Set Book First Table View Controller-->
+        <!--BOOK-->
         <scene sceneID="YAs-zW-IG3">
             <objects>
                 <tableViewController storyboardIdentifier="SetBookFirst" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3E5-GQ-Mkz" customClass="SetBookFirstTableViewController" sceneMemberID="viewController">
@@ -133,9 +133,6 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iFW-8r-64t" id="V1q-dn-jBd">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6mu-Jc-sGh">
-                                            <rect key="frame" x="15" y="12" width="101" height="130"/>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sad" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gT5-Jf-Cgp">
                                             <rect key="frame" x="124" y="22" width="188" height="26"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -160,6 +157,9 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6mu-Jc-sGh">
+                                            <rect key="frame" x="15" y="12" width="101" height="130"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -176,10 +176,27 @@
                             <outlet property="delegate" destination="3E5-GQ-Mkz" id="fh3-Os-7Po"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="BOOK" id="Fg4-Ky-WZ0"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4h1-Lj-gOt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-697" y="-47"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="21R-2U-TZG">
+            <objects>
+                <navigationController id="Uw5-GN-l6W" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QLZ-N6-1jg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3E5-GQ-Mkz" kind="relationship" relationship="rootViewController" id="aT1-x7-wJy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yqI-W1-ezg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1122" y="199"/>
         </scene>
         <!--RegisterEmail-->
         <scene sceneID="4ot-sL-mXC">
