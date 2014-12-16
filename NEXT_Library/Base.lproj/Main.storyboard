@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Uw5-GN-l6W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -101,24 +101,6 @@
             </objects>
             <point key="canvasLocation" x="-1963" y="161"/>
         </scene>
-        <!--InitProfile-->
-        <scene sceneID="zIZ-1D-aj4">
-            <objects>
-                <viewController title="InitProfile" id="tU7-57-Ymh" customClass="InitProfileViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zFI-0Z-nav"/>
-                        <viewControllerLayoutGuide type="bottom" id="qXj-M2-OD2"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="odJ-oz-chK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="96R-7t-wrl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1115" y="-47"/>
-        </scene>
         <!--BOOK-->
         <scene sceneID="YAs-zW-IG3">
             <objects>
@@ -180,23 +162,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4h1-Lj-gOt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-697" y="-47"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="21R-2U-TZG">
-            <objects>
-                <navigationController id="Uw5-GN-l6W" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QLZ-N6-1jg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="3E5-GQ-Mkz" kind="relationship" relationship="rootViewController" id="aT1-x7-wJy"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yqI-W1-ezg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1122" y="199"/>
+            <point key="canvasLocation" x="-739" y="-47"/>
         </scene>
         <!--RegisterEmail-->
         <scene sceneID="4ot-sL-mXC">
