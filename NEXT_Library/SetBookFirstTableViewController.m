@@ -10,8 +10,7 @@
 #import "NXBookDataModel.h"
 #import "BookTableViewCell.h"
 
-@interface SetBookFirstTableViewController ()
-{
+@interface SetBookFirstTableViewController () {
     NSMutableArray *myObject;
     // A dictionary object
     NSDictionary *dictionary;
@@ -19,13 +18,48 @@
     NSString *title;
     NSString *thumbnail;
     NSString *author;
+    NSString *permalink;
 }
+
 @end
 
 @implementation SetBookFirstTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    title = @"title";
+    thumbnail = @"thumbnail";
+    author = @"author";
+    permalink = @"permalink";
+    
+    myObject = [[NSMutableArray alloc] init];
+    
+    NSData *jsonSource = [NSData dataWithContentsOfURL:
+                          [NSURL URLWithString:@"http://gooruism.com/feed/json"]];
+    
+    id jsonObjects = [NSJSONSerialization JSONObjectWithData:
+                      jsonSource options:NSJSONReadingMutableContainers error:nil];
+    
+    for (NSDictionary *dataDict in jsonObjects) {
+        NSString *title_data = [dataDict objectForKey:@"title"];
+        NSString *thumbnail_data = [dataDict objectForKey:@"thumbnail"];
+        NSString *author_data = [dataDict objectForKey:@"author"];
+        NSString *permalink_data = [dataDict objectForKey:@"permalink"];
+        
+        NSLog(@"TITLE: %@",title_data);
+        NSLog(@"THUMBNAIL: %@",thumbnail_data);
+        NSLog(@"AUTHOR: %@",author_data);
+        NSLog(@"URL: %@",permalink_data);
+        
+        dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                      title_data, title,
+                      thumbnail_data, thumbnail,
+                      author_data,author,
+                      permalink_data,permalink,
+                      nil];
+        [myObject addObject:dictionary];
+    }
+    //self.letterData = [@[@"A",@"B",@"C",@"D",@"E"] mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,7 +76,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 1;
+    return myObject.count;
 }
 
 
@@ -54,55 +88,36 @@
         cell = [[BookTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    cell.bookTitle.text = @"text";
-    cell.bookWriter.text = @"detail";
-
+    NSDictionary *tmpDict = [myObject objectAtIndex:indexPath.row];
+    
+    NSMutableString *text;
+    //text = [NSString stringWithFormat:@"%@",[tmpDict objectForKey:title]];
+    text = [NSMutableString stringWithFormat:@"%@",
+            [tmpDict objectForKeyedSubscript:title]];
+    
+    NSMutableString *detail;
+    detail = [NSMutableString stringWithFormat:@"Author: %@ ",
+              [tmpDict objectForKey:author]];
+    
+    NSMutableString *images;
+    images = [NSMutableString stringWithFormat:@"%@ ",
+              [tmpDict objectForKey:thumbnail]];
+    
+    NSURL *url = [NSURL URLWithString:[tmpDict objectForKey:thumbnail]];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *img = [[UIImage alloc]initWithData:data];
+    
+    cell.bookTitle.text = text;
+    cell.bookWriter.text = detail;
+    cell.bookImg.frame = CGRectMake(0,0,80,70);
+    cell.bookImg.image = img;
+    
+    
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 151;
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

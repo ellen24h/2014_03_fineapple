@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@class Book;
+
 @interface NXBookDataModel : NSObject
+
+@property (nonatomic, copy) NSString *bookTitle;
+@property (nonatomic, copy) NSString *bookAuthor;
+@property (nonatomic, copy) NSString *imgPath;
+@property (nonatomic, readonly) NSMutableArray *bookList; // 테스트용 배열
+
+- (NSUInteger)bookCount;
+- (Book *)bookAtIndex: (NSUInteger)index;
+- (void) initializeDefaultBook;
 
 @end

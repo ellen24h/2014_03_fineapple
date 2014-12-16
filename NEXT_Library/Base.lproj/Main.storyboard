@@ -128,7 +128,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="bookCell" selectionStyle="default" indentationWidth="10" rowHeight="151" id="iFW-8r-64t" customClass="BookTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookCell" rowHeight="151" id="iFW-8r-64t" customClass="BookTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iFW-8r-64t" id="V1q-dn-jBd">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -172,6 +172,7 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
+                            <outlet property="dataSource" destination="3E5-GQ-Mkz" id="nUz-fz-4hV"/>
                             <outlet property="delegate" destination="3E5-GQ-Mkz" id="fh3-Os-7Po"/>
                         </connections>
                     </tableView>
