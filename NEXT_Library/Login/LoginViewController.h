@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "LoginModel.h"
-//서버 ip, port
-#define SERVER_ADDR @"10.73.45.83"
-#define SERVER_PORT @"5013"
+#import "publicSetting.h"
+
 //로그인 성공 혹은 실패시 comment field에 나오는 멘트
 #define LOGIN_FAIL @"잘못된 정보를 입력하셨습니다."
 #define LOGIN_SUCCESS @"Longin Success!"
@@ -19,9 +18,6 @@
 #define SCREEN_UP 1
 #define SCREEN_DOWN 0
 #define kOFFSET_FOR_KEYBOARD 80.0
-// loading화면 tag 상수 설정
-#define LOADING_IMG_VIEW 4
-#define LOADING_BACK_VIEW 5
 //RGB값으로 UIColor 객체를 생성해주는 함수메크로
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \

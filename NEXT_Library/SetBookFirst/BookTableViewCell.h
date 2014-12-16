@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "publicSetting.h"
 
 @interface BookTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *bookImg;

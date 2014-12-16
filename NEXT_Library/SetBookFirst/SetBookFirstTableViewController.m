@@ -119,5 +119,8 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 151;
 }
+- (IBAction)doneButtonTouch:(id)sender {
+    [LoadScene loadSceneByPush:self loadSceneName:@"MainTab"];
+}
 
 @end

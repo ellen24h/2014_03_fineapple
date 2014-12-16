@@ -6,13 +6,13 @@
 //  Copyright (c) 2014년 FineApple. All rights reserved.
 //
 
-#import "TimelineTableViewController.h"
+#import "TimelineTableViewController_timeline.h"
 
-@interface TimelineTableViewController ()
+@interface TimelineTableViewController_timeline ()
 
 @end
 
-@implementation TimelineTableViewController
+@implementation TimelineTableViewController_timeline
 
 - (void)viewDidLoad {
     [super viewDidLoad];

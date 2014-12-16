@@ -139,7 +139,7 @@
     
     if ([self checkSuccess]) {
         //NSURLRequest 만들기
-        NSString * URLString = @"http://10.73.45.55:5000/register";
+        NSString * URLString = [[NSString alloc]initWithFormat:@"http://%@:%@/register",[publicSetting getServerAddr],[publicSetting getPortNum]];
         NSString * FormData = [NSString stringWithFormat:@"email=%@&password=%@&userName=%@",email,password,name];
         NSURL * url = [NSURL URLWithString:URLString];
         NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
@@ -149,7 +149,9 @@
         //NSURLConnection 으로 Request 전송
         NSHTTPURLResponse * sResponse;
         NSError * error;
+        [publicSetting setLoadingAnimation:self];
         NSData * resultData = [NSURLConnection sendSynchronousRequest:request returningResponse:&sResponse error:&error];
+        [publicSetting removeLoadingAnimation:self];
         NSLog(@"response = %ld", (long)sResponse.statusCode);
         NSLog(@"result = %@", [NSString stringWithUTF8String:resultData.bytes] );
     }
@@ -214,7 +216,7 @@
 }
 
 - (BOOL)checkEmail:(NSString *) email {
-    NSString * URLString = @"http://10.73.45.55:5000/register/email";
+   NSString * URLString = [[NSString alloc]initWithFormat:@"http://%@:%@/register",[publicSetting getServerAddr],[publicSetting getPortNum]];
     NSString * FormData = [NSString stringWithFormat:@"email=%@",email];
     NSURL * url = [NSURL URLWithString:URLString];
     NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
@@ -224,8 +226,9 @@
     
     NSHTTPURLResponse * response;
     NSError * error;
+    [publicSetting setLoadingAnimation:self];
     NSData * resultData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
+    [publicSetting removeLoadingAnimation:self];
     NSString * result = [NSString stringWithUTF8String:resultData.bytes];
     //result = [NSString stringWithFormat:@"%s"];
     

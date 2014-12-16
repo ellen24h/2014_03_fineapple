@@ -9,6 +9,7 @@
 #import "BookTableViewCell.h"
 #import "NXBookDataModel.h"
 
+
 @implementation BookTableViewCell
 
 - (void)awakeFromNib {

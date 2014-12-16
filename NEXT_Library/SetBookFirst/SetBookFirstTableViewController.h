@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "publicSetting.h"
 
 @interface SetBookFirstTableViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource> {
     IBOutlet UITableView *tableData;
 }
+
 
 @property (nonatomic, strong) NSMutableArray *letterData;
 

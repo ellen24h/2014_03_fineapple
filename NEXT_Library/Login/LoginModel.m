@@ -30,11 +30,17 @@
 
 //UserDefaults로부터 session과 remember_token을 받아온다.
 -(NSString *)getSessionFromUserDefault{
-        return [[NSUserDefaults standardUserDefaults] objectForKey:@"session"];
+
+    [[NSUserDefaults standardUserDefaults] setObject:NULL forKey : @"session"];
+    return NULL;
+   
+//            return [[NSUserDefaults standardUserDefaults] objectForKey:@"session"];
 }
 
 -(NSString *)getRememberTokenFromUserDefault{
-        return [[NSUserDefaults standardUserDefaults]objectForKey:@"remember_token"];
+    [[NSUserDefaults standardUserDefaults] setObject:NULL forKey : @"remember_token"];
+    return NULL;
+//            return [[NSUserDefaults standardUserDefaults]objectForKey:@"remember_token"];
 }
 
 //getFisrtSceneNameFromServer
@@ -86,7 +92,6 @@
         }
     }
 }
-
 
 //connection : didReceiveData
 //  server로부터 data 수신을 완료했을때, notificationCenter에 didSceneNameReceived라는 이름으로 알림

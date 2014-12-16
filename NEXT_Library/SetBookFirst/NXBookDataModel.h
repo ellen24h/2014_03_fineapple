@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "publicSetting.h"
 
 @class Book;
 
