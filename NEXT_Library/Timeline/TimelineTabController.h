@@ -10,5 +10,6 @@
 
 @interface TimelineTabController : UITabBarController
 
+@property (weak, nonatomic) IBOutlet UITabBar *timelineTabBar;
 
 @end

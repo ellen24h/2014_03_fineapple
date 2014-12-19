@@ -21,6 +21,23 @@
 		34F8D4891A2D692C000D257B /* verticalBar_registerEamil.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F8D4861A2D692C000D257B /* verticalBar_registerEamil.png */; };
 		5C06316B1A36CF860009D042 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C06316A1A36CF860009D042 /* LoginModel.m */; };
 		5C2968331A35D3740029CBD0 /* TimelineTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2968321A35D3740029CBD0 /* TimelineTabController.m */; };
+		5C2C2A461A43F4F00040BCD9 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C2A451A43F4F00040BCD9 /* TimelineViewController.m */; };
+		5C2C2A491A44073E0040BCD9 /* like_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C2A481A44073E0040BCD9 /* like_icon.png */; };
+		5C2C2A4C1A4419110040BCD9 /* comment_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C2A4A1A4419110040BCD9 /* comment_icon.png */; };
+		5C2C2A4D1A4419110040BCD9 /* scrap_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C2A4B1A4419110040BCD9 /* scrap_icon.png */; };
+		5C2C2A4F1A441F9C0040BCD9 /* bookcover_sample.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C2A4E1A441F9C0040BCD9 /* bookcover_sample.jpeg */; };
+		5C2C2A511A4467830040BCD9 /* book_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C2A501A4467830040BCD9 /* book_icon.png */; };
+		5C2C2A531A4469380040BCD9 /* user_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C2A521A4469380040BCD9 /* user_icon.png */; };
+		5C2C2A591A4494260040BCD9 /* timelineButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C2A581A4494260040BCD9 /* timelineButton.m */; };
+		5C2C2A5C1A4498A80040BCD9 /* like_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C2A5A1A4498A80040BCD9 /* like_active.png */; };
+		5C2C2A5D1A4498A80040BCD9 /* like_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C2A5B1A4498A80040BCD9 /* like_inactive.png */; };
+		5C2C2A621A4499080040BCD9 /* comment_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C2A5E1A4499080040BCD9 /* comment_active.png */; };
+		5C2C2A631A4499080040BCD9 /* comment_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C2A5F1A4499080040BCD9 /* comment_inactive.png */; };
+		5C2C2A641A4499080040BCD9 /* scrap_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C2A601A4499080040BCD9 /* scrap_active.png */; };
+		5C2C2A651A4499080040BCD9 /* scrap_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C2A611A4499080040BCD9 /* scrap_inactive.png */; };
+		5C2C2A681A449ED60040BCD9 /* TimelineTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C2A671A449ED60040BCD9 /* TimelineTableView.m */; };
+		5C2C2A6A1A44A13D0040BCD9 /* TimelineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C2A691A44A13D0040BCD9 /* TimelineModel.m */; };
+		5C2C2A6C1A44A1B20040BCD9 /* TimelineModel.h in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C2A6B1A44A1480040BCD9 /* TimelineModel.h */; };
 		5C6E3F421A2DA8C500E50A7E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E3F401A2DA8C500E50A7E /* logo.png */; };
 		5C6E3F431A2DA8C500E50A7E /* underline.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E3F411A2DA8C500E50A7E /* underline.png */; };
 		5C8D13021A38560000628527 /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8D13011A38560000628527 /* MainTabViewController.m */; };
@@ -88,7 +105,6 @@
 		5CDF81341A404AAB00E79AD9 /* MyLibraryTableViewController_wish.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF81331A404AAB00E79AD9 /* MyLibraryTableViewController_wish.m */; };
 		5CDF81371A404AC700E79AD9 /* MyLibraryTableViewController_read.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF81361A404AC700E79AD9 /* MyLibraryTableViewController_read.m */; };
 		5CDF813B1A404B0200E79AD9 /* MyLibraryTableViewController_setting.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF813A1A404B0200E79AD9 /* MyLibraryTableViewController_setting.m */; };
-		5CDF81421A404C3800E79AD9 /* TimelineTableViewController_timeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF81411A404C3800E79AD9 /* TimelineTableViewController_timeline.m */; };
 		5CDF81461A404C8700E79AD9 /* TimelineTableViewController_mypost.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF81451A404C8700E79AD9 /* TimelineTableViewController_mypost.m */; };
 		5CDF814C1A404DBF00E79AD9 /* PostingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF814B1A404DBF00E79AD9 /* PostingViewController.m */; };
 		5CDF81501A404E2500E79AD9 /* YourLibraryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF814F1A404E2500E79AD9 /* YourLibraryTableViewController.m */; };
@@ -142,6 +158,26 @@
 		5C06316A1A36CF860009D042 /* LoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginModel.m; path = Login/LoginModel.m; sourceTree = "<group>"; };
 		5C2968311A35D3740029CBD0 /* TimelineTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineTabController.h; path = Timeline/TimelineTabController.h; sourceTree = "<group>"; };
 		5C2968321A35D3740029CBD0 /* TimelineTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineTabController.m; path = Timeline/TimelineTabController.m; sourceTree = "<group>"; };
+		5C2C2A441A43F4F00040BCD9 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineViewController.h; path = Timeline/timeline/TimelineViewController.h; sourceTree = "<group>"; };
+		5C2C2A451A43F4F00040BCD9 /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineViewController.m; path = Timeline/timeline/TimelineViewController.m; sourceTree = "<group>"; };
+		5C2C2A481A44073E0040BCD9 /* like_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like_icon.png; path = Timeline/timeline/imgsrc/like_icon.png; sourceTree = "<group>"; };
+		5C2C2A4A1A4419110040BCD9 /* comment_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = comment_icon.png; path = Timeline/timeline/imgsrc/comment_icon.png; sourceTree = "<group>"; };
+		5C2C2A4B1A4419110040BCD9 /* scrap_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scrap_icon.png; path = Timeline/timeline/imgsrc/scrap_icon.png; sourceTree = "<group>"; };
+		5C2C2A4E1A441F9C0040BCD9 /* bookcover_sample.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bookcover_sample.jpeg; path = Timeline/timeline/imgsrc/bookcover_sample.jpeg; sourceTree = "<group>"; };
+		5C2C2A501A4467830040BCD9 /* book_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = book_icon.png; path = Timeline/timeline/imgsrc/book_icon.png; sourceTree = "<group>"; };
+		5C2C2A521A4469380040BCD9 /* user_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user_icon.png; path = Timeline/timeline/imgsrc/user_icon.png; sourceTree = "<group>"; };
+		5C2C2A571A4494260040BCD9 /* timelineButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = timelineButton.h; path = Timeline/timeline/timelineButton.h; sourceTree = "<group>"; };
+		5C2C2A581A4494260040BCD9 /* timelineButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = timelineButton.m; path = Timeline/timeline/timelineButton.m; sourceTree = "<group>"; };
+		5C2C2A5A1A4498A80040BCD9 /* like_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like_active.png; path = Timeline/timeline/imgsrc/like_active.png; sourceTree = "<group>"; };
+		5C2C2A5B1A4498A80040BCD9 /* like_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like_inactive.png; path = Timeline/timeline/imgsrc/like_inactive.png; sourceTree = "<group>"; };
+		5C2C2A5E1A4499080040BCD9 /* comment_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = comment_active.png; path = Timeline/timeline/imgsrc/comment_active.png; sourceTree = "<group>"; };
+		5C2C2A5F1A4499080040BCD9 /* comment_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = comment_inactive.png; path = Timeline/timeline/imgsrc/comment_inactive.png; sourceTree = "<group>"; };
+		5C2C2A601A4499080040BCD9 /* scrap_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scrap_active.png; path = Timeline/timeline/imgsrc/scrap_active.png; sourceTree = "<group>"; };
+		5C2C2A611A4499080040BCD9 /* scrap_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scrap_inactive.png; path = Timeline/timeline/imgsrc/scrap_inactive.png; sourceTree = "<group>"; };
+		5C2C2A661A449ED60040BCD9 /* TimelineTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineTableView.h; path = Timeline/timeline/TimelineTableView.h; sourceTree = "<group>"; };
+		5C2C2A671A449ED60040BCD9 /* TimelineTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineTableView.m; path = Timeline/timeline/TimelineTableView.m; sourceTree = "<group>"; };
+		5C2C2A691A44A13D0040BCD9 /* TimelineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineModel.m; path = Timeline/timeline/TimelineModel.m; sourceTree = "<group>"; };
+		5C2C2A6B1A44A1480040BCD9 /* TimelineModel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; path = TimelineModel.h; sourceTree = "<group>"; };
 		5C6E3F401A2DA8C500E50A7E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Login/imgSource/logo.png; sourceTree = "<group>"; };
 		5C6E3F411A2DA8C500E50A7E /* underline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = underline.png; path = Login/imgSource/underline.png; sourceTree = "<group>"; };
 		5C8D13001A38560000628527 /* MainTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTabViewController.h; path = MainTab/MainTabViewController.h; sourceTree = "<group>"; };
@@ -219,8 +255,6 @@
 		5CDF81361A404AC700E79AD9 /* MyLibraryTableViewController_read.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyLibraryTableViewController_read.m; path = MyLibrary/read/MyLibraryTableViewController_read.m; sourceTree = "<group>"; };
 		5CDF81391A404B0200E79AD9 /* MyLibraryTableViewController_setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyLibraryTableViewController_setting.h; path = MyLibrary/setting/MyLibraryTableViewController_setting.h; sourceTree = "<group>"; };
 		5CDF813A1A404B0200E79AD9 /* MyLibraryTableViewController_setting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyLibraryTableViewController_setting.m; path = MyLibrary/setting/MyLibraryTableViewController_setting.m; sourceTree = "<group>"; };
-		5CDF81401A404C3800E79AD9 /* TimelineTableViewController_timeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineTableViewController_timeline.h; path = Timeline/timeline/TimelineTableViewController_timeline.h; sourceTree = "<group>"; };
-		5CDF81411A404C3800E79AD9 /* TimelineTableViewController_timeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineTableViewController_timeline.m; path = Timeline/timeline/TimelineTableViewController_timeline.m; sourceTree = "<group>"; };
 		5CDF81441A404C8700E79AD9 /* TimelineTableViewController_mypost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineTableViewController_mypost.h; path = Timeline/mypost/TimelineTableViewController_mypost.h; sourceTree = "<group>"; };
 		5CDF81451A404C8700E79AD9 /* TimelineTableViewController_mypost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineTableViewController_mypost.m; path = Timeline/mypost/TimelineTableViewController_mypost.m; sourceTree = "<group>"; };
 		5CDF814A1A404DBF00E79AD9 /* PostingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostingViewController.h; path = Posting/PostingViewController.h; sourceTree = "<group>"; };
@@ -392,6 +426,25 @@
 			name = Timeline;
 			sourceTree = "<group>";
 		};
+		5C2C2A471A44071C0040BCD9 /* imgsrc */ = {
+			isa = PBXGroup;
+			children = (
+				5C2C2A5E1A4499080040BCD9 /* comment_active.png */,
+				5C2C2A5F1A4499080040BCD9 /* comment_inactive.png */,
+				5C2C2A601A4499080040BCD9 /* scrap_active.png */,
+				5C2C2A611A4499080040BCD9 /* scrap_inactive.png */,
+				5C2C2A5A1A4498A80040BCD9 /* like_active.png */,
+				5C2C2A5B1A4498A80040BCD9 /* like_inactive.png */,
+				5C2C2A521A4469380040BCD9 /* user_icon.png */,
+				5C2C2A501A4467830040BCD9 /* book_icon.png */,
+				5C2C2A4E1A441F9C0040BCD9 /* bookcover_sample.jpeg */,
+				5C2C2A4A1A4419110040BCD9 /* comment_icon.png */,
+				5C2C2A4B1A4419110040BCD9 /* scrap_icon.png */,
+				5C2C2A481A44073E0040BCD9 /* like_icon.png */,
+			);
+			name = imgsrc;
+			sourceTree = "<group>";
+		};
 		5C8D12FF1A3855B300628527 /* MainTab */ = {
 			isa = PBXGroup;
 			children = (
@@ -552,8 +605,15 @@
 		5CDF813F1A404C1B00E79AD9 /* timeline */ = {
 			isa = PBXGroup;
 			children = (
-				5CDF81401A404C3800E79AD9 /* TimelineTableViewController_timeline.h */,
-				5CDF81411A404C3800E79AD9 /* TimelineTableViewController_timeline.m */,
+				5C2C2A571A4494260040BCD9 /* timelineButton.h */,
+				5C2C2A581A4494260040BCD9 /* timelineButton.m */,
+				5C2C2A471A44071C0040BCD9 /* imgsrc */,
+				5C2C2A441A43F4F00040BCD9 /* TimelineViewController.h */,
+				5C2C2A451A43F4F00040BCD9 /* TimelineViewController.m */,
+				5C2C2A661A449ED60040BCD9 /* TimelineTableView.h */,
+				5C2C2A671A449ED60040BCD9 /* TimelineTableView.m */,
+				5C2C2A691A44A13D0040BCD9 /* TimelineModel.m */,
+				5C2C2A6B1A44A1480040BCD9 /* TimelineModel.h */,
 			);
 			name = timeline;
 			sourceTree = "<group>";
@@ -693,6 +753,7 @@
 				5CAF80771A2F927A00B114F9 /* frame-000025.png in Resources */,
 				5CDF816C1A407C5500E79AD9 /* search_icon_select.png in Resources */,
 				5CAF80751A2F927A00B114F9 /* frame-000023.png in Resources */,
+				5C2C2A491A44073E0040BCD9 /* like_icon.png in Resources */,
 				34F8D45E1A2D6228000D257B /* Main.storyboard in Resources */,
 				34F8D4631A2D6228000D257B /* LaunchScreen.xib in Resources */,
 				5CAF80651A2F927A00B114F9 /* frame-000007.png in Resources */,
@@ -705,7 +766,9 @@
 				5CAF808A1A2F927A00B114F9 /* frame-000044.png in Resources */,
 				5CDF81631A4079CE00E79AD9 /* recommand_icon.png in Resources */,
 				5CAF80611A2F927A00B114F9 /* frame-000003.png in Resources */,
+				5C2C2A621A4499080040BCD9 /* comment_active.png in Resources */,
 				5CAF80791A2F927A00B114F9 /* frame-000027.png in Resources */,
+				5C2C2A511A4467830040BCD9 /* book_icon.png in Resources */,
 				5CAF80661A2F927A00B114F9 /* frame-000008.png in Resources */,
 				5CDF816D1A407C5500E79AD9 /* timeline_icon_select.png in Resources */,
 				5CAF80621A2F927A00B114F9 /* frame-000004.png in Resources */,
@@ -713,10 +776,13 @@
 				5CAF807F1A2F927A00B114F9 /* frame-000033.png in Resources */,
 				5CAF807A1A2F927A00B114F9 /* frame-000028.png in Resources */,
 				34F8D4891A2D692C000D257B /* verticalBar_registerEamil.png in Resources */,
+				5C2C2A4D1A4419110040BCD9 /* scrap_icon.png in Resources */,
+				5C2C2A4C1A4419110040BCD9 /* comment_icon.png in Resources */,
 				5CAF80731A2F927A00B114F9 /* frame-000021.png in Resources */,
 				5CAF80871A2F927A00B114F9 /* frame-000041.png in Resources */,
 				5C6E3F421A2DA8C500E50A7E /* logo.png in Resources */,
 				5CAF806E1A2F927A00B114F9 /* frame-000016.png in Resources */,
+				5C2C2A651A4499080040BCD9 /* scrap_inactive.png in Resources */,
 				5CAF80721A2F927A00B114F9 /* frame-000020.png in Resources */,
 				5CAF80671A2F927A00B114F9 /* frame-000009.png in Resources */,
 				5CAF806C1A2F927A00B114F9 /* frame-000014.png in Resources */,
@@ -733,21 +799,27 @@
 				5CAF806B1A2F927A00B114F9 /* frame-000013.png in Resources */,
 				5CAF807D1A2F927A00B114F9 /* frame-000031.png in Resources */,
 				5CAF80641A2F927A00B114F9 /* frame-000006.png in Resources */,
+				5C2C2A631A4499080040BCD9 /* comment_inactive.png in Resources */,
 				5CAF80601A2F927A00B114F9 /* frame-000002.png in Resources */,
 				5CAF80781A2F927A00B114F9 /* frame-000026.png in Resources */,
+				5C2C2A531A4469380040BCD9 /* user_icon.png in Resources */,
 				5CAF80831A2F927A00B114F9 /* frame-000037.png in Resources */,
 				5CDF81211A40440700E79AD9 /* navShadow.png in Resources */,
 				5CAF80701A2F927A00B114F9 /* frame-000018.png in Resources */,
 				5CAF80691A2F927A00B114F9 /* frame-000011.png in Resources */,
+				5C2C2A4F1A441F9C0040BCD9 /* bookcover_sample.jpeg in Resources */,
 				5CAF806A1A2F927A00B114F9 /* frame-000012.png in Resources */,
 				5CAF807C1A2F927A00B114F9 /* frame-000030.png in Resources */,
 				5CAF806D1A2F927A00B114F9 /* frame-000015.png in Resources */,
 				5CAF808F1A2F927A00B114F9 /* frame-000049.png in Resources */,
+				5C2C2A5D1A4498A80040BCD9 /* like_inactive.png in Resources */,
+				5C2C2A641A4499080040BCD9 /* scrap_active.png in Resources */,
 				5CAF80711A2F927A00B114F9 /* frame-000019.png in Resources */,
 				5CAF80891A2F927A00B114F9 /* frame-000043.png in Resources */,
 				5CAF808B1A2F927A00B114F9 /* frame-000045.png in Resources */,
 				5CAF80681A2F927A00B114F9 /* frame-000010.png in Resources */,
 				5CDF816A1A407C5500E79AD9 /* myLibrary_icon_select.png in Resources */,
+				5C2C2A5C1A4498A80040BCD9 /* like_active.png in Resources */,
 				5CAF807B1A2F927A00B114F9 /* frame-000029.png in Resources */,
 				5C6E3F431A2DA8C500E50A7E /* underline.png in Resources */,
 				5CAF808C1A2F927A00B114F9 /* frame-000046.png in Resources */,
@@ -787,6 +859,9 @@
 				5CDF815B1A40734300E79AD9 /* LoadScene.m in Sources */,
 				5CDF81371A404AC700E79AD9 /* MyLibraryTableViewController_read.m in Sources */,
 				5C8E43F11A40244800A5AA38 /* publicSetting.m in Sources */,
+				5C2C2A681A449ED60040BCD9 /* TimelineTableView.m in Sources */,
+				5C2C2A6C1A44A1B20040BCD9 /* TimelineModel.h in Sources */,
+				5C2C2A591A4494260040BCD9 /* timelineButton.m in Sources */,
 				5CDF812C1A40484F00E79AD9 /* SearchNavController.m in Sources */,
 				5C2968331A35D3740029CBD0 /* TimelineTabController.m in Sources */,
 				5C06316B1A36CF860009D042 /* LoginModel.m in Sources */,
@@ -794,14 +869,15 @@
 				34F8D45B1A2D6228000D257B /* ViewController.m in Sources */,
 				5C8E43F41A40255500A5AA38 /* publicSetting.h in Sources */,
 				5CDF813B1A404B0200E79AD9 /* MyLibraryTableViewController_setting.m in Sources */,
+				5C2C2A461A43F4F00040BCD9 /* TimelineViewController.m in Sources */,
 				34F8D4581A2D6228000D257B /* AppDelegate.m in Sources */,
 				34219F621A3F048C0040CE38 /* BookTableViewCell.m in Sources */,
 				5CDF814C1A404DBF00E79AD9 /* PostingViewController.m in Sources */,
 				5CDF81501A404E2500E79AD9 /* YourLibraryTableViewController.m in Sources */,
 				5CDF815D1A4073BF00E79AD9 /* LoadScene.h in Sources */,
 				34F8D4551A2D6228000D257B /* main.m in Sources */,
-				5CDF81421A404C3800E79AD9 /* TimelineTableViewController_timeline.m in Sources */,
 				5CDF81541A404E7300E79AD9 /* PostDetailTableViewController.m in Sources */,
+				5C2C2A6A1A44A13D0040BCD9 /* TimelineModel.m in Sources */,
 				34F8D47E1A2D6393000D257B /* RegisterEmailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
