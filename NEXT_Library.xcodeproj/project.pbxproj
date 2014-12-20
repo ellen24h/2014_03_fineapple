@@ -46,6 +46,7 @@
 		5C8E43ED1A401E1300A5AA38 /* InitProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E43EC1A401E1300A5AA38 /* InitProfileViewController.m */; };
 		5C8E43F11A40244800A5AA38 /* publicSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E43F01A40244800A5AA38 /* publicSetting.m */; };
 		5C8E43F41A40255500A5AA38 /* publicSetting.h in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E43F21A40245C00A5AA38 /* publicSetting.h */; };
+		5CA7CD221A45EEA300BE538A /* TimelineTableView.h in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C2A661A449ED60040BCD9 /* TimelineTableView.h */; };
 		5CAF805E1A2F927A00B114F9 /* frame-000000.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF802C1A2F927900B114F9 /* frame-000000.png */; };
 		5CAF805F1A2F927A00B114F9 /* frame-000001.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF802D1A2F927900B114F9 /* frame-000001.png */; };
 		5CAF80601A2F927A00B114F9 /* frame-000002.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF802E1A2F927900B114F9 /* frame-000002.png */; };
@@ -174,7 +175,7 @@
 		5C2C2A5F1A4499080040BCD9 /* comment_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = comment_inactive.png; path = Timeline/timeline/imgsrc/comment_inactive.png; sourceTree = "<group>"; };
 		5C2C2A601A4499080040BCD9 /* scrap_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scrap_active.png; path = Timeline/timeline/imgsrc/scrap_active.png; sourceTree = "<group>"; };
 		5C2C2A611A4499080040BCD9 /* scrap_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scrap_inactive.png; path = Timeline/timeline/imgsrc/scrap_inactive.png; sourceTree = "<group>"; };
-		5C2C2A661A449ED60040BCD9 /* TimelineTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineTableView.h; path = Timeline/timeline/TimelineTableView.h; sourceTree = "<group>"; };
+		5C2C2A661A449ED60040BCD9 /* TimelineTableView.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = TimelineTableView.h; path = Timeline/timeline/TimelineTableView.h; sourceTree = "<group>"; };
 		5C2C2A671A449ED60040BCD9 /* TimelineTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineTableView.m; path = Timeline/timeline/TimelineTableView.m; sourceTree = "<group>"; };
 		5C2C2A691A44A13D0040BCD9 /* TimelineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineModel.m; path = Timeline/timeline/TimelineModel.m; sourceTree = "<group>"; };
 		5C2C2A6B1A44A1480040BCD9 /* TimelineModel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; path = TimelineModel.h; sourceTree = "<group>"; };
@@ -874,6 +875,7 @@
 				34219F621A3F048C0040CE38 /* BookTableViewCell.m in Sources */,
 				5CDF814C1A404DBF00E79AD9 /* PostingViewController.m in Sources */,
 				5CDF81501A404E2500E79AD9 /* YourLibraryTableViewController.m in Sources */,
+				5CA7CD221A45EEA300BE538A /* TimelineTableView.h in Sources */,
 				5CDF815D1A4073BF00E79AD9 /* LoadScene.h in Sources */,
 				34F8D4551A2D6228000D257B /* main.m in Sources */,
 				5CDF81541A404E7300E79AD9 /* PostDetailTableViewController.m in Sources */,

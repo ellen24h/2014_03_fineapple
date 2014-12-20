@@ -12,7 +12,9 @@
 
 #define SERVER_ADDR @"0.0.0.0"
 #define SERVER_PORT @"5013"
-//// loading화면 tag 상수 설정
+//NAVER books key
+#define NAVERBOOKS_KEY @"435586f77d2ca2b1299622b362cebdf8"
+//loading화면 tag 상수 설정
 #define LOADING_IMG_VIEW 4
 #define LOADING_BACK_VIEW 5
 //RGB값으로 UIColor 객체를 생성해주는 함수메크로
@@ -25,6 +27,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 +(NSString *)getServerAddr;
 +(NSString *)getPortNum;
++(NSString *)getNaverBooksKey;
 +(void)setLoadingAnimation:(UIViewController *)vc;
 +(void)removeLoadingAnimation:(UIViewController *)vc;
 

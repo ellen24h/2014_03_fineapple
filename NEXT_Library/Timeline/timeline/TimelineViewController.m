@@ -16,16 +16,20 @@
     NSNotificationCenter * notiCenter = [NSNotificationCenter defaultCenter];
     [notiCenter addObserver:self selector:@selector(setJsonDataAsClassVariable:) name:@"timelineJsonReceived" object:nil];
     self.tabBarController.tabBar.frame = CGRectMake(0,0,0,0);
+    _timelineTableView.backgroundColor = UIColorFromRGB(FINE_BEIGE);
     [publicSetting setLoadingAnimation:self];
     [model getTimelineJsonFromServer];
+   
 
 }
+
 
 - (void)setJsonDataAsClassVariable:(NSNotification *)notification{
     timelineJsonData = notification.object;
     numOfRow = timelineJsonData.count;
     _timelineTableView.dataSource = self;
     [publicSetting removeLoadingAnimation:self];
+    [_timelineTableView reloadData];
 
 }
 
@@ -45,7 +49,7 @@
     [self setBookTitle:postContentView indexPath:indexPath];
     [self setPostWithComment:postContentView indexPath:indexPath];
     [self setButtons:postContentView indexPath:indexPath];
-      
+
     return cell;
 }
 
@@ -99,9 +103,6 @@
     
     CGFloat fullWidth = postContentView.frame.size.width;
     CGFloat fullHeight = postContentView.frame.size.height;
-
-    
-    
     
     UITextView * postText = [[UITextView alloc]initWithFrame:CGRectMake(6, 0, fullWidth, fullHeight*0.4*0.5)];
     postText.scrollEnabled = NO;
@@ -172,9 +173,31 @@
     return postContentView;
 }
 
+-(NSString *)getBookTitleFromNaverBooks:(NSString *)ISBN{
+    NSString * key = [publicSetting getNaverBooksKey];
+    NSURL * url = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"%@?key=%@&query=abc&target=book_adv&d_isbn=%@",NAVERBOOKS_URL,key,ISBN]];
+    NSMutableURLRequest * request = [[NSMutableURLRequest alloc]initWithURL:url];
+    [request setHTTPMethod:@"GET"];
+    NSURLResponse * response;
+    NSData * recvData;
+    recvData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    NSString * recvData_str = [[NSString alloc]initWithData:recvData encoding:NSUTF8StringEncoding];
+    if([recvData_str rangeOfString:@"<error>"].location == NSNotFound ){
+    recvData_str = [[recvData_str componentsSeparatedByString:@"<item>"]objectAtIndex:1];    recvData_str = [[recvData_str componentsSeparatedByString:@"<title>"]objectAtIndex:1];
+    recvData_str = [[recvData_str componentsSeparatedByString:@"</title>"]objectAtIndex:0];
+    }
+    else{
+        recvData_str = @"Untitled";
+    }
+    return recvData_str;
+}
+
 -(void)setBookTitle:(UIView *)postContentView indexPath:(NSIndexPath *)indexPath{
     timelineRowData = [timelineJsonData objectAtIndex:indexPath.row];
     NSString * bookTitle = [timelineRowData objectForKey:@"bookTitle"];
+    if(bookTitle == (id)[NSNull null]){
+        bookTitle = [self getBookTitleFromNaverBooks:[timelineRowData objectForKey:@"ISBN"]];
+    }
     UIImageView * bookIcon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"book_icon.png"]];
     bookIcon.frame = CGRectMake(0, NAMELABEL_HEIGHT, NAMELABEL_HEIGHT, NAMELABEL_HEIGHT);
     bookIcon.backgroundColor = [UIColor colorWithWhite:1.0 alpha:WHITE_OPACITY];

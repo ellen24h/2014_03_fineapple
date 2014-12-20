@@ -16,6 +16,10 @@
 +(NSString *)getPortNum{
     return SERVER_PORT;
 }
+
++(NSString *)getNaverBooksKey{
+    return NAVERBOOKS_KEY;
+}
 //setLoadingAnimation
 //  로딩애니메이션을 띄운다.
 +(void)setLoadingAnimation:(UIViewController *) vc{

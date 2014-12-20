@@ -28,6 +28,7 @@
 #define FINE_BEIGE 0xFFF6EE
 #define FINE_DARKGRAY 0x4D4D4D
 
+#define NAVERBOOKS_URL @"http://openapi.naver.com/search"
 @interface TimelineViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     @private
