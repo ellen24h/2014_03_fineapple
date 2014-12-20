@@ -7,20 +7,30 @@
 //
 
 #import "TimelineViewController.h"
-#import "timelineButton.h"
 
 @implementation TimelineViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    TimelineModel * model =[[TimelineModel alloc]initWithURLWithPortNum:[publicSetting getServerAddr] port:[publicSetting getPortNum]];
+    NSNotificationCenter * notiCenter = [NSNotificationCenter defaultCenter];
+    [notiCenter addObserver:self selector:@selector(setJsonDataAsClassVariable:) name:@"timelineJsonReceived" object:nil];
+    self.tabBarController.tabBar.frame = CGRectMake(0,0,0,0);
+    [publicSetting setLoadingAnimation:self];
+    [model getTimelineJsonFromServer];
 
+}
+
+- (void)setJsonDataAsClassVariable:(NSNotification *)notification{
+    timelineJsonData = notification.object;
+    numOfRow = timelineJsonData.count;
     _timelineTableView.dataSource = self;
-
+    [publicSetting removeLoadingAnimation:self];
 
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return numOfRow;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -35,7 +45,7 @@
     [self setBookTitle:postContentView indexPath:indexPath];
     [self setPostWithComment:postContentView indexPath:indexPath];
     [self setButtons:postContentView indexPath:indexPath];
-    
+      
     return cell;
 }
 
@@ -61,10 +71,30 @@
 }
 
 -(void)setPostWithComment:(UIView *)postContentView indexPath:(NSIndexPath *)indexPath{
-    NSString * postString = @"가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사";
-    NSString * commentString =@"가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사";
-    NSString * commentUser =@"최종혁";
-    NSRange postRange = POST_RANGE;
+    timelineRowData = [timelineJsonData objectAtIndex:indexPath.row];
+    NSString * postString = [timelineRowData objectForKey:@"post"];
+    NSString * commentString = [timelineRowData objectForKey:@"comment1"];
+    NSString * commentUser = [timelineRowData objectForKey:@"comment1userName"];
+    NSRange postRange;
+    NSRange commentRange;
+    if(postString.length >= 47){
+        postRange.location = 0;
+        postRange.length = 47;
+    }
+    else{
+        postRange.location = 0;
+        postRange.length = postString.length-1;
+    }
+    if(commentString.length >= 35){
+        commentRange.location = 0;
+        commentRange.length = 35;
+    }
+    else{
+        commentRange.location = 0;
+        commentRange.length = commentString.length-1;
+    }
+    
+
 
     
     CGFloat fullWidth = postContentView.frame.size.width;
@@ -90,8 +120,6 @@
     moreButton.showsTouchWhenHighlighted = YES;
     [postText addSubview:moreButton];
     
-    
-    NSRange commentRange = {0,35};
     UITextView * commentText = [[UITextView alloc]initWithFrame:CGRectMake(fullWidth * 0.22, fullHeight*0.4*0.5, fullWidth*0.8, fullHeight*0.4*0.5)];
     commentText.scrollEnabled = NO;
     commentText.editable = NO;
@@ -109,12 +137,14 @@
     commentUserButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     commentUserButton.showsTouchWhenHighlighted = YES;
     
+        
     UIButton * commentMoreButton = [[UIButton alloc]initWithFrame:CGRectMake(fullWidth*0.43, commentText.frame.size.height*0.7, fullWidth * 0.3, 14)];    [commentMoreButton setTitle:@"댓글더보기" forState:UIControlStateNormal];
     [commentMoreButton setTitleColor:UIColorFromRGB(FINE_GREEN) forState:UIControlStateNormal];
     commentMoreButton.titleLabel.font = [UIFont systemFontOfSize:14];
     commentMoreButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     commentMoreButton.showsTouchWhenHighlighted = YES;
     [commentText addSubview:commentMoreButton];
+   
 
     UIView * line = [[UIView alloc]initWithFrame:CGRectMake(fullWidth*0.025, fullHeight*0.4*0.5, fullWidth*0.95, 0.2)];
     line.backgroundColor = UIColorFromRGB(FINE_DARKGRAY);
@@ -124,8 +154,10 @@
     UIView * postWithComment = [[UIView alloc]initWithFrame:CGRectMake(0, fullHeight*0.5, fullWidth ,  fullHeight*0.4)];
     postWithComment.backgroundColor = [UIColor colorWithWhite:1.0 alpha:WHITE_OPACITY];
     [postWithComment addSubview:postText];
-    [postWithComment addSubview:commentUserButton];
-    [postWithComment addSubview:commentText];
+    if([commentUser isEqualToString:@"\\N"] != YES){
+        [postWithComment addSubview:commentUserButton];
+        [postWithComment addSubview:commentText];
+    }
     [postWithComment addSubview:line];
    
     
@@ -141,7 +173,8 @@
 }
 
 -(void)setBookTitle:(UIView *)postContentView indexPath:(NSIndexPath *)indexPath{
-   
+    timelineRowData = [timelineJsonData objectAtIndex:indexPath.row];
+    NSString * bookTitle = [timelineRowData objectForKey:@"bookTitle"];
     UIImageView * bookIcon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"book_icon.png"]];
     bookIcon.frame = CGRectMake(0, NAMELABEL_HEIGHT, NAMELABEL_HEIGHT, NAMELABEL_HEIGHT);
     bookIcon.backgroundColor = [UIColor colorWithWhite:1.0 alpha:WHITE_OPACITY];
@@ -154,8 +187,7 @@
     [postContentView addSubview:bookTitleLabel];
     
     UIButton * bookTitleButton = [[UIButton alloc]initWithFrame:CGRectMake(NAMELABEL_HEIGHT, NAMELABEL_HEIGHT, bookTitleLabel.frame.size.width, NAMELABEL_HEIGHT)];
-    [bookTitleButton setTitle:@"유지보수하기 어렵게 코딩하는 방법" forState:UIControlStateNormal];
-    
+    [bookTitleButton setTitle:bookTitle forState:UIControlStateNormal];
     [bookTitleButton setTitleColor:UIColorFromRGB(FINE_DARKGRAY) forState:UIControlStateNormal];
     bookTitleButton.showsTouchWhenHighlighted = YES;
     [bookTitleButton addTarget:self action:@selector(bookTitleButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
@@ -168,12 +200,22 @@
 }
 
 -(void)setBackgroundImage:(UIView *)postContentView indexPath:(NSIndexPath *)indexPath{
-    UIImageView * backgroundImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bookcover_sample.jpeg"]];
+    timelineRowData = [timelineJsonData objectAtIndex:indexPath.row];
+    NSString * bookCoverImg = [timelineRowData objectForKey:@"postImg"];
+
+    NSURL * imgURL = [NSURL URLWithString:bookCoverImg];
+    NSData * imgData = [NSData dataWithContentsOfURL:imgURL];
+    UIImageView * backgroundImageView = [[UIImageView alloc]initWithImage:[UIImage imageWithData:imgData]];
     backgroundImageView.frame = CGRectMake(0,0,postContentView.frame.size.width, postContentView.frame.size.height);
     [postContentView addSubview:backgroundImageView];
 }
 
 -(void)setAdditionalInfo:(UILabel *)nameLabel indexPath:(NSIndexPath *)indexPath{
+    timelineRowData = [timelineJsonData objectAtIndex:indexPath.row];
+    NSString * likeNumStr = [NSString stringWithFormat:@"%@",[timelineRowData objectForKey:@"like"]];
+    NSString * scrapNumStr = [NSString stringWithFormat:@"%@",[timelineRowData objectForKey:@"scrap"]];
+    NSString * commentNumStr = [NSString stringWithFormat:@"%@",[timelineRowData objectForKey:@"comment"]];
+    
     UIView * additionalInfoView = [[UIView alloc]initWithFrame:CGRectMake(nameLabel.frame.size.width*0.45, 0, nameLabel.frame.size.width*0.55,nameLabel.frame.size.height)];
     additionalInfoView.backgroundColor = UIColorFromRGB(FINE_GREEN);
 
@@ -183,7 +225,7 @@
     [additionalInfoView addSubview:like];
     
     UILabel * likeNum =[[UILabel alloc]initWithFrame:CGRectMake(ICON_SIZE+4, 2.5, ICON_SIZE, ICON_SIZE)];
-    likeNum.text = @"12";
+    likeNum.text = likeNumStr;
     likeNum.textColor = [UIColor whiteColor];
     likeNum.font = [UIFont fontWithName:@"Helvetica" size:12];
         [additionalInfoView addSubview:likeNum];
@@ -194,7 +236,7 @@
     [additionalInfoView addSubview:scrap];
     
     UILabel * scrapNum =[[UILabel alloc]initWithFrame:CGRectMake(ICON_SIZE*4+4, 2.5, ICON_SIZE, ICON_SIZE)];
-    scrapNum.text = @"10";
+    scrapNum.text = scrapNumStr;
     scrapNum.textColor = [UIColor whiteColor];
     scrapNum.font = [UIFont fontWithName:@"Helvetica" size:12];
     [additionalInfoView addSubview:scrapNum];
@@ -205,7 +247,7 @@
     [additionalInfoView addSubview:comment];
     
     UILabel * commentNum =[[UILabel alloc]initWithFrame:CGRectMake(ICON_SIZE*7+4, 2.5, ICON_SIZE, ICON_SIZE)];
-    commentNum.text = @"40";
+    commentNum.text = commentNumStr;
     commentNum.textColor = [UIColor whiteColor];
     commentNum.font = [UIFont fontWithName:@"Helvetica" size:12];
     [additionalInfoView addSubview:commentNum];
@@ -214,6 +256,8 @@
 }
 
 -(UILabel *)setNameLabel:(UIView *)postContentView indexPath:(NSIndexPath *)indexPath{
+    timelineRowData = [timelineJsonData objectAtIndex:indexPath.row];
+    NSString * userName = [timelineRowData objectForKey:@"name"];
     UIImageView * userIcon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"user_icon.png"]];
     userIcon.frame = CGRectMake(0, 0, NAMELABEL_HEIGHT, NAMELABEL_HEIGHT);
     userIcon.backgroundColor = UIColorFromRGB(FINE_GREEN);
@@ -228,7 +272,7 @@
     [postContentView addSubview:nameLabel];
 
     UIButton * nameButton = [[UIButton alloc]initWithFrame:CGRectMake(NAMELABEL_HEIGHT, 0, nameLabel.frame.size.width*0.2, NAMELABEL_HEIGHT)];
-    [nameButton setTitle:@"KKK" forState:UIControlStateNormal];    [nameButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [nameButton setTitle:userName forState:UIControlStateNormal];    [nameButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     nameButton.showsTouchWhenHighlighted = YES;
     nameButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [nameButton addTarget:self action:@selector(nameButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];

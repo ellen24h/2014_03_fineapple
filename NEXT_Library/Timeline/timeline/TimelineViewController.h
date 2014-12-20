@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "publicSetting.h"
+#import "timelineButton.h"
+#import "TimelineModel.h"
 
 
 
@@ -20,13 +22,19 @@
 #define ICON_SIZE 15
 #define WHITE_OPACITY 0.9
 #define POST_RANGE {0,47}
+
 //colors : RGBValue
 #define FINE_GREEN 0x19BDC4
 #define FINE_BEIGE 0xFFF6EE
 #define FINE_DARKGRAY 0x4D4D4D
 
 @interface TimelineViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-
+{
+    @private
+    NSArray * timelineJsonData;
+    NSDictionary * timelineRowData;
+    NSInteger numOfRow;
+}
 @property (weak, nonatomic) IBOutlet UITableView *timelineTableView;
 
 @end
