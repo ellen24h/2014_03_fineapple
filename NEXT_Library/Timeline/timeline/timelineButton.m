@@ -9,8 +9,6 @@
 #import "timelineButton.h"
 #define INACTIVE 0
 #define ACTIVE 1
-#define INACTIVE_COLOR 0xFFFFFF
-#define ACTIVE_COLOR 0xEF4089
 
 
 @implementation timelineButton

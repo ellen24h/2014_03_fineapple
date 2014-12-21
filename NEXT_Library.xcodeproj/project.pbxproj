@@ -37,9 +37,11 @@
 		5C2C2A651A4499080040BCD9 /* scrap_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C2A611A4499080040BCD9 /* scrap_inactive.png */; };
 		5C2C2A681A449ED60040BCD9 /* TimelineTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C2A671A449ED60040BCD9 /* TimelineTableView.m */; };
 		5C2C2A6A1A44A13D0040BCD9 /* TimelineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C2A691A44A13D0040BCD9 /* TimelineModel.m */; };
-		5C2C2A6C1A44A1B20040BCD9 /* TimelineModel.h in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C2A6B1A44A1480040BCD9 /* TimelineModel.h */; };
 		5C6E3F421A2DA8C500E50A7E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E3F401A2DA8C500E50A7E /* logo.png */; };
 		5C6E3F431A2DA8C500E50A7E /* underline.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E3F411A2DA8C500E50A7E /* underline.png */; };
+		5C7E49BB1A470B47000E53EE /* TimelineModel.h in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E49BA1A470B3B000E53EE /* TimelineModel.h */; };
+		5C7E49BD1A470E8F000E53EE /* newpost_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C7E49BC1A470E8F000E53EE /* newpost_icon.png */; };
+		5C7E49C01A470F72000E53EE /* timelineTabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E49BF1A470F72000E53EE /* timelineTabButton.m */; };
 		5C8D13021A38560000628527 /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8D13011A38560000628527 /* MainTabViewController.m */; };
 		5C8E43E61A401D6400A5AA38 /* SetBookFirstTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E43E51A401D6400A5AA38 /* SetBookFirstTableViewController.m */; };
 		5C8E43E91A401D8900A5AA38 /* NXBookDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E43E81A401D8900A5AA38 /* NXBookDataModel.m */; };
@@ -178,9 +180,12 @@
 		5C2C2A661A449ED60040BCD9 /* TimelineTableView.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = TimelineTableView.h; path = Timeline/timeline/TimelineTableView.h; sourceTree = "<group>"; };
 		5C2C2A671A449ED60040BCD9 /* TimelineTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineTableView.m; path = Timeline/timeline/TimelineTableView.m; sourceTree = "<group>"; };
 		5C2C2A691A44A13D0040BCD9 /* TimelineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineModel.m; path = Timeline/timeline/TimelineModel.m; sourceTree = "<group>"; };
-		5C2C2A6B1A44A1480040BCD9 /* TimelineModel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; path = TimelineModel.h; sourceTree = "<group>"; };
 		5C6E3F401A2DA8C500E50A7E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Login/imgSource/logo.png; sourceTree = "<group>"; };
 		5C6E3F411A2DA8C500E50A7E /* underline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = underline.png; path = Login/imgSource/underline.png; sourceTree = "<group>"; };
+		5C7E49BA1A470B3B000E53EE /* TimelineModel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; name = TimelineModel.h; path = Timeline/timeline/TimelineModel.h; sourceTree = "<group>"; };
+		5C7E49BC1A470E8F000E53EE /* newpost_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newpost_icon.png; path = Timeline/timeline/imgsrc/newpost_icon.png; sourceTree = "<group>"; };
+		5C7E49BE1A470F72000E53EE /* timelineTabButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = timelineTabButton.h; path = Timeline/timeline/timelineTabButton.h; sourceTree = "<group>"; };
+		5C7E49BF1A470F72000E53EE /* timelineTabButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = timelineTabButton.m; path = Timeline/timeline/timelineTabButton.m; sourceTree = "<group>"; };
 		5C8D13001A38560000628527 /* MainTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTabViewController.h; path = MainTab/MainTabViewController.h; sourceTree = "<group>"; };
 		5C8D13011A38560000628527 /* MainTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTabViewController.m; path = MainTab/MainTabViewController.m; sourceTree = "<group>"; };
 		5C8E43E41A401D6400A5AA38 /* SetBookFirstTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetBookFirstTableViewController.h; path = SetBookFirst/SetBookFirstTableViewController.h; sourceTree = "<group>"; };
@@ -430,6 +435,7 @@
 		5C2C2A471A44071C0040BCD9 /* imgsrc */ = {
 			isa = PBXGroup;
 			children = (
+				5C7E49BC1A470E8F000E53EE /* newpost_icon.png */,
 				5C2C2A5E1A4499080040BCD9 /* comment_active.png */,
 				5C2C2A5F1A4499080040BCD9 /* comment_inactive.png */,
 				5C2C2A601A4499080040BCD9 /* scrap_active.png */,
@@ -614,7 +620,9 @@
 				5C2C2A661A449ED60040BCD9 /* TimelineTableView.h */,
 				5C2C2A671A449ED60040BCD9 /* TimelineTableView.m */,
 				5C2C2A691A44A13D0040BCD9 /* TimelineModel.m */,
-				5C2C2A6B1A44A1480040BCD9 /* TimelineModel.h */,
+				5C7E49BA1A470B3B000E53EE /* TimelineModel.h */,
+				5C7E49BE1A470F72000E53EE /* timelineTabButton.h */,
+				5C7E49BF1A470F72000E53EE /* timelineTabButton.m */,
 			);
 			name = timeline;
 			sourceTree = "<group>";
@@ -784,6 +792,7 @@
 				5C6E3F421A2DA8C500E50A7E /* logo.png in Resources */,
 				5CAF806E1A2F927A00B114F9 /* frame-000016.png in Resources */,
 				5C2C2A651A4499080040BCD9 /* scrap_inactive.png in Resources */,
+				5C7E49BD1A470E8F000E53EE /* newpost_icon.png in Resources */,
 				5CAF80721A2F927A00B114F9 /* frame-000020.png in Resources */,
 				5CAF80671A2F927A00B114F9 /* frame-000009.png in Resources */,
 				5CAF806C1A2F927A00B114F9 /* frame-000014.png in Resources */,
@@ -855,13 +864,13 @@
 				5CDF81581A404EE800E79AD9 /* BookDetailViewController.m in Sources */,
 				5CDF81461A404C8700E79AD9 /* TimelineTableViewController_mypost.m in Sources */,
 				5C8D13021A38560000628527 /* MainTabViewController.m in Sources */,
+				5C7E49BB1A470B47000E53EE /* TimelineModel.h in Sources */,
 				5C8E43ED1A401E1300A5AA38 /* InitProfileViewController.m in Sources */,
 				5CDF81341A404AAB00E79AD9 /* MyLibraryTableViewController_wish.m in Sources */,
 				5CDF815B1A40734300E79AD9 /* LoadScene.m in Sources */,
 				5CDF81371A404AC700E79AD9 /* MyLibraryTableViewController_read.m in Sources */,
 				5C8E43F11A40244800A5AA38 /* publicSetting.m in Sources */,
 				5C2C2A681A449ED60040BCD9 /* TimelineTableView.m in Sources */,
-				5C2C2A6C1A44A1B20040BCD9 /* TimelineModel.h in Sources */,
 				5C2C2A591A4494260040BCD9 /* timelineButton.m in Sources */,
 				5CDF812C1A40484F00E79AD9 /* SearchNavController.m in Sources */,
 				5C2968331A35D3740029CBD0 /* TimelineTabController.m in Sources */,
@@ -874,6 +883,7 @@
 				34F8D4581A2D6228000D257B /* AppDelegate.m in Sources */,
 				34219F621A3F048C0040CE38 /* BookTableViewCell.m in Sources */,
 				5CDF814C1A404DBF00E79AD9 /* PostingViewController.m in Sources */,
+				5C7E49C01A470F72000E53EE /* timelineTabButton.m in Sources */,
 				5CDF81501A404E2500E79AD9 /* YourLibraryTableViewController.m in Sources */,
 				5CA7CD221A45EEA300BE538A /* TimelineTableView.h in Sources */,
 				5CDF815D1A4073BF00E79AD9 /* LoadScene.h in Sources */,

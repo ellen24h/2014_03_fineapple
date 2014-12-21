@@ -29,18 +29,28 @@
     NSURLConnection * connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
     if(connection){
         NSLog(@"ConnectionSuccess");
+        timelineData = [[NSMutableData alloc]init];
     }
     else{
         NSLog(@"ConnectionFail");
     }
 
 }
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+
+}
 
 - (void)connection:(NSURLConnection *)connection
     didReceiveData:(NSData *)data{
-    NSError * error;
-    NSArray * data_arr = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"timelineJsonReceived" object:data_arr];
+    [timelineData appendData:data];
 }
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection{
+    NSError * error;
+    NSArray * data_arr = [NSJSONSerialization JSONObjectWithData:timelineData options:kNilOptions error:&error];
+
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"timelineJsonReceived" object:data_arr];
+}
+
 
 @end

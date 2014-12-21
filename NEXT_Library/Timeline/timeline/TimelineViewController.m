@@ -12,6 +12,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [_timelineButton setDelegate];
+    [_mypostButton setDelegate];
+    [_timelineButton setStatus:ACTIVE];
+    
     TimelineModel * model =[[TimelineModel alloc]initWithURLWithPortNum:[publicSetting getServerAddr] port:[publicSetting getPortNum]];
     NSNotificationCenter * notiCenter = [NSNotificationCenter defaultCenter];
     [notiCenter addObserver:self selector:@selector(setJsonDataAsClassVariable:) name:@"timelineJsonReceived" object:nil];
@@ -56,20 +60,20 @@
 -(void)setButtons:(UIView *)postContentView indexPath:(NSIndexPath *)indexPath{
     CGFloat fullWidth = postContentView.frame.size.width;
     CGFloat fullHeight = postContentView.frame.size.height;
-    UIView * buttonSet = [[UIView alloc]initWithFrame:CGRectMake(0, fullHeight*0.9, fullWidth, fullHeight*0.1)];
+    UIView * buttonSet = [[UIView alloc]initWithFrame:CGRectMake(0, fullHeight*0.94, fullWidth, fullHeight*0.06)];
     buttonSet.backgroundColor = UIColorFromRGB(FINE_GREEN);
     [postContentView addSubview:buttonSet];
     
     UIButton * likeButton = [[timelineButton alloc]initWithButtonName:@"like_inactive" activeButtonImg:@"like_active"];
-    likeButton.frame = CGRectMake(5, buttonSet.frame.size.height*0.23, fullWidth*0.25, buttonSet.frame.size.height*0.53);
+    likeButton.frame = CGRectMake(5, buttonSet.frame.size.height*0.07, fullWidth*0.25, buttonSet.frame.size.height*0.85);
     [buttonSet addSubview:likeButton];
     
     UIButton * scrapButton = [[timelineButton alloc]initWithButtonName:@"scrap_inactive" activeButtonImg:@"scrap_active"];
-    scrapButton.frame = CGRectMake(fullWidth*0.355, buttonSet.frame.size.height*0.24, fullWidth*0.25, buttonSet.frame.size.height*0.53);
+    scrapButton.frame = CGRectMake(fullWidth*0.355, buttonSet.frame.size.height*0.07, fullWidth*0.25, buttonSet.frame.size.height*0.85);
     [buttonSet addSubview:scrapButton];
     
     UIButton * commentButton = [[timelineButton alloc]initWithButtonName:@"comment_inactive" activeButtonImg:@"comment_active"];
-    commentButton.frame =  CGRectMake(fullWidth*0.70, buttonSet.frame.size.height*0.24, fullWidth*0.25, buttonSet.frame.size.height*0.53);
+    commentButton.frame =  CGRectMake(fullWidth*0.70, buttonSet.frame.size.height*0.07, fullWidth*0.25, buttonSet.frame.size.height*0.85);
     [buttonSet addSubview:commentButton];
 
 }
@@ -81,6 +85,7 @@
     NSString * commentUser = [timelineRowData objectForKey:@"comment1userName"];
     NSRange postRange;
     NSRange commentRange;
+
     if(postString.length >= 47){
         postRange.location = 0;
         postRange.length = 47;
@@ -97,10 +102,7 @@
         commentRange.location = 0;
         commentRange.length = commentString.length-1;
     }
-    
 
-
-    
     CGFloat fullWidth = postContentView.frame.size.width;
     CGFloat fullHeight = postContentView.frame.size.height;
     
@@ -152,7 +154,7 @@
 
 
 
-    UIView * postWithComment = [[UIView alloc]initWithFrame:CGRectMake(0, fullHeight*0.5, fullWidth ,  fullHeight*0.4)];
+    UIView * postWithComment = [[UIView alloc]initWithFrame:CGRectMake(0, fullHeight*0.5, fullWidth ,  fullHeight*0.44)];
     postWithComment.backgroundColor = [UIColor colorWithWhite:1.0 alpha:WHITE_OPACITY];
     [postWithComment addSubview:postText];
     if([commentUser isEqualToString:@"\\N"] != YES){
@@ -189,6 +191,7 @@
     else{
         recvData_str = @"Untitled";
     }
+
     return recvData_str;
 }
 

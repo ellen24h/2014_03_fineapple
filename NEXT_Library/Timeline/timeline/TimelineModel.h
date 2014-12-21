@@ -15,7 +15,7 @@
 @private
     NSURL * url;
     NSMutableURLRequest * request;
-
+    NSMutableData * timelineData;
 }
 -(id)initWithURLWithPortNum:(NSString *)IPAddr port:(NSString *)port;
 -(void)getTimelineJsonFromServer;

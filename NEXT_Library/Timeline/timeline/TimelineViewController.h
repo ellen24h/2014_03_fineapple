@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "publicSetting.h"
 #import "timelineButton.h"
+#import "timelineTabButton.h"
 #import "TimelineModel.h"
-
-
 
 #define NAMELABEL_HEIGHT 20
 #define NAMELABEL_TAG 100
@@ -37,5 +36,7 @@
     NSInteger numOfRow;
 }
 @property (weak, nonatomic) IBOutlet UITableView *timelineTableView;
+@property (weak, nonatomic) IBOutlet timelineTabButton *timelineButton;
+@property (weak, nonatomic) IBOutlet timelineTabButton *mypostButton;
 
 @end
