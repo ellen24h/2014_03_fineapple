@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "publicSetting.h"
+#import "NXBookDataModel.h"
+#import "BookTableViewCell.h"
 
 @interface SetBookFirstTableViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource> {
     IBOutlet UITableView *tableData;
+    NXBookDataModel * model;
 }
-
 
 @property (nonatomic, strong) NSMutableArray *letterData;
 

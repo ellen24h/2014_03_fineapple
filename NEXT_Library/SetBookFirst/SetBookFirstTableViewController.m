@@ -7,19 +7,9 @@
 //
 
 #import "SetBookFirstTableViewController.h"
-#import "NXBookDataModel.h"
-#import "BookTableViewCell.h"
 
-@interface SetBookFirstTableViewController () {
-    NSMutableArray *myObject;
-    // A dictionary object
-    NSDictionary *dictionary;
-    // Define keys
-    NSString *title;
-    NSString *thumbnail;
-    NSString *author;
-    NSString *permalink;
-}
+
+@interface SetBookFirstTableViewController ()
 
 @end
 
@@ -27,39 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    title = @"title";
-    thumbnail = @"thumbnail";
-    author = @"author";
-    permalink = @"permalink";
-    
-    myObject = [[NSMutableArray alloc] init];
-    
-    NSData *jsonSource = [NSData dataWithContentsOfURL:
-                          [NSURL URLWithString:@"http://gooruism.com/feed/json"]];
-    
-    id jsonObjects = [NSJSONSerialization JSONObjectWithData:
-                      jsonSource options:NSJSONReadingMutableContainers error:nil];
-    
-    for (NSDictionary *dataDict in jsonObjects) {
-        NSString *title_data = [dataDict objectForKey:@"title"];
-        NSString *thumbnail_data = [dataDict objectForKey:@"thumbnail"];
-        NSString *author_data = [dataDict objectForKey:@"author"];
-        NSString *permalink_data = [dataDict objectForKey:@"permalink"];
-        
-        NSLog(@"TITLE: %@",title_data);
-        NSLog(@"THUMBNAIL: %@",thumbnail_data);
-        NSLog(@"AUTHOR: %@",author_data);
-        NSLog(@"URL: %@",permalink_data);
-        
-        dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                      title_data, title,
-                      thumbnail_data, thumbnail,
-                      author_data,author,
-                      permalink_data,permalink,
-                      nil];
-        [myObject addObject:dictionary];
-    }
-    //self.letterData = [@[@"A",@"B",@"C",@"D",@"E"] mutableCopy];
+    model = [[NXBookDataModel alloc] initWithURLwithPort:[publicSetting getServerAddr] port:[publicSetting getPortNum]];
+    [model getBookData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,7 +35,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return myObject.count;
+    return [model bookCount];
 }
 
 
@@ -87,28 +46,29 @@
     if (cell == nil) {
         cell = [[BookTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
+    NSMutableArray * myObject = [model returnMutableArray];
     
     NSDictionary *tmpDict = [myObject objectAtIndex:indexPath.row];
     
-    NSMutableString *text;
+    NSMutableString *name;
     //text = [NSString stringWithFormat:@"%@",[tmpDict objectForKey:title]];
-    text = [NSMutableString stringWithFormat:@"%@",
-            [tmpDict objectForKeyedSubscript:title]];
+    name = [NSMutableString stringWithFormat:@"%@",
+            [tmpDict objectForKeyedSubscript:@"name"]];
     
-    NSMutableString *detail;
-    detail = [NSMutableString stringWithFormat:@"Author: %@ ",
-              [tmpDict objectForKey:author]];
+    NSMutableString *author;
+    author = [NSMutableString stringWithFormat:@"%@ ",
+              [tmpDict objectForKey:@"author"]];
     
-    NSMutableString *images;
-    images = [NSMutableString stringWithFormat:@"%@ ",
-              [tmpDict objectForKey:thumbnail]];
+    NSMutableString *cover_img;
+    cover_img = [NSMutableString stringWithFormat:@"%@ ",
+              [tmpDict objectForKey:@"cover_img"]];
     
-    NSURL *url = [NSURL URLWithString:[tmpDict objectForKey:thumbnail]];
+    NSURL *url = [NSURL URLWithString:[tmpDict objectForKey:@"cover_img"]];
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *img = [[UIImage alloc]initWithData:data];
     
-    cell.bookTitle.text = text;
-    cell.bookWriter.text = detail;
+    cell.bookTitle.text = name;
+    cell.bookWriter.text = author;
     cell.bookImg.frame = CGRectMake(0,0,80,70);
     cell.bookImg.image = img;
     
