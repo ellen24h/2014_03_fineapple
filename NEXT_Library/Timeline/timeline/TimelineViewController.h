@@ -11,6 +11,8 @@
 #import "timelineButton.h"
 #import "timelineTabButton.h"
 #import "TimelineModel.h"
+#import "TimelineTabController.h"
+#import "TimelineTableView.h"
 
 #define NAMELABEL_HEIGHT 20
 #define NAMELABEL_TAG 100
@@ -21,6 +23,9 @@
 #define ICON_SIZE 15
 #define WHITE_OPACITY 0.9
 #define POST_RANGE {0,47}
+
+#define TIMELINE 0
+#define MYPOST 1
 
 //colors : RGBValue
 #define FINE_GREEN 0x19BDC4
@@ -34,8 +39,10 @@
     NSArray * timelineJsonData;
     NSDictionary * timelineRowData;
     NSInteger numOfRow;
+    NSInteger focusedTab;
+    TimelineModel * model;
 }
-@property (weak, nonatomic) IBOutlet UITableView *timelineTableView;
+@property (weak, nonatomic) IBOutlet TimelineTableView *timelineTableView;
 @property (weak, nonatomic) IBOutlet timelineTabButton *timelineButton;
 @property (weak, nonatomic) IBOutlet timelineTabButton *mypostButton;
 

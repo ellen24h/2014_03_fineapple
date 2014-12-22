@@ -23,8 +23,8 @@
     return self;
 }
 
--(void)getTimelineJsonFromServer{
-    [request setURL:[url URLByAppendingPathComponent:@"/timeline"]];
+-(void)getJsonFromServer:(NSString *)appRoute{
+    [request setURL:[url URLByAppendingPathComponent:appRoute]];
     NSLog(@"%@",request.URL);
     NSURLConnection * connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
     if(connection){

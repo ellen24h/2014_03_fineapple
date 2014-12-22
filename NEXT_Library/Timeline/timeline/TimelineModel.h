@@ -18,5 +18,6 @@
     NSMutableData * timelineData;
 }
 -(id)initWithURLWithPortNum:(NSString *)IPAddr port:(NSString *)port;
--(void)getTimelineJsonFromServer;
+-(void)getJsonFromServer:(NSString *)appRoute;
+
 @end

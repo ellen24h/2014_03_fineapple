@@ -12,20 +12,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [_timelineButton setDelegate];
-    [_mypostButton setDelegate];
+    [_timelineButton registerNotiCenter];
+    [_mypostButton registerNotiCenter];
     [_timelineButton setStatus:ACTIVE];
-    
-    TimelineModel * model =[[TimelineModel alloc]initWithURLWithPortNum:[publicSetting getServerAddr] port:[publicSetting getPortNum]];
+    focusedTab = TIMELINE;
+    model =[[TimelineModel alloc]initWithURLWithPortNum:[publicSetting getServerAddr] port:[publicSetting getPortNum]];
     NSNotificationCenter * notiCenter = [NSNotificationCenter defaultCenter];
     [notiCenter addObserver:self selector:@selector(setJsonDataAsClassVariable:) name:@"timelineJsonReceived" object:nil];
     self.tabBarController.tabBar.frame = CGRectMake(0,0,0,0);
     _timelineTableView.backgroundColor = UIColorFromRGB(FINE_BEIGE);
+    _timelineTableView.delegate = _timelineTableView;
     [publicSetting setLoadingAnimation:self];
-    [model getTimelineJsonFromServer];
-   
-
+    [model getJsonFromServer:@"/timeline"];
+    
 }
+
+- (IBAction)tabChange:(id)sender {
+    timelineTabButton * button = sender;
+    if([button getStatus] != ACTIVE){
+        if(focusedTab == TIMELINE){
+            focusedTab = MYPOST;
+            [publicSetting setLoadingAnimation:self];
+            [model getJsonFromServer:@"/mypost"];
+        }
+        else{
+            focusedTab = TIMELINE;
+            [publicSetting setLoadingAnimation:self];
+            [model getJsonFromServer:@"/timeline"];
+        }
+    }
+}
+
+
 
 
 - (void)setJsonDataAsClassVariable:(NSNotification *)notification{
@@ -184,8 +202,8 @@
     NSData * recvData;
     recvData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     NSString * recvData_str = [[NSString alloc]initWithData:recvData encoding:NSUTF8StringEncoding];
-    if([recvData_str rangeOfString:@"<error>"].location == NSNotFound ){
-    recvData_str = [[recvData_str componentsSeparatedByString:@"<item>"]objectAtIndex:1];    recvData_str = [[recvData_str componentsSeparatedByString:@"<title>"]objectAtIndex:1];
+    if([recvData_str rangeOfString:@"<item>"].location != NSNotFound ){
+        recvData_str = [[recvData_str componentsSeparatedByString:@"<item>"]objectAtIndex:1];    recvData_str = [[recvData_str componentsSeparatedByString:@"<title>"]objectAtIndex:1];
     recvData_str = [[recvData_str componentsSeparatedByString:@"</title>"]objectAtIndex:0];
     }
     else{
@@ -228,7 +246,6 @@
 -(void)setBackgroundImage:(UIView *)postContentView indexPath:(NSIndexPath *)indexPath{
     timelineRowData = [timelineJsonData objectAtIndex:indexPath.row];
     NSString * bookCoverImg = [timelineRowData objectForKey:@"postImg"];
-
     NSURL * imgURL = [NSURL URLWithString:bookCoverImg];
     NSData * imgData = [NSData dataWithContentsOfURL:imgURL];
     UIImageView * backgroundImageView = [[UIImageView alloc]initWithImage:[UIImage imageWithData:imgData]];

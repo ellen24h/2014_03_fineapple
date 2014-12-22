@@ -7,31 +7,41 @@
 //
 
 #import "timelineTabButton.h"
-#import "publicSetting.h"
-@implementation timelineTabButton
 
--(void)setButtonName:(NSString *)name{
-    buttonName = [[NSString alloc]initWithString:name];
-}
+@implementation timelineTabButton
 
 -(void)setStatus:(int)newStatus{
     status = newStatus;
-    [[NSNotificationCenter defaultCenter]postNotificationName:[NSString stringWithFormat:@"%@Touched",buttonName] object:self];
-     }
-
--(void)setDelegate{
- [self addTarget:self action:@selector(touched) forControlEvents:UIControlEventTouchUpInside];
+    if(newStatus == INACTIVE)
+        self.backgroundColor = UIColorFromRGB(INACTIVE_COLOR);
+    else
+        self.backgroundColor = UIColorFromRGB(ACTIVE_COLOR);
 }
 
--(void)touched{
+-(void)registerNotiCenter{
+    [self addTarget:self action:@selector(tabButtonTouched) forControlEvents:UIControlEventTouchUpInside];
+    NSNotificationCenter * noti = [NSNotificationCenter defaultCenter];
+    [noti addObserver:self selector:@selector(touched:) name:@"tabButtonTouched" object:nil];
+}
+
+-(void)tabButtonTouched{
+    if(status == INACTIVE)
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"tabButtonTouched" object:self];
+}
+
+-(void)touched:(timelineTabButton *)touchedButton{
     if (status == INACTIVE){
-        status = ACTIVE;
-        self.backgroundColor = UIColorFromRGB(ACTIVE_COLOR);
+        [self setStatus:ACTIVE];
+        //타임라인, 내게시물 이라는 노티피케이션 등록
+        [[NSNotificationCenter defaultCenter]postNotificationName:self.titleLabel.text object:self.titleLabel.text];
+
     }
-    else{
-        status = INACTIVE;
-        self.backgroundColor = UIColorFromRGB(INACTIVE_COLOR);
-    }
+    else
+        [self setStatus:INACTIVE];
+}
+
+-(int)getStatus{
+    return status;
 }
 
 @end

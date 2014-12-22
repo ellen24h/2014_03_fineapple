@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "timelineTabButton.h"
+
 
 @interface TimelineTabController : UITabBarController
 
 @property (weak, nonatomic) IBOutlet UITabBar *timelineTabBar;
+
 
 @end

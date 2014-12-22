@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "publicSetting.h"
 
 #define INACTIVE 0
 #define ACTIVE 1
@@ -19,10 +20,11 @@
 {
 @private
     int status;
-    NSString * buttonName;
 }
--(void)setStatus:(int)newStatus;
--(void)setDelegate;
--(void)touched;
 
+-(void)setStatus:(int)newStatus;
+-(void)registerNotiCenter;
+-(void)touched:(timelineTabButton *)touchedButton;
+-(void)tabButtonTouched;
+-(int)getStatus;
 @end
