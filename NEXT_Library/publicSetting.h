@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "LoadScene.h"
 
-#define SERVER_ADDR @"0.0.0.0"
+#define SERVER_ADDR @"10.73.45.83"
 #define SERVER_PORT @"5013"
 //// loading화면 tag 상수 설정
 #define LOADING_IMG_VIEW 4
