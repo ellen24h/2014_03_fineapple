@@ -499,7 +499,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kg7-cW-qPu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="686" y="21"/>
+            <point key="canvasLocation" x="579" y="29"/>
         </scene>
         <!--Your Library Table View Controller-->
         <scene sceneID="VE3-F5-Asr">
@@ -610,7 +610,7 @@
                     <connections>
                         <outlet property="mypostButton" destination="FZw-q9-4SZ" id="UKy-rI-koS"/>
                         <outlet property="timelineButton" destination="zF0-Mj-0MJ" id="4Xx-8p-8fr"/>
-                        <outlet property="timelineTableView" destination="4g3-ib-NeZ" id="vgH-wp-JAE"/>
+                        <outlet property="timelineTableView" destination="4g3-ib-NeZ" id="nZM-47-IeO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1y-Gn-EtY" userLabel="First Responder" sceneMemberID="firstResponder"/>

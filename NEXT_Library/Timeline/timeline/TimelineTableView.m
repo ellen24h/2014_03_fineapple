@@ -13,14 +13,16 @@
     float scrollViewHeight = scrollView.frame.size.height;
     float scrollContentSizeHeight = scrollView.contentSize.height;
     float scrollOffset = scrollView.contentOffset.y;
-    
-    if (scrollOffset == 0)
+
+    if (scrollOffset + scrollViewHeight == scrollContentSizeHeight)
     {
-        // then we are at the top
-    }
-    else if (scrollOffset + scrollViewHeight == scrollContentSizeHeight)
-    {
-        NSLog(@"END");
+        //이부분 만약 TimelineModle을 싱글톤으로 구현하면 좋을것 같다.
+        TimelineModel * model = [TimelineModel sharedTimelineModel];
+        NSInteger curTab = [model getCurTab];
+        if(curTab == TIMELINE_DATATYPE)
+            [model getJsonFromServer:@"/timeline"];
+        else
+            [model getJsonFromServer:@"/mypost"];
     }
 }
 

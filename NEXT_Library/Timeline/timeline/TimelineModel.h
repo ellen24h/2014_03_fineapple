@@ -10,14 +10,24 @@
 #import <UIKIt/UIKIt.h>
 #import "publicSetting.h"
 
+#define TIMELINE_DATATYPE 0
+#define MYPOST_DATATYPE 1
+
 @interface TimelineModel : NSObject
 {
 @private
     NSURL * url;
     NSMutableURLRequest * request;
+    NSInteger dataType;
+    NSMutableArray * timelineData_arr;
+    NSMutableArray * mypostData_arr;
     NSMutableData * timelineData;
+    NSMutableData * mypostData;
+    NSInteger lastTimelineId;
+    NSInteger lastMypostId;
 }
++(id)sharedTimelineModel;
 -(id)initWithURLWithPortNum:(NSString *)IPAddr port:(NSString *)port;
 -(void)getJsonFromServer:(NSString *)appRoute;
-
+-(NSInteger)getCurTab;
 @end

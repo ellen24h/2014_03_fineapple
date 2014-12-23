@@ -42,8 +42,9 @@
     NSInteger focusedTab;
     TimelineModel * model;
 }
+
 @property (weak, nonatomic) IBOutlet TimelineTableView *timelineTableView;
-@property (weak, nonatomic) IBOutlet timelineTabButton *timelineButton;
-@property (weak, nonatomic) IBOutlet timelineTabButton *mypostButton;
+@property (weak, nonatomic) IBOutlet timelineTabButton * timelineButton;
+@property (weak, nonatomic) IBOutlet timelineTabButton * mypostButton;
 
 @end

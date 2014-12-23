@@ -16,7 +16,6 @@
 +(NSString *)getPortNum{
     return SERVER_PORT;
 }
-
 +(NSString *)getNaverBooksKey{
     return NAVERBOOKS_KEY;
 }

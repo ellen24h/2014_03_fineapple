@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TimelineTableView.h"
+#import "TimelineModel.h"
+#import "publicSetting.h"
 
 @interface TimelineTableView : UITableView<UIScrollViewDelegate>
 
 @end
+

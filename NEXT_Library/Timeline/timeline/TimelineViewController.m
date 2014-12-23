@@ -16,7 +16,7 @@
     [_mypostButton registerNotiCenter];
     [_timelineButton setStatus:ACTIVE];
     focusedTab = TIMELINE;
-    model =[[TimelineModel alloc]initWithURLWithPortNum:[publicSetting getServerAddr] port:[publicSetting getPortNum]];
+    model = [TimelineModel sharedTimelineModel];
     NSNotificationCenter * notiCenter = [NSNotificationCenter defaultCenter];
     [notiCenter addObserver:self selector:@selector(setJsonDataAsClassVariable:) name:@"timelineJsonReceived" object:nil];
     self.tabBarController.tabBar.frame = CGRectMake(0,0,0,0);
@@ -24,7 +24,6 @@
     _timelineTableView.delegate = _timelineTableView;
     [publicSetting setLoadingAnimation:self];
     [model getJsonFromServer:@"/timeline"];
-    
 }
 
 - (IBAction)tabChange:(id)sender {
@@ -43,16 +42,12 @@
     }
 }
 
-
-
-
 - (void)setJsonDataAsClassVariable:(NSNotification *)notification{
     timelineJsonData = notification.object;
     numOfRow = timelineJsonData.count;
     _timelineTableView.dataSource = self;
     [publicSetting removeLoadingAnimation:self];
     [_timelineTableView reloadData];
-
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
