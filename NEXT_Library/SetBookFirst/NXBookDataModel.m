@@ -20,6 +20,8 @@
     NSString *author;
     NSString *cover_img;
     NSString *book_num;
+    NSMutableArray *readObject;
+    NSMutableArray *wishObject;
 }
 
 @end
@@ -102,6 +104,10 @@
 }
 - (NSMutableArray *) returnMutableArray{
     return myObject;
+}
+
+- (void)setReadbook:(NSInteger)row {
+    
 }
 
 @end

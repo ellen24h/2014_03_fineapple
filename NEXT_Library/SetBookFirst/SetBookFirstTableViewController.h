@@ -10,6 +10,7 @@
 #import "publicSetting.h"
 #import "NXBookDataModel.h"
 #import "BookTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface SetBookFirstTableViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource> {
     IBOutlet UITableView *tableData;

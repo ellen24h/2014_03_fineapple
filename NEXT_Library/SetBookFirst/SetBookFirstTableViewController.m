@@ -7,6 +7,7 @@
 //
 
 #import "SetBookFirstTableViewController.h"
+#import "UIImageView+WebCache.h"
 
 
 @interface SetBookFirstTableViewController ()
@@ -64,14 +65,17 @@
               [tmpDict objectForKey:@"cover_img"]];
     
     NSURL *url = [NSURL URLWithString:[tmpDict objectForKey:@"cover_img"]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *img = [[UIImage alloc]initWithData:data];
-    
+    //NSData *data = [NSData dataWithContentsOfURL:url];
+    //UIImage *img = [[UIImage alloc]initWithData:data];
+    cell.view.backgroundColor = [UIColor whiteColor];
     cell.bookTitle.text = name;
     cell.bookWriter.text = author;
     cell.bookImg.frame = CGRectMake(0,0,80,70);
-    cell.bookImg.image = img;
+    cell.readBook.tag = indexPath.row;
+    cell.wishBook.tag = indexPath.row;
+    //cell.bookImg.image = img;
     
+    [cell.bookImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"Null"]];
     
     return cell;
 }
@@ -79,6 +83,17 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 151;
 }
+
+- (IBAction)action_read:(id)sender {
+    UIButton * read_Button = sender;
+    if (read_Button.selected == NO){
+        read_Button.selected = YES;
+        
+    } else {
+        read_Button.selected = NO;
+    }
+}
+
 - (IBAction)doneButtonTouch:(id)sender {
     [LoadScene loadSceneByPush:self loadSceneName:@"MainTab"];
 }
