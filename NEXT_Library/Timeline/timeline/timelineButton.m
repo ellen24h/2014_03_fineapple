@@ -7,8 +7,7 @@
 //
 
 #import "timelineButton.h"
-#define INACTIVE 0
-#define ACTIVE 1
+
 
 
 @implementation timelineButton
@@ -22,20 +21,32 @@
 }
 
 -(void)touched{
+    
     if(status == ACTIVE){
         [self setStatus:INACTIVE];
     }
     else{
         [self setStatus:ACTIVE];
     }
+    //like, scrap버튼을 눌렀을 경우
+    if([[buttonName objectAtIndex:0] rangeOfString:@"comment"].location == NSNotFound){
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"timelineLikeScrapButtonTouched" object:self];}
+    //comment버튼을 눌렀을 경우
+    else
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"timelineCommentButtonTouched" object:self];
 }
 
 -(int)getStatus{
     return status;
 }
+
 -(void)setStatus:(int)newStatus{
     status = newStatus;
     [self setImage:[UIImage imageNamed:[buttonName objectAtIndex:status]] forState:UIControlStateNormal];
+}
+
+-(NSArray *)getButtonName{
+    return buttonName;
 }
 
 

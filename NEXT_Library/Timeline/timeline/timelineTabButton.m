@@ -32,7 +32,7 @@
 -(void)touched:(timelineTabButton *)touchedButton{
     if (status == INACTIVE){
         [self setStatus:ACTIVE];
-        //타임라인, 내게시물 이라는 노티피케이션 등록
+        //"타임라인", "내게시물" 노티피케이션 등록
         [[NSNotificationCenter defaultCenter]postNotificationName:self.titleLabel.text object:self.titleLabel.text];
     }
     else

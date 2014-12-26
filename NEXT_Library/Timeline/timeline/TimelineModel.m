@@ -23,12 +23,15 @@
 -(id)initWithURLWithPortNum:(NSString *)IPAddr port:(NSString *)port{
     if([super init]){
         NSString * addr = [NSString stringWithFormat:@"http://%@:%@",IPAddr,port];
+        NSNotificationCenter * noti = [NSNotificationCenter defaultCenter];
+        [noti addObserver:self selector:@selector(timelineLikeScrapButtonTouched:) name:@"timelineLikeScrapButtonTouched" object:nil];
         url = [[NSURL alloc]initWithString:addr];
         request = [[NSMutableURLRequest alloc]initWithURL:url];
         request.HTTPMethod = @"POST";
         [request setValue:@"applcation/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         timelineData_arr = [[NSMutableArray alloc]init];
         mypostData_arr = [[NSMutableArray alloc]init];
+        myLikeData_dic = [[NSMutableDictionary alloc]init];
         lastTimelineId = -1;
         lastMypostId = -1;
     }
@@ -36,22 +39,45 @@
     return self;
 }
 
+-(void)timelineLikeScrapButtonTouched:(NSNotification *)notification{
+    [request setURL:[url URLByAppendingPathComponent:@"/timelineButton"]];
+    timelineButton * button = notification.object;
+
+    //action : active / inactive
+    NSUInteger action = [button getStatus];
+    //type : buttonType (like, scrap)
+    NSString * type = [[button getButtonName] objectAtIndex:0];
+    type = [type stringByReplacingOccurrencesOfString:@"_inactive.png" withString:@""];
+    //key : postId
+    NSUInteger key = button.tag;
+
+    NSString * sendData_str = [[NSString alloc]initWithFormat:@"action=%d&type=%@&key=%d",action,type,key];
+    NSData * sendData = [sendData_str dataUsingEncoding:NSUTF8StringEncoding];
+    [request setValue:nil forHTTPHeaderField:@"Count"];
+    [request setHTTPBody:sendData];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    NSURLResponse * response;
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+}
+
 -(void)getJsonFromServer:(NSString *)appRoute{
     [request setURL:[url URLByAppendingPathComponent:appRoute]];
     if([appRoute isEqualToString:@"/timeline"] == YES){
         dataType = TIMELINE_DATATYPE;
         timelineData = [[NSMutableData alloc]init];
-        [request setValue:[NSString stringWithFormat:@"%d;",lastTimelineId] forHTTPHeaderField:@"Count"];
+        [request setValue:[NSString stringWithFormat:@"%d",lastTimelineId] forHTTPHeaderField:@"Count"];
     }
     else{
         dataType = MYPOST_DATATYPE;
         mypostData = [[NSMutableData alloc]init];
-        [request setValue:[NSString stringWithFormat:@"%d;",lastMypostId] forHTTPHeaderField:@"Count"];
+        [request setValue:[NSString stringWithFormat:@"%d",lastMypostId] forHTTPHeaderField:@"Count"];
     }
     NSLog(@"query to : %@",request.URL);
     NSURLConnection * connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
     if(connection){
         NSLog(@"ConnectionSuccess");
+        [request setValue:[NSString stringWithFormat:@"%d",lastMypostId] forHTTPHeaderField:@"Count"];
     }
     else{
         NSLog(@"ConnectionFail");
@@ -78,14 +104,14 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection{
     NSError * error;
     NSArray * data_arr;
-    
+    [myLikeData_dic addEntriesFromDictionary:[self getMyLikeInfo]];
     if(dataType == TIMELINE_DATATYPE){
         data_arr = [NSJSONSerialization JSONObjectWithData:timelineData options:kNilOptions error:&error];
        [timelineData_arr addObjectsFromArray:data_arr];
         if(data_arr.count > 0){
             lastTimelineId = [[[data_arr objectAtIndex:data_arr.count-1] objectForKey:@"postId"] integerValue];
         }
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"timelineJsonReceived" object:timelineData_arr];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"timelineJsonReceived" object:timelineData_arr userInfo:myLikeData_dic];
     }
     else{
         data_arr = [NSJSONSerialization JSONObjectWithData:mypostData options:kNilOptions error:&error];
@@ -93,8 +119,22 @@
         if(data_arr.count > 0){
             lastMypostId = [[[data_arr objectAtIndex:data_arr.count-1] objectForKey:@"postId"] integerValue];
         }
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"timelineJsonReceived" object:mypostData_arr];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"timelineJsonReceived" object:mypostData_arr userInfo:myLikeData_dic];
     }
+}
+
+-(NSDictionary *)getMyLikeInfo{
+    NSDictionary * likeInfo_dic;
+    NSData * likeInfo;
+    
+    [request setURL:[url URLByAppendingPathComponent:@"/getMyLikePostInfo"]];
+    [request setValue:nil forHTTPHeaderField:@"Count"];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    NSURLResponse * response;
+    likeInfo = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    likeInfo_dic = [NSJSONSerialization JSONObjectWithData:likeInfo options:kNilOptions error:nil];
+    return likeInfo_dic;
 }
 
 

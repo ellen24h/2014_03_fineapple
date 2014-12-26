@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKIt/UIKIt.h>
 #import "publicSetting.h"
+#import "timelineButton.h"
 
 #define TIMELINE_DATATYPE 0
 #define MYPOST_DATATYPE 1
@@ -21,6 +22,7 @@
     NSInteger dataType;
     NSMutableArray * timelineData_arr;
     NSMutableArray * mypostData_arr;
+    NSMutableDictionary * myLikeData_dic;
     NSMutableData * timelineData;
     NSMutableData * mypostData;
     NSInteger lastTimelineId;
@@ -30,4 +32,5 @@
 -(id)initWithURLWithPortNum:(NSString *)IPAddr port:(NSString *)port;
 -(void)getJsonFromServer:(NSString *)appRoute;
 -(NSInteger)getCurTab;
+-(NSDictionary *)getMyLikeInfo;
 @end

@@ -16,9 +16,7 @@
 
 #define NAMELABEL_HEIGHT 20
 #define NAMELABEL_TAG 100
-#define LIKEICON_TAG 101
-#define SCRAPICON_TAG 102
-#define COMMENTICON_TAG 103
+#define ADDTIONALINFO_TAG 11
 #define CELL_HEIGHT 400
 #define ICON_SIZE 15
 #define WHITE_OPACITY 0.9
@@ -38,6 +36,7 @@
     @private
     NSArray * timelineJsonData;
     NSDictionary * timelineRowData;
+    NSDictionary * likeData;
     NSInteger numOfRow;
     NSInteger focusedTab;
     TimelineModel * model;

@@ -385,7 +385,7 @@
                 <tabBarController storyboardIdentifier="MainTab" id="rmn-ch-ovb" customClass="MainTabViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="2oW-4R-8bM"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="6tP-2o-cn4">
@@ -444,9 +444,10 @@
         <!--Timeline Tab Controller-->
         <scene sceneID="Xvs-eZ-zfg">
             <objects>
-                <tabBarController id="xJF-g2-HWC" customClass="TimelineTabController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Timeline" id="xJF-g2-HWC" customClass="TimelineTabController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <tabBarItem key="tabBarItem" title="" image="timeline_icon.png" id="rtX-Tb-U6s"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="top" id="kqM-D9-ray">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

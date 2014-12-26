@@ -19,11 +19,32 @@
     model = [TimelineModel sharedTimelineModel];
     NSNotificationCenter * notiCenter = [NSNotificationCenter defaultCenter];
     [notiCenter addObserver:self selector:@selector(setJsonDataAsClassVariable:) name:@"timelineJsonReceived" object:nil];
+    [notiCenter addObserver:self selector:@selector(timelineLikeScrapButtonTouched:) name:@"timelineLikeScrapButtonTouched" object:nil];
+    [notiCenter addObserver:self selector:@selector(loadPostDetailPage:) name:@"timelineCommentButtonTouched" object:nil];
+    
     self.tabBarController.tabBar.frame = CGRectMake(0,0,0,0);
     _timelineTableView.backgroundColor = UIColorFromRGB(FINE_BEIGE);
     _timelineTableView.delegate = _timelineTableView;
     [publicSetting setLoadingAnimation:self];
     [model getJsonFromServer:@"/timeline"];
+}
+
+-(void)loadPostDetailPage:(NSNotification *)noti{
+    timelineButton * button = noti.object;
+}
+-(void)timelineLikeScrapButtonTouched:(NSNotification *)noti{
+    timelineButton * button = noti.object;
+    NSUInteger postId = button.tag;
+    NSUInteger status = [button getStatus];
+    UILabel * label = [self.view viewWithTag:postId*100 + ADDTIONALINFO_TAG];
+    NSUInteger labelValue = [label.text integerValue];
+    //INACTIVE
+    if (status == 0) {
+        label.text = [NSString stringWithFormat:@"%d",labelValue-1];
+    }
+    else{
+       label.text = [NSString stringWithFormat:@"%d",labelValue+1];
+    }
 }
 
 - (IBAction)tabChange:(id)sender {
@@ -44,6 +65,7 @@
 
 - (void)setJsonDataAsClassVariable:(NSNotification *)notification{
     timelineJsonData = notification.object;
+    likeData = notification.userInfo;
     numOfRow = timelineJsonData.count;
     _timelineTableView.dataSource = self;
     [publicSetting removeLoadingAnimation:self];
@@ -71,22 +93,43 @@
 }
 
 -(void)setButtons:(UIView *)postContentView indexPath:(NSIndexPath *)indexPath{
+    timelineRowData = [timelineJsonData objectAtIndex:indexPath.row];
+    NSUInteger postId =[[timelineRowData objectForKey:@"postId"] integerValue];
     CGFloat fullWidth = postContentView.frame.size.width;
     CGFloat fullHeight = postContentView.frame.size.height;
     UIView * buttonSet = [[UIView alloc]initWithFrame:CGRectMake(0, fullHeight*0.94, fullWidth, fullHeight*0.06)];
     buttonSet.backgroundColor = UIColorFromRGB(FINE_GREEN);
     [postContentView addSubview:buttonSet];
     
+    
     UIButton * likeButton = [[timelineButton alloc]initWithButtonName:@"like_inactive" activeButtonImg:@"like_active"];
     likeButton.frame = CGRectMake(5, buttonSet.frame.size.height*0.07, fullWidth*0.25, buttonSet.frame.size.height*0.85);
-    [buttonSet addSubview:likeButton];
+    likeButton.tag = postId;
+    if([likeData objectForKey:[NSString stringWithFormat:@"%d",postId]] != nil){
+        timelineButton * likeButton_ = likeButton;
+        [likeButton_ setStatus:1];
+        [buttonSet addSubview:likeButton_];
+    }
+    else{
+        [buttonSet addSubview:likeButton];
+    }
+    
     
     UIButton * scrapButton = [[timelineButton alloc]initWithButtonName:@"scrap_inactive" activeButtonImg:@"scrap_active"];
     scrapButton.frame = CGRectMake(fullWidth*0.355, buttonSet.frame.size.height*0.07, fullWidth*0.25, buttonSet.frame.size.height*0.85);
-    [buttonSet addSubview:scrapButton];
+    scrapButton.tag = postId;
+    if([timelineRowData objectForKeyedSubscript:@"scrapByMe"] != nil){
+        timelineButton * scrapButton_ = scrapButton;
+        [scrapButton_ setStatus:1];
+        [buttonSet addSubview:scrapButton_];
+    }
+    else{
+        [buttonSet addSubview:scrapButton];
+    }
     
     UIButton * commentButton = [[timelineButton alloc]initWithButtonName:@"comment_inactive" activeButtonImg:@"comment_active"];
     commentButton.frame =  CGRectMake(fullWidth*0.70, buttonSet.frame.size.height*0.07, fullWidth*0.25, buttonSet.frame.size.height*0.85);
+    commentButton.tag = postId;
     [buttonSet addSubview:commentButton];
 
 }
@@ -98,14 +141,13 @@
     NSString * commentUser = [timelineRowData objectForKey:@"comment1userName"];
     NSRange postRange;
     NSRange commentRange;
-
     if(postString.length >= 47){
         postRange.location = 0;
         postRange.length = 47;
     }
     else{
         postRange.location = 0;
-        postRange.length = postString.length-1;
+        postRange.length = postString.length;
     }
     if(commentString.length >= 35){
         commentRange.location = 0;
@@ -113,7 +155,7 @@
     }
     else{
         commentRange.location = 0;
-        commentRange.length = commentString.length-1;
+        commentRange.length = commentString.length;
     }
 
     CGFloat fullWidth = postContentView.frame.size.width;
@@ -253,41 +295,44 @@
     NSString * likeNumStr = [NSString stringWithFormat:@"%@",[timelineRowData objectForKey:@"like"]];
     NSString * scrapNumStr = [NSString stringWithFormat:@"%@",[timelineRowData objectForKey:@"scrap"]];
     NSString * commentNumStr = [NSString stringWithFormat:@"%@",[timelineRowData objectForKey:@"comment"]];
+    NSUInteger postId =[[timelineRowData objectForKey:@"postId"] integerValue];
+
     
     UIView * additionalInfoView = [[UIView alloc]initWithFrame:CGRectMake(nameLabel.frame.size.width*0.45, 0, nameLabel.frame.size.width*0.55,nameLabel.frame.size.height)];
     additionalInfoView.backgroundColor = UIColorFromRGB(FINE_GREEN);
+    additionalInfoView.tag = ADDTIONALINFO_TAG;
 
     UIImageView * like = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"like_icon.png"]];
     like.frame = CGRectMake(0,2.5,ICON_SIZE,ICON_SIZE);
-    like.tag = LIKEICON_TAG;
     [additionalInfoView addSubview:like];
     
     UILabel * likeNum =[[UILabel alloc]initWithFrame:CGRectMake(ICON_SIZE+4, 2.5, ICON_SIZE, ICON_SIZE)];
     likeNum.text = likeNumStr;
     likeNum.textColor = [UIColor whiteColor];
     likeNum.font = [UIFont fontWithName:@"Helvetica" size:12];
-        [additionalInfoView addSubview:likeNum];
+    likeNum.tag = postId*100 + ADDTIONALINFO_TAG;
+    [additionalInfoView addSubview:likeNum];
     
     UIImageView * scrap = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"scrap_icon.png"]];
     scrap.frame = CGRectMake(ICON_SIZE*3,2.5,ICON_SIZE,ICON_SIZE);
-    scrap.tag = SCRAPICON_TAG;
     [additionalInfoView addSubview:scrap];
     
     UILabel * scrapNum =[[UILabel alloc]initWithFrame:CGRectMake(ICON_SIZE*4+4, 2.5, ICON_SIZE, ICON_SIZE)];
     scrapNum.text = scrapNumStr;
     scrapNum.textColor = [UIColor whiteColor];
     scrapNum.font = [UIFont fontWithName:@"Helvetica" size:12];
+    scrapNum.tag = postId*100 + ADDTIONALINFO_TAG;
     [additionalInfoView addSubview:scrapNum];
     
     UIImageView * comment = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"comment_icon.png"]];
     comment.frame = CGRectMake(ICON_SIZE*6,2.5,ICON_SIZE,ICON_SIZE);
-    comment.tag = COMMENTICON_TAG;
     [additionalInfoView addSubview:comment];
     
     UILabel * commentNum =[[UILabel alloc]initWithFrame:CGRectMake(ICON_SIZE*7+4, 2.5, ICON_SIZE, ICON_SIZE)];
     commentNum.text = commentNumStr;
     commentNum.textColor = [UIColor whiteColor];
     commentNum.font = [UIFont fontWithName:@"Helvetica" size:12];
+    commentNum.tag = postId*100 + ADDTIONALINFO_TAG;
     [additionalInfoView addSubview:commentNum];
   
     [nameLabel addSubview:additionalInfoView];
