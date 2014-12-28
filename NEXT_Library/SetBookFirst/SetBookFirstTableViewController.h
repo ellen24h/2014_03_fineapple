@@ -13,8 +13,13 @@
 #import "UIImageView+WebCache.h"
 
 @interface SetBookFirstTableViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource> {
-    IBOutlet UITableView *tableData;
+    IBOutlet UITableView * _tableData;
     NXBookDataModel * model;
+    NSMutableArray * myObject;
+    NSMutableArray * arrRead;
+    NSMutableArray * arrWish;
+    NSMutableSet * setRead;
+    NSMutableSet * setWish;
 }
 
 @property (nonatomic, strong) NSMutableArray *letterData;

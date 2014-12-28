@@ -12,6 +12,15 @@
 
 @implementation BookTableViewCell
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.bookImg.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    return self;
+}
+
 - (void)awakeFromNib {
     
 }

@@ -9,26 +9,32 @@
 #import <Foundation/Foundation.h>
 #import "publicSetting.h"
 
-@class Book;
-
-@interface NXBookDataModel : NSObject
-{
-@private
+@interface NXBookDataModel : NSObject {
+    // for server connect
     NSURL * url;
     NSMutableURLRequest * request;
     NSData * resultData;
     NSString * registerData;
+    
+    // for Real Data Model
+    NSMutableArray *myObject;
+    NSDictionary *dictionary;
+    NSString *name;
+    NSString *author;
+    NSString *cover_img;
+    NSString *book_num;
+    NSString *ISBN;
 }
+
 @property (nonatomic, copy) NSString *bookTitle;
 @property (nonatomic, copy) NSString *bookAuthor;
 @property (nonatomic, copy) NSString *imgPath;
-@property (nonatomic, readonly) NSMutableArray *bookList; // 테스트용 배열
 
+@property (nonatomic, readonly) NSMutableArray *bookList; // for set book first table test
++(id)sharedTimelineModel;
 -(id) initWithURLwithPort:(NSString *)URL port:(NSString *)port;
 -(void) getBookData;
 - (NSUInteger)bookCount;
-- (Book *)bookAtIndex: (NSUInteger)index;
-- (void) initializeDefaultBook;
 - (NSMutableArray *) returnMutableArray;
 
 @end

@@ -11,42 +11,17 @@
 #import "publicSetting.h"
 
 @interface NXBookDataModel()
-{
-    NSMutableArray *myObject;
-    // A dictionary object
-    NSDictionary *dictionary;
-    // Define keys
-    NSString *name;
-    NSString *author;
-    NSString *cover_img;
-    NSString *book_num;
-    NSMutableArray *readObject;
-    NSMutableArray *wishObject;
-}
-
 @end
 
 @implementation NXBookDataModel
 
--(id)init {
-    self = [super init];
-    
-    if (self) {
-        _bookTitle = self.bookTitle;
-        _bookAuthor = self.bookAuthor;
-        _imgPath = self.imgPath;
-        _bookList = [[NSMutableArray alloc] init];
-        
-        name = @"name";
-        author = @"author";
-        cover_img = @"cover_img";
-        book_num = @"book_num";
-        myObject = [[NSMutableArray alloc] init];
-        
-        [self initializeDefaultBook];
-        return self;
-    }
-    return nil;
++(id)sharedTimelineModel{
+    static NXBookDataModel * model = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken,^{
+        model = [[self alloc] initWithURLwithPort:[publicSetting getServerAddr] port:[publicSetting getPortNum]];
+    });
+    return model;
 }
 
 -(id) initWithURLwithPort:(NSString *)URL port:(NSString *)port{
@@ -65,17 +40,18 @@
         author = @"author";
         cover_img = @"cover_img";
         book_num = @"book_num";
+        ISBN = @"ISBN";
         myObject = [[NSMutableArray alloc] init];
-        
-        //[request setValue:@"applcation/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-        //위에 코드는 에러가 자주남.....ㅠㅠ
     }
     return self;
 }
 
--(void) getBookData{
-    [request setURL:[url URLByAppendingPathComponent:@"/setBookFirst"]];
+-(void) getBookData {
+    
+    [request setURL:[url URLByAppendingPathComponent:@"/setBookFirst"]]; // 책정보를 어디서 가지고 올 것인지...
     NSLog(@"현재 연결 url : %@", request.URL);
+    
+    // 책정보 받아서 (해당 부분은 서버에서 json file로 보냄) json 형태로 파싱하여 데이터를 저장.
     NSData *jsonSource =  [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonSource options:kNilOptions error:nil];
     
@@ -84,8 +60,9 @@
         NSString *author_data = [dataDict objectForKey:@"author"];
         NSString *cover_img_data = [dataDict objectForKey:@"cover_img"];
         NSString *book_num_data = [dataDict objectForKey:@"book_num"];
+        NSString *ISBN_data = [dataDict objectForKey:@"ISBN"];
         
-        NSLog(@"name: %@",name);
+        NSLog(@"name: %@",name_data);
         NSLog(@"author: %@",author_data);
         NSLog(@"cover_img: %@",cover_img_data);
         NSLog(@"book_num: %@",book_num_data);
@@ -95,19 +72,20 @@
                       author_data, author,
                       cover_img_data, cover_img,
                       book_num_data, book_num,
+                      ISBN_data, ISBN,
                       nil];
         [myObject addObject:dictionary];
     }
 }
+
+// 전체 책 개수를 리턴하는 메소드인데... 왜 짰지?
 - (NSUInteger)bookCount{
     return myObject.count;
 }
+
+// 데이터가 저장된 myObject를 넘겨주는 작업을 하는 메소드?
 - (NSMutableArray *) returnMutableArray{
     return myObject;
-}
-
-- (void)setReadbook:(NSInteger)row {
-    
 }
 
 @end
