@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34219F621A3F048C0040CE38 /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34219F611A3F048C0040CE38 /* BookTableViewCell.m */; };
+		348052D61A4FD61F000FB72A /* DetailBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 348052D51A4FD61F000FB72A /* DetailBookViewController.m */; };
 		34F8D4551A2D6228000D257B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8D4541A2D6228000D257B /* main.m */; };
 		34F8D4581A2D6228000D257B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8D4571A2D6228000D257B /* AppDelegate.m */; };
 		34F8D45B1A2D6228000D257B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8D45A1A2D6228000D257B /* ViewController.m */; };
@@ -93,7 +94,6 @@
 		5CDF814C1A404DBF00E79AD9 /* PostingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF814B1A404DBF00E79AD9 /* PostingViewController.m */; };
 		5CDF81501A404E2500E79AD9 /* YourLibraryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF814F1A404E2500E79AD9 /* YourLibraryTableViewController.m */; };
 		5CDF81541A404E7300E79AD9 /* PostDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF81531A404E7300E79AD9 /* PostDetailTableViewController.m */; };
-		5CDF81581A404EE800E79AD9 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF81571A404EE800E79AD9 /* BookDetailViewController.m */; };
 		5CDF815B1A40734300E79AD9 /* LoadScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF815A1A40734300E79AD9 /* LoadScene.m */; };
 		5CDF815D1A4073BF00E79AD9 /* LoadScene.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF815C1A40735A00E79AD9 /* LoadScene.h */; };
 		5CDF81621A4079CE00E79AD9 /* myLibrary_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDF815E1A4079CE00E79AD9 /* myLibrary_icon.png */; };
@@ -119,6 +119,8 @@
 /* Begin PBXFileReference section */
 		34219F601A3F048C0040CE38 /* BookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookTableViewCell.h; path = SetBookFirst/BookTableViewCell.h; sourceTree = "<group>"; };
 		34219F611A3F048C0040CE38 /* BookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookTableViewCell.m; path = SetBookFirst/BookTableViewCell.m; sourceTree = "<group>"; };
+		348052D41A4FD61F000FB72A /* DetailBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailBookViewController.h; path = BookDetail/DetailBookViewController.h; sourceTree = "<group>"; };
+		348052D51A4FD61F000FB72A /* DetailBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailBookViewController.m; path = BookDetail/DetailBookViewController.m; sourceTree = "<group>"; };
 		34F8D44F1A2D6228000D257B /* NEXT_Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEXT_Library.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F8D4531A2D6228000D257B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34F8D4541A2D6228000D257B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -229,8 +231,6 @@
 		5CDF814F1A404E2500E79AD9 /* YourLibraryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YourLibraryTableViewController.m; path = YourLibrary/YourLibraryTableViewController.m; sourceTree = "<group>"; };
 		5CDF81521A404E7300E79AD9 /* PostDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostDetailTableViewController.h; path = PostDetail/PostDetailTableViewController.h; sourceTree = "<group>"; };
 		5CDF81531A404E7300E79AD9 /* PostDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostDetailTableViewController.m; path = PostDetail/PostDetailTableViewController.m; sourceTree = "<group>"; };
-		5CDF81561A404EE800E79AD9 /* BookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookDetailViewController.h; path = BookDetail/BookDetailViewController.h; sourceTree = "<group>"; };
-		5CDF81571A404EE800E79AD9 /* BookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookDetailViewController.m; path = BookDetail/BookDetailViewController.m; sourceTree = "<group>"; };
 		5CDF815A1A40734300E79AD9 /* LoadScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadScene.m; path = PublicSetting/LoadScene.m; sourceTree = "<group>"; };
 		5CDF815C1A40735A00E79AD9 /* LoadScene.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = LoadScene.h; sourceTree = "<group>"; };
 		5CDF815E1A4079CE00E79AD9 /* myLibrary_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myLibrary_icon.png; path = MainTab/iconSource/myLibrary_icon.png; sourceTree = "<group>"; };
@@ -588,8 +588,8 @@
 		5CDF81551A404E9D00E79AD9 /* BookDetail */ = {
 			isa = PBXGroup;
 			children = (
-				5CDF81561A404EE800E79AD9 /* BookDetailViewController.h */,
-				5CDF81571A404EE800E79AD9 /* BookDetailViewController.m */,
+				348052D41A4FD61F000FB72A /* DetailBookViewController.h */,
+				348052D51A4FD61F000FB72A /* DetailBookViewController.m */,
 			);
 			name = BookDetail;
 			sourceTree = "<group>";
@@ -779,7 +779,6 @@
 				5CDF81251A40465800E79AD9 /* MyLibraryTabController.m in Sources */,
 				34F8D47B1A2D6313000D257B /* LoginViewController.m in Sources */,
 				5C8E43E61A401D6400A5AA38 /* SetBookFirstTableViewController.m in Sources */,
-				5CDF81581A404EE800E79AD9 /* BookDetailViewController.m in Sources */,
 				5CDF81461A404C8700E79AD9 /* TimelineTableViewController_mypost.m in Sources */,
 				5C8D13021A38560000628527 /* MainTabViewController.m in Sources */,
 				5C8E43ED1A401E1300A5AA38 /* InitProfileViewController.m in Sources */,
@@ -801,6 +800,7 @@
 				5CDF815D1A4073BF00E79AD9 /* LoadScene.h in Sources */,
 				34F8D4551A2D6228000D257B /* main.m in Sources */,
 				5CDF81421A404C3800E79AD9 /* TimelineTableViewController_timeline.m in Sources */,
+				348052D61A4FD61F000FB72A /* DetailBookViewController.m in Sources */,
 				5CDF81541A404E7300E79AD9 /* PostDetailTableViewController.m in Sources */,
 				34F8D47E1A2D6393000D257B /* RegisterEmailViewController.m in Sources */,
 			);
