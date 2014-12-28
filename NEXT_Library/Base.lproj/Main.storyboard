@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3E5-GQ-Mkz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="G8e-1O-46L">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -120,6 +120,22 @@
             </objects>
             <point key="canvasLocation" x="-1963" y="161"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hpk-GF-yZj">
+            <objects>
+                <navigationController id="G8e-1O-46L" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3ji-C1-04b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3E5-GQ-Mkz" kind="relationship" relationship="rootViewController" id="lCi-TC-EUf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OsA-E1-r1J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1188" y="-608"/>
+        </scene>
         <!--BOOK-->
         <scene sceneID="YAs-zW-IG3">
             <objects>
@@ -152,7 +168,7 @@
                                                     </state>
                                                     <state key="selected" image="read_active.png"/>
                                                     <connections>
-                                                        <action selector="action_read:" destination="3E5-GQ-Mkz" eventType="touchDown" id="hjF-TG-ABU"/>
+                                                        <action selector="action_read:" destination="3E5-GQ-Mkz" eventType="touchUpInside" id="9FH-el-ZbM"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYK-UF-mX9">
@@ -162,7 +178,7 @@
                                                     </state>
                                                     <state key="selected" image="wish_active.png"/>
                                                     <connections>
-                                                        <action selector="action_wish:" destination="3E5-GQ-Mkz" eventType="touchDown" id="Dlw-Yb-xMX"/>
+                                                        <action selector="action_wish:" destination="3E5-GQ-Mkz" eventType="touchUpInside" id="ikn-Hp-gpv"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="asd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWT-jZ-uQm">
@@ -219,7 +235,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4h1-Lj-gOt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-697" y="-51"/>
+            <point key="canvasLocation" x="-678" y="-598"/>
         </scene>
         <!--InitProfile-->
         <scene sceneID="zIZ-1D-aj4">
@@ -904,4 +920,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="lCi-TC-EUf"/>
+    </inferredMetricsTieBreakers>
 </document>

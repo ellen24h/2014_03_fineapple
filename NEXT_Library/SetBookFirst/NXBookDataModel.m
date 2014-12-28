@@ -66,6 +66,7 @@
         NSLog(@"author: %@",author_data);
         NSLog(@"cover_img: %@",cover_img_data);
         NSLog(@"book_num: %@",book_num_data);
+        NSLog(@"ISBN: %@", ISBN_data);
         
         dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                       name_data, name,

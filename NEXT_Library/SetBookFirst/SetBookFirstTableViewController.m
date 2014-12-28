@@ -66,6 +66,10 @@
     NSMutableString *cover_img;
     cover_img = [NSMutableString stringWithFormat:@"%@ ",
               [tmpDict objectForKey:@"cover_img"]];
+    
+    NSMutableString *ISBN;
+    ISBN = [NSMutableString stringWithFormat:@"%@", [tmpDict objectForKey:@"ISBN"]];
+    
 /*
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *img = [[UIImage alloc]initWithData:data];
@@ -79,8 +83,9 @@
     cell.bookTitle.text = name;
     cell.bookWriter.text = author;
     cell.bookImg.frame = CGRectMake(0,0,80,70);
-    cell.readBook.tag = indexPath.row;
-    cell.wishBook.tag = indexPath.row;
+    cell.readBook.tag = [ISBN integerValue];
+    cell.wishBook.tag = [ISBN integerValue];
+    
     //cell.bookImg.image = img;
     //위 방식으로 이미지를 보여준다면.. 이미지 데이터를 전부 받아 오는데 까지 테이블 셀을 만들지 않음.
     //SDWebImage Lib(?)을 이용.
@@ -97,33 +102,39 @@
 //read button을 touch하면 나타나는 Action
 - (IBAction)action_read:(id)sender {
     UIButton * read_Button = sender;
+    NSNumber * readTag = [NSNumber numberWithLong:[read_Button tag]];
     if (read_Button.selected == NO){
         read_Button.selected = YES;
-        NSNumber * readTag = [NSNumber numberWithLong:[read_Button tag]];
         NSLog(@"%@",readTag);
         [setRead addObject:readTag];
-        NSLog(@"%@", setRead);
     } else {
         read_Button.selected = NO;
+        [setRead removeObject:readTag];
     }
 }
-
-- (IBAction)Done:(id)sender {
-}
-
 
 //wish button을 touch하면 나타나는 Action
 - (IBAction)action_wish:(id)sender {
     UIButton * wish_Button = sender;
+    NSNumber * wishTag = [NSNumber numberWithLong:[wish_Button tag]];
     if (wish_Button.selected == NO) {
         wish_Button.selected = YES;
-        NSNumber * wishTag = [NSNumber numberWithLong:[wish_Button tag]];
         [setWish addObject:wishTag];
     } else {
         wish_Button.selected = NO;
+        [setWish removeObject:wishTag];
     }
 }
 
+
+- (IBAction)Done:(id)sender {
+    NSError* error;
+    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:setRead options:kNilOptions
+                        error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", jsonString);
+    
+}
 
 - (IBAction)doneButtonTouch:(id)sender {
     [LoadScene loadSceneByPush:self loadSceneName:@"MainTab"];
