@@ -43,6 +43,8 @@
 - (BookTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // 초기 cell 설정.
     static NSString *cellIdentifier = @"bookCell";
+    //BookTableViewCell *cell = [[BookTableViewCell alloc]init];
+
     BookTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
         cell = [[BookTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
@@ -89,6 +91,7 @@
     //cell.bookImg.image = img;
     //위 방식으로 이미지를 보여준다면.. 이미지 데이터를 전부 받아 오는데 까지 테이블 셀을 만들지 않음.
     //SDWebImage Lib(?)을 이용.
+    
     [cell.bookImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"Null"]];
     cell.bookImg.contentMode = UIViewContentModeScaleAspectFit;
     return cell;
@@ -100,9 +103,10 @@
 }
 
 //read button을 touch하면 나타나는 Action
-- (IBAction)action_read:(id)sender {
+- (IBAction)action_read:(UIButton *)sender {
+    NSNumber * readTag = [NSNumber numberWithLong:[sender tag]];
     UIButton * read_Button = sender;
-    NSNumber * readTag = [NSNumber numberWithLong:[read_Button tag]];
+    NSLog(@"%@",sender);
     if (read_Button.selected == NO){
         read_Button.selected = YES;
         NSLog(@"%@",readTag);
@@ -129,9 +133,11 @@
 
 - (IBAction)Done:(id)sender {
     NSError* error;
-    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:setRead options:kNilOptions
+    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:setRead options:0
                         error:&error];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSData *jsonSource =  [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSDictionary *jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonSource options:kNilOptions error:nil];
     NSLog(@"%@", jsonString);
     
 }
