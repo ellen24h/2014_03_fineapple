@@ -28,7 +28,7 @@
         url = [[NSURL alloc]initWithString:addr];
         request = [[NSMutableURLRequest alloc]initWithURL:url];
         request.HTTPMethod = @"POST";
-        [request setValue:@"applcation/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         timelineData_arr = [[NSMutableArray alloc]init];
         mypostData_arr = [[NSMutableArray alloc]init];
         myLikeData_dic = [[NSMutableDictionary alloc]init];
@@ -37,6 +37,16 @@
     }
 
     return self;
+}
+-(void)setLastMypostId:(NSUInteger)postId{
+    lastMypostId = postId;
+ 
+    if(postId == -1){
+        timelineData_arr = [[NSMutableArray alloc]init];
+        mypostData_arr = [[NSMutableArray alloc]init];
+        myLikeData_dic = [[NSMutableDictionary alloc]init];
+        lastTimelineId = -1;
+    }
 }
 
 -(void)timelineLikeScrapButtonTouched:(NSNotification *)notification{
@@ -56,7 +66,6 @@
     [request setValue:nil forHTTPHeaderField:@"Count"];
     [request setHTTPBody:sendData];
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     NSURLResponse * response;
     [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
 }
@@ -77,6 +86,7 @@
     NSURLConnection * connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
     if(connection){
         NSLog(@"ConnectionSuccess");
+        NSLog(@"lastMypostid : %d",lastMypostId);
         [request setValue:[NSString stringWithFormat:@"%d",lastMypostId] forHTTPHeaderField:@"Count"];
     }
     else{
@@ -130,7 +140,7 @@
     [request setURL:[url URLByAppendingPathComponent:@"/getMyLikePostInfo"]];
     [request setValue:nil forHTTPHeaderField:@"Count"];
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+   
     NSURLResponse * response;
     likeInfo = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     likeInfo_dic = [NSJSONSerialization JSONObjectWithData:likeInfo options:kNilOptions error:nil];

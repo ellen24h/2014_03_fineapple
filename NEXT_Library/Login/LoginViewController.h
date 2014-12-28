@@ -17,7 +17,7 @@
 //화면이 올라가고 내려가야하는데 그때 쓰는 상수값
 #define SCREEN_UP 1
 #define SCREEN_DOWN 0
-#define kOFFSET_FOR_KEYBOARD 80.0
+
 
 
 @interface LoginViewController : UIViewController

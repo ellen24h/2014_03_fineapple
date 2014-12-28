@@ -19,6 +19,9 @@
 +(NSString *)getNaverBooksKey{
     return NAVERBOOKS_KEY;
 }
++(NSString *)getNaverBooksAddrWithKey{
+    return NAVERBOOKS_ADDRWITHKEY;
+}
 //setLoadingAnimation
 //  로딩애니메이션을 띄운다.
 +(void)setLoadingAnimation:(UIViewController *) vc{
@@ -103,4 +106,6 @@
         backView = nil;
     }
 }
+
+
 @end

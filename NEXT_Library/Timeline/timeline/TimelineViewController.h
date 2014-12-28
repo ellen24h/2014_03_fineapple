@@ -25,11 +25,6 @@
 #define TIMELINE 0
 #define MYPOST 1
 
-//colors : RGBValue
-#define FINE_GREEN 0x19BDC4
-#define FINE_BEIGE 0xFFF6EE
-#define FINE_DARKGRAY 0x4D4D4D
-
 #define NAVERBOOKS_URL @"http://openapi.naver.com/search"
 @interface TimelineViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
@@ -45,5 +40,6 @@
 @property (weak, nonatomic) IBOutlet TimelineTableView *timelineTableView;
 @property (weak, nonatomic) IBOutlet timelineTabButton * timelineButton;
 @property (weak, nonatomic) IBOutlet timelineTabButton * mypostButton;
+@property (weak, nonatomic) IBOutlet UIButton *addPostingButton;
 
 @end

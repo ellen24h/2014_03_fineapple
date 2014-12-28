@@ -12,6 +12,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"timeline viewdidload");
     [_timelineButton registerNotiCenter];
     [_mypostButton registerNotiCenter];
     [_timelineButton setStatus:ACTIVE];
@@ -20,7 +21,8 @@
     NSNotificationCenter * notiCenter = [NSNotificationCenter defaultCenter];
     [notiCenter addObserver:self selector:@selector(setJsonDataAsClassVariable:) name:@"timelineJsonReceived" object:nil];
     [notiCenter addObserver:self selector:@selector(timelineLikeScrapButtonTouched:) name:@"timelineLikeScrapButtonTouched" object:nil];
-    [notiCenter addObserver:self selector:@selector(loadPostDetailPage:) name:@"timelineCommentButtonTouched" object:nil];
+    [notiCenter addObserver:self selector:@selector(timelineCommentButtonTouched:) name:@"timelineCommentButtonTouched" object:nil];
+     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshTimeline) name:@"postingDone" object:nil];
     
     self.tabBarController.tabBar.frame = CGRectMake(0,0,0,0);
     _timelineTableView.backgroundColor = UIColorFromRGB(FINE_BEIGE);
@@ -29,9 +31,27 @@
     [model getJsonFromServer:@"/timeline"];
 }
 
--(void)loadPostDetailPage:(NSNotification *)noti{
-    timelineButton * button = noti.object;
+-(void)refreshTimeline{
+    [model setLastMypostId:-1];
+    [publicSetting setLoadingAnimation:self];
+    [model getJsonFromServer:@"/timeline"];
 }
+
+-(void)timelineCommentButtonTouched:(NSNotification *)noti{
+    timelineButton * button  = noti.object;
+    UIView * backview = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    backview.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.8];
+    UIView * popupView = [[UIView alloc]initWithFrame:CGRectMake(backview.frame.size.width*0.05, 60, backview.frame.size.width*0.9, backview.frame.size.height*0.5)];
+    popupView.backgroundColor = UIColorFromRGB(FINE_BEIGE);
+    UITextView * commentTextView = [[UITextView alloc]initWithFrame:CGRectMake(popupView.frame.size.width*0.05,20, popupView.frame.size.width*0.9, popupView.frame.size.height*0.6)];
+    commentTextView.backgroundColor = [UIColor whiteColor];
+    commentTextView.textColor = UIColorFromRGB(FINE_DARKGRAY);
+    [backview addSubview:popupView];
+    [popupView addSubview:commentTextView];
+    
+    [self.view addSubview:backview];
+}
+
 -(void)timelineLikeScrapButtonTouched:(NSNotification *)noti{
     timelineButton * button = noti.object;
     NSUInteger postId = button.tag;
@@ -45,6 +65,11 @@
     else{
        label.text = [NSString stringWithFormat:@"%d",labelValue+1];
     }
+}
+- (IBAction)addPosting:(id)sender {
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController * controller = [storyboard instantiateViewControllerWithIdentifier:@"posting"];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (IBAction)tabChange:(id)sender {
@@ -217,11 +242,7 @@
         [postWithComment addSubview:commentText];
     }
     [postWithComment addSubview:line];
-   
-    
     [postContentView addSubview:postWithComment];
-    
-    
 }
 
 -(UIView *)setPostContentView:(UITableView * )tableView cell:(UITableViewCell *)cell{

@@ -33,4 +33,5 @@
 -(void)getJsonFromServer:(NSString *)appRoute;
 -(NSInteger)getCurTab;
 -(NSDictionary *)getMyLikeInfo;
+-(void)setLastMypostId:(NSUInteger)postId;
 @end

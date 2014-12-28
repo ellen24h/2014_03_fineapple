@@ -20,6 +20,7 @@
 		34F8D4871A2D692C000D257B /* inputBar_registerEmail.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F8D4841A2D692C000D257B /* inputBar_registerEmail.png */; };
 		34F8D4891A2D692C000D257B /* verticalBar_registerEamil.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F8D4861A2D692C000D257B /* verticalBar_registerEamil.png */; };
 		5C06316B1A36CF860009D042 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C06316A1A36CF860009D042 /* LoginModel.m */; };
+		5C18DAC51A4EF0F2005DDB70 /* postingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C18DAC41A4EF0F2005DDB70 /* postingModel.m */; };
 		5C2968331A35D3740029CBD0 /* TimelineTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2968321A35D3740029CBD0 /* TimelineTabController.m */; };
 		5C2C2A461A43F4F00040BCD9 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C2A451A43F4F00040BCD9 /* TimelineViewController.m */; };
 		5C2C2A491A44073E0040BCD9 /* like_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C2A481A44073E0040BCD9 /* like_icon.png */; };
@@ -39,6 +40,9 @@
 		5C2C2A6A1A44A13D0040BCD9 /* TimelineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C2A691A44A13D0040BCD9 /* TimelineModel.m */; };
 		5C2F51761A48873D009DA465 /* TimelineTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2F51751A48873D009DA465 /* TimelineTableView.m */; };
 		5C2F51771A48874A009DA465 /* TimelineTableView.h in Sources */ = {isa = PBXBuildFile; fileRef = 5C2F51741A48873D009DA465 /* TimelineTableView.h */; };
+		5C321D8A1A4F2C1400DADD90 /* serachResultBookButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C321D891A4F2C1400DADD90 /* serachResultBookButton.m */; };
+		5C321D8B1A4F2C3F00DADD90 /* serachResultBookButton.h in Sources */ = {isa = PBXBuildFile; fileRef = 5C321D881A4F2C1400DADD90 /* serachResultBookButton.h */; };
+		5C321D8E1A50295200DADD90 /* PostingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C321D8D1A50295200DADD90 /* PostingScrollView.m */; };
 		5C6E3F421A2DA8C500E50A7E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E3F401A2DA8C500E50A7E /* logo.png */; };
 		5C6E3F431A2DA8C500E50A7E /* underline.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E3F411A2DA8C500E50A7E /* underline.png */; };
 		5C7E49BB1A470B47000E53EE /* TimelineModel.h in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E49BA1A470B3B000E53EE /* TimelineModel.h */; };
@@ -50,6 +54,8 @@
 		5C8E43ED1A401E1300A5AA38 /* InitProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E43EC1A401E1300A5AA38 /* InitProfileViewController.m */; };
 		5C8E43F11A40244800A5AA38 /* publicSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E43F01A40244800A5AA38 /* publicSetting.m */; };
 		5C8E43F41A40255500A5AA38 /* publicSetting.h in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E43F21A40245C00A5AA38 /* publicSetting.h */; };
+		5C9F52A21A4E6A88008BCB36 /* pics.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C9F52A01A4E6A88008BCB36 /* pics.png */; };
+		5C9F52A31A4E6A88008BCB36 /* quote.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C9F52A11A4E6A88008BCB36 /* quote.png */; };
 		5CA7CD221A45EEA300BE538A /* TimelineTableViewCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C2A661A449ED60040BCD9 /* TimelineTableViewCell.h */; };
 		5CAF805E1A2F927A00B114F9 /* frame-000000.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF802C1A2F927900B114F9 /* frame-000000.png */; };
 		5CAF805F1A2F927A00B114F9 /* frame-000001.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF802D1A2F927900B114F9 /* frame-000001.png */; };
@@ -125,6 +131,7 @@
 		5CDF816B1A407C5500E79AD9 /* recommand_icon_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDF81671A407C5500E79AD9 /* recommand_icon_select.png */; };
 		5CDF816C1A407C5500E79AD9 /* search_icon_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDF81681A407C5500E79AD9 /* search_icon_select.png */; };
 		5CDF816D1A407C5500E79AD9 /* timeline_icon_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDF81691A407C5500E79AD9 /* timeline_icon_select.png */; };
+		5CEF8F191A4EAE0E00818075 /* postingBookSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF8F181A4EAE0E00818075 /* postingBookSearch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +168,8 @@
 		34F8D4861A2D692C000D257B /* verticalBar_registerEamil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = verticalBar_registerEamil.png; sourceTree = "<group>"; };
 		5C0631691A36CF860009D042 /* LoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginModel.h; path = Login/LoginModel.h; sourceTree = "<group>"; };
 		5C06316A1A36CF860009D042 /* LoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginModel.m; path = Login/LoginModel.m; sourceTree = "<group>"; };
+		5C18DAC41A4EF0F2005DDB70 /* postingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = postingModel.m; path = Posting/postingModel.m; sourceTree = "<group>"; };
+		5C18DAC61A4EF104005DDB70 /* postingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = postingModel.h; path = Posting/postingModel.h; sourceTree = "<group>"; };
 		5C2968311A35D3740029CBD0 /* TimelineTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineTabController.h; path = Timeline/TimelineTabController.h; sourceTree = "<group>"; };
 		5C2968321A35D3740029CBD0 /* TimelineTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineTabController.m; path = Timeline/TimelineTabController.m; sourceTree = "<group>"; };
 		5C2C2A441A43F4F00040BCD9 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineViewController.h; path = Timeline/timeline/TimelineViewController.h; sourceTree = "<group>"; };
@@ -184,6 +193,10 @@
 		5C2C2A691A44A13D0040BCD9 /* TimelineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineModel.m; path = Timeline/timeline/TimelineModel.m; sourceTree = "<group>"; };
 		5C2F51741A48873D009DA465 /* TimelineTableView.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = TimelineTableView.h; path = Timeline/timeline/TimelineTableView.h; sourceTree = "<group>"; };
 		5C2F51751A48873D009DA465 /* TimelineTableView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = TimelineTableView.m; path = Timeline/timeline/TimelineTableView.m; sourceTree = "<group>"; };
+		5C321D881A4F2C1400DADD90 /* serachResultBookButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = serachResultBookButton.h; path = Posting/serachResultBookButton.h; sourceTree = "<group>"; };
+		5C321D891A4F2C1400DADD90 /* serachResultBookButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = serachResultBookButton.m; path = Posting/serachResultBookButton.m; sourceTree = "<group>"; };
+		5C321D8C1A50295200DADD90 /* PostingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostingScrollView.h; path = Posting/PostingScrollView.h; sourceTree = "<group>"; };
+		5C321D8D1A50295200DADD90 /* PostingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostingScrollView.m; path = Posting/PostingScrollView.m; sourceTree = "<group>"; };
 		5C6E3F401A2DA8C500E50A7E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Login/imgSource/logo.png; sourceTree = "<group>"; };
 		5C6E3F411A2DA8C500E50A7E /* underline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = underline.png; path = Login/imgSource/underline.png; sourceTree = "<group>"; };
 		5C7E49BA1A470B3B000E53EE /* TimelineModel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; name = TimelineModel.h; path = Timeline/timeline/TimelineModel.h; sourceTree = "<group>"; };
@@ -200,6 +213,8 @@
 		5C8E43EC1A401E1300A5AA38 /* InitProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitProfileViewController.m; path = InitProfile/InitProfileViewController.m; sourceTree = "<group>"; };
 		5C8E43F01A40244800A5AA38 /* publicSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = publicSetting.m; path = PublicSetting/publicSetting.m; sourceTree = "<group>"; };
 		5C8E43F21A40245C00A5AA38 /* publicSetting.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = publicSetting.h; sourceTree = "<group>"; };
+		5C9F52A01A4E6A88008BCB36 /* pics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pics.png; path = Posting/iconSrc/pics.png; sourceTree = "<group>"; };
+		5C9F52A11A4E6A88008BCB36 /* quote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quote.png; path = Posting/iconSrc/quote.png; sourceTree = "<group>"; };
 		5CAF802C1A2F927900B114F9 /* frame-000000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-000000.png"; sourceTree = "<group>"; };
 		5CAF802D1A2F927900B114F9 /* frame-000001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-000001.png"; sourceTree = "<group>"; };
 		5CAF802E1A2F927900B114F9 /* frame-000002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-000002.png"; sourceTree = "<group>"; };
@@ -285,6 +300,8 @@
 		5CDF81671A407C5500E79AD9 /* recommand_icon_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = recommand_icon_select.png; path = MainTab/iconSource/recommand_icon_select.png; sourceTree = "<group>"; };
 		5CDF81681A407C5500E79AD9 /* search_icon_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search_icon_select.png; path = MainTab/iconSource/search_icon_select.png; sourceTree = "<group>"; };
 		5CDF81691A407C5500E79AD9 /* timeline_icon_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timeline_icon_select.png; path = MainTab/iconSource/timeline_icon_select.png; sourceTree = "<group>"; };
+		5CEF8F171A4EAE0E00818075 /* postingBookSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = postingBookSearch.h; path = Posting/postingBookSearch.h; sourceTree = "<group>"; };
+		5CEF8F181A4EAE0E00818075 /* postingBookSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = postingBookSearch.m; path = Posting/postingBookSearch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -478,8 +495,17 @@
 		5C8E43EE1A401F5B00A5AA38 /* Posting */ = {
 			isa = PBXGroup;
 			children = (
+				5C9F529F1A4E6A74008BCB36 /* iconSrc */,
 				5CDF814A1A404DBF00E79AD9 /* PostingViewController.h */,
 				5CDF814B1A404DBF00E79AD9 /* PostingViewController.m */,
+				5CEF8F171A4EAE0E00818075 /* postingBookSearch.h */,
+				5CEF8F181A4EAE0E00818075 /* postingBookSearch.m */,
+				5C18DAC41A4EF0F2005DDB70 /* postingModel.m */,
+				5C18DAC61A4EF104005DDB70 /* postingModel.h */,
+				5C321D881A4F2C1400DADD90 /* serachResultBookButton.h */,
+				5C321D891A4F2C1400DADD90 /* serachResultBookButton.m */,
+				5C321D8C1A50295200DADD90 /* PostingScrollView.h */,
+				5C321D8D1A50295200DADD90 /* PostingScrollView.m */,
 			);
 			name = Posting;
 			sourceTree = "<group>";
@@ -493,6 +519,15 @@
 				5CDF815C1A40735A00E79AD9 /* LoadScene.h */,
 			);
 			name = PublicSetting;
+			sourceTree = "<group>";
+		};
+		5C9F529F1A4E6A74008BCB36 /* iconSrc */ = {
+			isa = PBXGroup;
+			children = (
+				5C9F52A01A4E6A88008BCB36 /* pics.png */,
+				5C9F52A11A4E6A88008BCB36 /* quote.png */,
+			);
+			name = iconSrc;
 			sourceTree = "<group>";
 		};
 		5CAF802B1A2F927900B114F9 /* loading */ = {
@@ -782,6 +817,7 @@
 				5CDF81631A4079CE00E79AD9 /* recommand_icon.png in Resources */,
 				5CAF80611A2F927A00B114F9 /* frame-000003.png in Resources */,
 				5C2C2A621A4499080040BCD9 /* comment_active.png in Resources */,
+				5C9F52A31A4E6A88008BCB36 /* quote.png in Resources */,
 				5CAF80791A2F927A00B114F9 /* frame-000027.png in Resources */,
 				5C2C2A511A4467830040BCD9 /* book_icon.png in Resources */,
 				5CAF80661A2F927A00B114F9 /* frame-000008.png in Resources */,
@@ -811,6 +847,7 @@
 				5CDF81621A4079CE00E79AD9 /* myLibrary_icon.png in Resources */,
 				5CDF81641A4079CE00E79AD9 /* search_icon.png in Resources */,
 				5CDF81651A4079CE00E79AD9 /* timeline_icon.png in Resources */,
+				5C9F52A21A4E6A88008BCB36 /* pics.png in Resources */,
 				5CAF808E1A2F927A00B114F9 /* frame-000048.png in Resources */,
 				5CAF806B1A2F927A00B114F9 /* frame-000013.png in Resources */,
 				5CAF807D1A2F927A00B114F9 /* frame-000031.png in Resources */,
@@ -865,18 +902,22 @@
 			files = (
 				5C8E43E91A401D8900A5AA38 /* NXBookDataModel.m in Sources */,
 				5CDF81251A40465800E79AD9 /* MyLibraryTabController.m in Sources */,
+				5C321D8B1A4F2C3F00DADD90 /* serachResultBookButton.h in Sources */,
 				34F8D47B1A2D6313000D257B /* LoginViewController.m in Sources */,
 				5C8E43E61A401D6400A5AA38 /* SetBookFirstTableViewController.m in Sources */,
 				5CDF81581A404EE800E79AD9 /* BookDetailViewController.m in Sources */,
 				5CDF81461A404C8700E79AD9 /* TimelineTableViewController_mypost.m in Sources */,
 				5C8D13021A38560000628527 /* MainTabViewController.m in Sources */,
 				5C7E49BB1A470B47000E53EE /* TimelineModel.h in Sources */,
+				5C18DAC51A4EF0F2005DDB70 /* postingModel.m in Sources */,
 				5C8E43ED1A401E1300A5AA38 /* InitProfileViewController.m in Sources */,
 				5CDF81341A404AAB00E79AD9 /* MyLibraryTableViewController_wish.m in Sources */,
 				5CDF815B1A40734300E79AD9 /* LoadScene.m in Sources */,
+				5C321D8E1A50295200DADD90 /* PostingScrollView.m in Sources */,
 				5CDF81371A404AC700E79AD9 /* MyLibraryTableViewController_read.m in Sources */,
 				5C8E43F11A40244800A5AA38 /* publicSetting.m in Sources */,
 				5C2C2A681A449ED60040BCD9 /* TimelineTableViewCell.m in Sources */,
+				5C321D8A1A4F2C1400DADD90 /* serachResultBookButton.m in Sources */,
 				5C2C2A591A4494260040BCD9 /* timelineButton.m in Sources */,
 				5C2F51771A48874A009DA465 /* TimelineTableView.h in Sources */,
 				5CDF812C1A40484F00E79AD9 /* SearchNavController.m in Sources */,
@@ -896,6 +937,7 @@
 				5CA7CD221A45EEA300BE538A /* TimelineTableViewCell.h in Sources */,
 				5CDF815D1A4073BF00E79AD9 /* LoadScene.h in Sources */,
 				34F8D4551A2D6228000D257B /* main.m in Sources */,
+				5CEF8F191A4EAE0E00818075 /* postingBookSearch.m in Sources */,
 				5CDF81541A404E7300E79AD9 /* PostDetailTableViewController.m in Sources */,
 				5C2C2A6A1A44A13D0040BCD9 /* TimelineModel.m in Sources */,
 				34F8D47E1A2D6393000D257B /* RegisterEmailViewController.m in Sources */,
