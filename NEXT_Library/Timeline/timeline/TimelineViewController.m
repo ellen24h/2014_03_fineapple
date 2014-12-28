@@ -12,7 +12,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"timeline viewdidload");
     [_timelineButton registerNotiCenter];
     [_mypostButton registerNotiCenter];
     [_timelineButton setStatus:ACTIVE];
@@ -23,6 +22,7 @@
     [notiCenter addObserver:self selector:@selector(timelineLikeScrapButtonTouched:) name:@"timelineLikeScrapButtonTouched" object:nil];
     [notiCenter addObserver:self selector:@selector(timelineCommentButtonTouched:) name:@"timelineCommentButtonTouched" object:nil];
      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshTimeline) name:@"postingDone" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addCommentDone:) name:@"addCommentDone" object:nil];
     
     self.tabBarController.tabBar.frame = CGRectMake(0,0,0,0);
     _timelineTableView.backgroundColor = UIColorFromRGB(FINE_BEIGE);
@@ -31,6 +31,10 @@
     [model getJsonFromServer:@"/timeline"];
 }
 
+-(void)addCommentDone:(NSNotification *)noti{
+    [self commentClose:nil];
+    [self refreshTimeline];
+}
 -(void)refreshTimeline{
     [model setLastMypostId:-1];
     [publicSetting setLoadingAnimation:self];
@@ -40,16 +44,60 @@
 -(void)timelineCommentButtonTouched:(NSNotification *)noti{
     timelineButton * button  = noti.object;
     UIView * backview = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    backview.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.8];
+    backview.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.8];
+    backview.tag = COMMENT_BACKVIEW_TAG;
     UIView * popupView = [[UIView alloc]initWithFrame:CGRectMake(backview.frame.size.width*0.05, 60, backview.frame.size.width*0.9, backview.frame.size.height*0.5)];
-    popupView.backgroundColor = UIColorFromRGB(FINE_BEIGE);
-    UITextView * commentTextView = [[UITextView alloc]initWithFrame:CGRectMake(popupView.frame.size.width*0.05,20, popupView.frame.size.width*0.9, popupView.frame.size.height*0.6)];
+    popupView.backgroundColor = [UIColor whiteColor];
+    float fullWidth = popupView.frame.size.width;
+    
+    UITextView * commentTextView = [[UITextView alloc]initWithFrame:CGRectMake(fullWidth*0.02,35, popupView.frame.size.width*0.96, popupView.frame.size.height*0.6)];
     commentTextView.backgroundColor = [UIColor whiteColor];
     commentTextView.textColor = UIColorFromRGB(FINE_DARKGRAY);
-    [backview addSubview:popupView];
-    [popupView addSubview:commentTextView];
+    commentTextView.tag = COMMENT_TEXTVIEW_TAG;
     
+    UIButton * close = [[UIButton alloc]initWithFrame:CGRectMake(fullWidth-25, 5, 20, 20)];
+    close.titleLabel.font = [UIFont systemFontOfSize:20];
+    [close setTitleColor:UIColorFromRGB(FINE_GREEN) forState:UIControlStateNormal];
+    [close setTitle:@"X" forState:UIControlStateNormal];
+    
+    UILabel * commentLabel = [[UILabel alloc]initWithFrame:CGRectMake(fullWidth*0.02, 10, fullWidth*0.5, 17)];
+    commentLabel.text = @"댓글쓰기";
+    commentLabel.font = [UIFont systemFontOfSize:17];
+    commentLabel.textColor = UIColorFromRGB(FINE_GREEN);
+    
+    UILabel * commentLine = [[UILabel alloc]initWithFrame:CGRectMake(fullWidth*0.02, 30, fullWidth*0.96, 1)];
+    commentLine.backgroundColor = UIColorFromRGB(FINE_GREEN);
+    
+    UIButton * ok = [[UIButton alloc]initWithFrame:CGRectMake(fullWidth*0.3, commentTextView.frame.size.height + commentTextView.frame.origin.y+20, fullWidth*0.4, 35)];
+    [ok setTitle:@"COMMENT" forState:UIControlStateNormal];
+    ok.titleLabel.font = [UIFont systemFontOfSize:15];
+    ok.backgroundColor = UIColorFromRGB(FINE_GREEN);
+    ok.tag = button.tag;
+    [popupView addSubview:commentTextView];
+    [popupView addSubview:close];
+    [popupView addSubview:commentLabel];
+    [popupView addSubview:commentLine];
+    [popupView addSubview:ok];
+    [backview addSubview:popupView];
     [self.view addSubview:backview];
+    
+    [ok addTarget:self action:@selector(commentDone:) forControlEvents:UIControlEventTouchUpInside];
+    [close addTarget:self action:@selector(commentClose:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+-(void)commentDone:(UIButton *)sender{
+    UITextView * commentTextView = [self.view viewWithTag:COMMENT_TEXTVIEW_TAG];
+    NSString * comment = [[NSString alloc]initWithString:commentTextView.text];
+    NSUInteger postId = sender.tag;
+    NSDictionary * postData = [[NSDictionary alloc]initWithObjectsAndKeys:comment,@"comment",[NSString stringWithFormat:@"%d",postId],@"postId", nil];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"addComment" object:postData];
+    
+}
+
+-(void)commentClose:(UIButton *)sender{
+    UIView * commentView = [self.view viewWithTag:COMMENT_BACKVIEW_TAG];
+    [commentView removeFromSuperview];
 }
 
 -(void)timelineLikeScrapButtonTouched:(NSNotification *)noti{

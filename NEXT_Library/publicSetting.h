@@ -13,7 +13,7 @@
 //keyboard 높이
 #define kOFFSET_FOR_KEYBOARD 80.0
 
-#define SERVER_ADDR @"0.0.0.0"
+#define SERVER_ADDR @"10.73.45.83"
 #define SERVER_PORT @"5013"
 //NAVER books key
 #define NAVERBOOKS_ADDRWITHKEY @"http://openapi.naver.com/search?key=435586f77d2ca2b1299622b362cebdf8"

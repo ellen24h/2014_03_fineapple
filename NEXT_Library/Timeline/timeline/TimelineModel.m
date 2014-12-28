@@ -23,9 +23,10 @@
 -(id)initWithURLWithPortNum:(NSString *)IPAddr port:(NSString *)port{
     if([super init]){
         NSString * addr = [NSString stringWithFormat:@"http://%@:%@",IPAddr,port];
+        url = [[NSURL alloc]initWithString:addr];
         NSNotificationCenter * noti = [NSNotificationCenter defaultCenter];
         [noti addObserver:self selector:@selector(timelineLikeScrapButtonTouched:) name:@"timelineLikeScrapButtonTouched" object:nil];
-        url = [[NSURL alloc]initWithString:addr];
+        [noti addObserver:self selector:@selector(addComment:) name:@"addComment" object:nil];
         request = [[NSMutableURLRequest alloc]initWithURL:url];
         request.HTTPMethod = @"POST";
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -37,6 +38,19 @@
     }
 
     return self;
+}
+
+-(void)addComment:(NSNotification *)noti{
+    NSDictionary * data = noti.object;
+    NSString * comment = [data objectForKey:@"comment"];
+    NSString * postId = [data objectForKey:@"postId"];
+    NSURLResponse * response;
+
+    NSString * postData = [[NSString alloc]initWithFormat:@"comment=%@&postId=%@",comment,postId];
+    [request setHTTPBody:[postData dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setURL:[url URLByAppendingPathComponent:@"/comment"]];
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"addCommentDone" object:nil];
 }
 -(void)setLastMypostId:(NSUInteger)postId{
     lastMypostId = postId;
@@ -86,7 +100,6 @@
     NSURLConnection * connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
     if(connection){
         NSLog(@"ConnectionSuccess");
-        NSLog(@"lastMypostid : %d",lastMypostId);
         [request setValue:[NSString stringWithFormat:@"%d",lastMypostId] forHTTPHeaderField:@"Count"];
     }
     else{

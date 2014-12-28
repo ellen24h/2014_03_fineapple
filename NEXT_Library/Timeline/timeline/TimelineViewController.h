@@ -25,6 +25,9 @@
 #define TIMELINE 0
 #define MYPOST 1
 
+#define COMMENT_BACKVIEW_TAG 901
+#define COMMENT_TEXTVIEW_TAG 902
+
 #define NAVERBOOKS_URL @"http://openapi.naver.com/search"
 @interface TimelineViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
