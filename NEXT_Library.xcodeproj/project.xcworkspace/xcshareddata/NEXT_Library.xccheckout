@@ -12,6 +12,8 @@
 	<dict>
 		<key>6B8ABACA1E600BA0C9B75CDDD64C889CE10CE560</key>
 		<string>https://github.com/ellen24h/fineapple.git</string>
+		<key>6D0FFFCCD809B76122F94E635D0C0067FE47D962</key>
+		<string>https://github.com/jonghyukchoi/Java_Final.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>NEXT_Library.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>6B8ABACA1E600BA0C9B75CDDD64C889CE10CE560</key>
 		<string>../..</string>
+		<key>6D0FFFCCD809B76122F94E635D0C0067FE47D962</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/ellen24h/fineapple.git</string>
@@ -28,6 +32,14 @@
 	<string>6B8ABACA1E600BA0C9B75CDDD64C889CE10CE560</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6D0FFFCCD809B76122F94E635D0C0067FE47D962</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
