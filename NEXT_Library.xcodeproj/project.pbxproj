@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		34219F621A3F048C0040CE38 /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34219F611A3F048C0040CE38 /* BookTableViewCell.m */; };
+		344075301A51C60F0016F5CD /* check_active_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 344075261A51C60F0016F5CD /* check_active_2.png */; };
+		344075311A51C60F0016F5CD /* check_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 344075271A51C60F0016F5CD /* check_active.png */; };
+		344075321A51C60F0016F5CD /* check_inactive_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 344075281A51C60F0016F5CD /* check_inactive_2.png */; };
+		344075331A51C60F0016F5CD /* check_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 344075291A51C60F0016F5CD /* check_inactive.png */; };
+		344075341A51C60F0016F5CD /* heart_active_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3440752A1A51C60F0016F5CD /* heart_active_2.png */; };
+		344075351A51C60F0016F5CD /* heart_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 3440752B1A51C60F0016F5CD /* heart_active.png */; };
+		344075361A51C60F0016F5CD /* heart_inactive_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3440752C1A51C60F0016F5CD /* heart_inactive_2.png */; };
+		344075371A51C60F0016F5CD /* heart_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 3440752D1A51C60F0016F5CD /* heart_inactive.png */; };
+		344075381A51C60F0016F5CD /* sample_book_img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3440752E1A51C60F0016F5CD /* sample_book_img.jpg */; };
+		344075391A51C60F0016F5CD /* wish_inactive_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3440752F1A51C60F0016F5CD /* wish_inactive_white.png */; };
+		3440753E1A51C6230016F5CD /* BookDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3440753B1A51C6230016F5CD /* BookDetailModel.m */; };
+		3440753F1A51C6230016F5CD /* DetailBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3440753D1A51C6230016F5CD /* DetailBookViewController.m */; };
 		34EC6CEF1A482DA600E5F3B1 /* RegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EC6CEE1A482DA600E5F3B1 /* RegisterModel.m */; };
 		34F534001A492F3400094662 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F533E01A492F3400094662 /* MKAnnotationView+WebCache.m */; };
 		34F534011A492F3400094662 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F533E21A492F3400094662 /* NSData+ImageContentType.m */; };
@@ -141,6 +153,20 @@
 /* Begin PBXFileReference section */
 		34219F601A3F048C0040CE38 /* BookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookTableViewCell.h; path = SetBookFirst/BookTableViewCell.h; sourceTree = "<group>"; };
 		34219F611A3F048C0040CE38 /* BookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookTableViewCell.m; path = SetBookFirst/BookTableViewCell.m; sourceTree = "<group>"; };
+		344075261A51C60F0016F5CD /* check_active_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_active_2.png; sourceTree = "<group>"; };
+		344075271A51C60F0016F5CD /* check_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_active.png; sourceTree = "<group>"; };
+		344075281A51C60F0016F5CD /* check_inactive_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_inactive_2.png; sourceTree = "<group>"; };
+		344075291A51C60F0016F5CD /* check_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_inactive.png; sourceTree = "<group>"; };
+		3440752A1A51C60F0016F5CD /* heart_active_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_active_2.png; sourceTree = "<group>"; };
+		3440752B1A51C60F0016F5CD /* heart_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_active.png; sourceTree = "<group>"; };
+		3440752C1A51C60F0016F5CD /* heart_inactive_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_inactive_2.png; sourceTree = "<group>"; };
+		3440752D1A51C60F0016F5CD /* heart_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_inactive.png; sourceTree = "<group>"; };
+		3440752E1A51C60F0016F5CD /* sample_book_img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample_book_img.jpg; sourceTree = "<group>"; };
+		3440752F1A51C60F0016F5CD /* wish_inactive_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wish_inactive_white.png; sourceTree = "<group>"; };
+		3440753A1A51C6230016F5CD /* BookDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailModel.h; sourceTree = "<group>"; };
+		3440753B1A51C6230016F5CD /* BookDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailModel.m; sourceTree = "<group>"; };
+		3440753C1A51C6230016F5CD /* DetailBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailBookViewController.h; sourceTree = "<group>"; };
+		3440753D1A51C6230016F5CD /* DetailBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailBookViewController.m; sourceTree = "<group>"; };
 		34EC6CED1A482DA600E5F3B1 /* RegisterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterModel.h; path = RegisterEmail/RegisterModel.h; sourceTree = "<group>"; };
 		34EC6CEE1A482DA600E5F3B1 /* RegisterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterModel.m; path = RegisterEmail/RegisterModel.m; sourceTree = "<group>"; };
 		34F533DF1A492F3400094662 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -335,6 +361,23 @@
 				34219F611A3F048C0040CE38 /* BookTableViewCell.m */,
 			);
 			name = SetBookFirst;
+			sourceTree = "<group>";
+		};
+		344074E41A51BF640016F5CD /* imgSource */ = {
+			isa = PBXGroup;
+			children = (
+				344075261A51C60F0016F5CD /* check_active_2.png */,
+				344075271A51C60F0016F5CD /* check_active.png */,
+				344075281A51C60F0016F5CD /* check_inactive_2.png */,
+				344075291A51C60F0016F5CD /* check_inactive.png */,
+				3440752A1A51C60F0016F5CD /* heart_active_2.png */,
+				3440752B1A51C60F0016F5CD /* heart_active.png */,
+				3440752C1A51C60F0016F5CD /* heart_inactive_2.png */,
+				3440752D1A51C60F0016F5CD /* heart_inactive.png */,
+				3440752E1A51C60F0016F5CD /* sample_book_img.jpg */,
+				3440752F1A51C60F0016F5CD /* wish_inactive_white.png */,
+			);
+			name = imgSource;
 			sourceTree = "<group>";
 		};
 		34F533DE1A492F3400094662 /* SDWebImage */ = {
@@ -706,8 +749,13 @@
 		5CDF81551A404E9D00E79AD9 /* BookDetail */ = {
 			isa = PBXGroup;
 			children = (
+				344074E41A51BF640016F5CD /* imgSource */,
 				5CDF81561A404EE800E79AD9 /* BookDetailViewController.h */,
 				5CDF81571A404EE800E79AD9 /* BookDetailViewController.m */,
+				3440753A1A51C6230016F5CD /* BookDetailModel.h */,
+				3440753B1A51C6230016F5CD /* BookDetailModel.m */,
+				3440753C1A51C6230016F5CD /* DetailBookViewController.h */,
+				3440753D1A51C6230016F5CD /* DetailBookViewController.m */,
 			);
 			name = BookDetail;
 			sourceTree = "<group>";
@@ -813,6 +861,7 @@
 				5CAF80751A2F927A00B114F9 /* frame-000023.png in Resources */,
 				34F8D45E1A2D6228000D257B /* Main.storyboard in Resources */,
 				34F8D4631A2D6228000D257B /* LaunchScreen.xib in Resources */,
+				344075331A51C60F0016F5CD /* check_inactive.png in Resources */,
 				5CAF80651A2F927A00B114F9 /* frame-000007.png in Resources */,
 				5CAF806F1A2F927A00B114F9 /* frame-000017.png in Resources */,
 				5CAF808D1A2F927A00B114F9 /* frame-000047.png in Resources */,
@@ -821,20 +870,24 @@
 				34F5341D1A49393300094662 /* wish_inactive.png in Resources */,
 				5CAF80801A2F927A00B114F9 /* frame-000034.png in Resources */,
 				5CAF80761A2F927A00B114F9 /* frame-000024.png in Resources */,
+				344075301A51C60F0016F5CD /* check_active_2.png in Resources */,
 				5CAF80821A2F927A00B114F9 /* frame-000036.png in Resources */,
 				5CAF808A1A2F927A00B114F9 /* frame-000044.png in Resources */,
 				5CDF81631A4079CE00E79AD9 /* recommand_icon.png in Resources */,
 				5CAF80611A2F927A00B114F9 /* frame-000003.png in Resources */,
 				34F534141A49383F00094662 /* Null.png in Resources */,
+				344075381A51C60F0016F5CD /* sample_book_img.jpg in Resources */,
 				5CAF80791A2F927A00B114F9 /* frame-000027.png in Resources */,
 				5CAF80661A2F927A00B114F9 /* frame-000008.png in Resources */,
 				5CDF816D1A407C5500E79AD9 /* timeline_icon_select.png in Resources */,
 				5CAF80621A2F927A00B114F9 /* frame-000004.png in Resources */,
 				5CDF816B1A407C5500E79AD9 /* recommand_icon_select.png in Resources */,
+				344075341A51C60F0016F5CD /* heart_active_2.png in Resources */,
 				5CAF807F1A2F927A00B114F9 /* frame-000033.png in Resources */,
 				5CAF807A1A2F927A00B114F9 /* frame-000028.png in Resources */,
 				34F8D4891A2D692C000D257B /* verticalBar_registerEamil.png in Resources */,
 				5CAF80731A2F927A00B114F9 /* frame-000021.png in Resources */,
+				344075361A51C60F0016F5CD /* heart_inactive_2.png in Resources */,
 				5CAF80871A2F927A00B114F9 /* frame-000041.png in Resources */,
 				5C6E3F421A2DA8C500E50A7E /* logo.png in Resources */,
 				5CAF806E1A2F927A00B114F9 /* frame-000016.png in Resources */,
@@ -847,6 +900,7 @@
 				5CB742C91A2DAE2A006EA127 /* logo.png in Resources */,
 				5CAF80841A2F927A00B114F9 /* frame-000038.png in Resources */,
 				5CAF80741A2F927A00B114F9 /* frame-000022.png in Resources */,
+				344075311A51C60F0016F5CD /* check_active.png in Resources */,
 				34F8D4871A2D692C000D257B /* inputBar_registerEmail.png in Resources */,
 				5CDF81621A4079CE00E79AD9 /* myLibrary_icon.png in Resources */,
 				5CDF81641A4079CE00E79AD9 /* search_icon.png in Resources */,
@@ -858,12 +912,15 @@
 				5CAF80601A2F927A00B114F9 /* frame-000002.png in Resources */,
 				5CAF80781A2F927A00B114F9 /* frame-000026.png in Resources */,
 				5CAF80831A2F927A00B114F9 /* frame-000037.png in Resources */,
+				344075371A51C60F0016F5CD /* heart_inactive.png in Resources */,
+				344075391A51C60F0016F5CD /* wish_inactive_white.png in Resources */,
 				5CDF81211A40440700E79AD9 /* navShadow.png in Resources */,
 				5CAF80701A2F927A00B114F9 /* frame-000018.png in Resources */,
 				5CAF80691A2F927A00B114F9 /* frame-000011.png in Resources */,
 				5CAF806A1A2F927A00B114F9 /* frame-000012.png in Resources */,
 				5CAF807C1A2F927A00B114F9 /* frame-000030.png in Resources */,
 				5CAF806D1A2F927A00B114F9 /* frame-000015.png in Resources */,
+				344075351A51C60F0016F5CD /* heart_active.png in Resources */,
 				34F534171A49392300094662 /* read_active.png in Resources */,
 				5CAF808F1A2F927A00B114F9 /* frame-000049.png in Resources */,
 				5CAF80711A2F927A00B114F9 /* frame-000019.png in Resources */,
@@ -878,6 +935,7 @@
 				5CAF805F1A2F927A00B114F9 /* frame-000001.png in Resources */,
 				5CAF80881A2F927A00B114F9 /* frame-000042.png in Resources */,
 				5CAF80631A2F927A00B114F9 /* frame-000005.png in Resources */,
+				344075321A51C60F0016F5CD /* check_inactive_2.png in Resources */,
 				5CAF805E1A2F927A00B114F9 /* frame-000000.png in Resources */,
 				5CAF80811A2F927A00B114F9 /* frame-000035.png in Resources */,
 				5CDF811F1A403D1400E79AD9 /* nav.png in Resources */,
@@ -930,6 +988,7 @@
 				5CDF813B1A404B0200E79AD9 /* MyLibraryTableViewController_setting.m in Sources */,
 				34F8D4581A2D6228000D257B /* AppDelegate.m in Sources */,
 				34219F621A3F048C0040CE38 /* BookTableViewCell.m in Sources */,
+				3440753F1A51C6230016F5CD /* DetailBookViewController.m in Sources */,
 				34F534031A492F3400094662 /* SDWebImageCompat.m in Sources */,
 				5CDF814C1A404DBF00E79AD9 /* PostingViewController.m in Sources */,
 				34F534041A492F3400094662 /* SDWebImageDecoder.m in Sources */,
@@ -943,6 +1002,7 @@
 				34F5340D1A492F3400094662 /* UIImageView+HighlightedWebCache.m in Sources */,
 				5CDF81541A404E7300E79AD9 /* PostDetailTableViewController.m in Sources */,
 				34F8D47E1A2D6393000D257B /* RegisterEmailViewController.m in Sources */,
+				3440753E1A51C6230016F5CD /* BookDetailModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
