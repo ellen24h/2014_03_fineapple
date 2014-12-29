@@ -46,6 +46,13 @@
 		5C6E3F421A2DA8C500E50A7E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E3F401A2DA8C500E50A7E /* logo.png */; };
 		5C6E3F431A2DA8C500E50A7E /* underline.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E3F411A2DA8C500E50A7E /* underline.png */; };
 		5C79CBAE1A5103180037E70A /* icon-60@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C79CBAD1A5103180037E70A /* icon-60@2X.png */; };
+		5C79CBB21A511C1F0037E70A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C79CBB11A511C1F0037E70A /* SettingViewController.m */; };
+		5C79CBB61A512F230037E70A /* read.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C79CBB41A512F230037E70A /* read.png */; };
+		5C79CBB71A512F230037E70A /* wish.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C79CBB51A512F230037E70A /* wish.png */; };
+		5C79CBB91A5130EA0037E70A /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C79CBB81A5130EA0037E70A /* profile_icon.png */; };
+		5C79CBBC1A5131440037E70A /* SettingModifyNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C79CBBB1A5131440037E70A /* SettingModifyNameViewController.m */; };
+		5C79CBBF1A5132860037E70A /* SettingModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C79CBBE1A5132860037E70A /* SettingModifyPasswordViewController.m */; };
+		5C79CBC11A513C040037E70A /* SettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C79CBC01A513C040037E70A /* SettingModel.m */; };
 		5C7E49BB1A470B47000E53EE /* TimelineModel.h in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E49BA1A470B3B000E53EE /* TimelineModel.h */; };
 		5C7E49BD1A470E8F000E53EE /* newpost_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C7E49BC1A470E8F000E53EE /* newpost_icon.png */; };
 		5C7E49C01A470F72000E53EE /* timelineTabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E49BF1A470F72000E53EE /* timelineTabButton.m */; };
@@ -111,12 +118,8 @@
 		5CB742C91A2DAE2A006EA127 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CB742C81A2DAE2A006EA127 /* logo.png */; };
 		5CDF811F1A403D1400E79AD9 /* nav.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDF811E1A403D1400E79AD9 /* nav.png */; };
 		5CDF81211A40440700E79AD9 /* navShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDF81201A40440700E79AD9 /* navShadow.png */; };
-		5CDF81251A40465800E79AD9 /* MyLibraryTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF81241A40465800E79AD9 /* MyLibraryTabController.m */; };
 		5CDF812C1A40484F00E79AD9 /* SearchNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF812B1A40484F00E79AD9 /* SearchNavController.m */; };
 		5CDF812F1A4048FA00E79AD9 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF812E1A4048FA00E79AD9 /* SearchTableViewController.m */; };
-		5CDF81341A404AAB00E79AD9 /* MyLibraryTableViewController_wish.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF81331A404AAB00E79AD9 /* MyLibraryTableViewController_wish.m */; };
-		5CDF81371A404AC700E79AD9 /* MyLibraryTableViewController_read.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF81361A404AC700E79AD9 /* MyLibraryTableViewController_read.m */; };
-		5CDF813B1A404B0200E79AD9 /* MyLibraryTableViewController_setting.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF813A1A404B0200E79AD9 /* MyLibraryTableViewController_setting.m */; };
 		5CDF81461A404C8700E79AD9 /* TimelineTableViewController_mypost.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF81451A404C8700E79AD9 /* TimelineTableViewController_mypost.m */; };
 		5CDF814C1A404DBF00E79AD9 /* PostingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF814B1A404DBF00E79AD9 /* PostingViewController.m */; };
 		5CDF81501A404E2500E79AD9 /* YourLibraryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF814F1A404E2500E79AD9 /* YourLibraryTableViewController.m */; };
@@ -201,6 +204,17 @@
 		5C6E3F401A2DA8C500E50A7E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Login/imgSource/logo.png; sourceTree = "<group>"; };
 		5C6E3F411A2DA8C500E50A7E /* underline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = underline.png; path = Login/imgSource/underline.png; sourceTree = "<group>"; };
 		5C79CBAD1A5103180037E70A /* icon-60@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-60@2X.png"; path = "appIcons/icon-60@2X.png"; sourceTree = "<group>"; };
+		5C79CBB01A511C1F0037E70A /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = Setting/SettingViewController.h; sourceTree = "<group>"; };
+		5C79CBB11A511C1F0037E70A /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = Setting/SettingViewController.m; sourceTree = "<group>"; };
+		5C79CBB41A512F230037E70A /* read.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = read.png; path = Setting/iconSrc/read.png; sourceTree = "<group>"; };
+		5C79CBB51A512F230037E70A /* wish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wish.png; path = Setting/iconSrc/wish.png; sourceTree = "<group>"; };
+		5C79CBB81A5130EA0037E70A /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile_icon.png; path = Setting/iconSrc/profile_icon.png; sourceTree = "<group>"; };
+		5C79CBBA1A5131440037E70A /* SettingModifyNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingModifyNameViewController.h; path = Setting/SettingModifyNameViewController.h; sourceTree = "<group>"; };
+		5C79CBBB1A5131440037E70A /* SettingModifyNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingModifyNameViewController.m; path = Setting/SettingModifyNameViewController.m; sourceTree = "<group>"; };
+		5C79CBBD1A5132860037E70A /* SettingModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingModifyPasswordViewController.h; path = Setting/SettingModifyPasswordViewController.h; sourceTree = "<group>"; };
+		5C79CBBE1A5132860037E70A /* SettingModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingModifyPasswordViewController.m; path = Setting/SettingModifyPasswordViewController.m; sourceTree = "<group>"; };
+		5C79CBC01A513C040037E70A /* SettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingModel.m; path = Setting/SettingModel.m; sourceTree = "<group>"; };
+		5C79CBC21A513C110037E70A /* SettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingModel.h; path = Setting/SettingModel.h; sourceTree = "<group>"; };
 		5C7E49BA1A470B3B000E53EE /* TimelineModel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; name = TimelineModel.h; path = Timeline/timeline/TimelineModel.h; sourceTree = "<group>"; };
 		5C7E49BC1A470E8F000E53EE /* newpost_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newpost_icon.png; path = Timeline/timeline/imgsrc/newpost_icon.png; sourceTree = "<group>"; };
 		5C7E49BE1A470F72000E53EE /* timelineTabButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = timelineTabButton.h; path = Timeline/timeline/timelineTabButton.h; sourceTree = "<group>"; };
@@ -270,18 +284,10 @@
 		5CB742C81A2DAE2A006EA127 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Login/imgSource/logo.png; sourceTree = "<group>"; };
 		5CDF811E1A403D1400E79AD9 /* nav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nav.png; path = NEXT_Library/FirstNavigationViewController/nav.png; sourceTree = "<group>"; };
 		5CDF81201A40440700E79AD9 /* navShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navShadow.png; path = NEXT_Library/FirstNavigationViewController/navShadow.png; sourceTree = "<group>"; };
-		5CDF81231A40465800E79AD9 /* MyLibraryTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyLibraryTabController.h; path = MyLibrary/MyLibraryTabController.h; sourceTree = "<group>"; };
-		5CDF81241A40465800E79AD9 /* MyLibraryTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyLibraryTabController.m; path = MyLibrary/MyLibraryTabController.m; sourceTree = "<group>"; };
 		5CDF812A1A40484F00E79AD9 /* SearchNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchNavController.h; path = Search/SearchNavController.h; sourceTree = "<group>"; };
 		5CDF812B1A40484F00E79AD9 /* SearchNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchNavController.m; path = Search/SearchNavController.m; sourceTree = "<group>"; };
 		5CDF812D1A4048FA00E79AD9 /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTableViewController.h; path = Search/SearchTableViewController.h; sourceTree = "<group>"; };
 		5CDF812E1A4048FA00E79AD9 /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTableViewController.m; path = Search/SearchTableViewController.m; sourceTree = "<group>"; };
-		5CDF81321A404AAB00E79AD9 /* MyLibraryTableViewController_wish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyLibraryTableViewController_wish.h; path = MyLibrary/wish/MyLibraryTableViewController_wish.h; sourceTree = "<group>"; };
-		5CDF81331A404AAB00E79AD9 /* MyLibraryTableViewController_wish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyLibraryTableViewController_wish.m; path = MyLibrary/wish/MyLibraryTableViewController_wish.m; sourceTree = "<group>"; };
-		5CDF81351A404AC700E79AD9 /* MyLibraryTableViewController_read.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyLibraryTableViewController_read.h; path = MyLibrary/read/MyLibraryTableViewController_read.h; sourceTree = "<group>"; };
-		5CDF81361A404AC700E79AD9 /* MyLibraryTableViewController_read.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyLibraryTableViewController_read.m; path = MyLibrary/read/MyLibraryTableViewController_read.m; sourceTree = "<group>"; };
-		5CDF81391A404B0200E79AD9 /* MyLibraryTableViewController_setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyLibraryTableViewController_setting.h; path = MyLibrary/setting/MyLibraryTableViewController_setting.h; sourceTree = "<group>"; };
-		5CDF813A1A404B0200E79AD9 /* MyLibraryTableViewController_setting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyLibraryTableViewController_setting.m; path = MyLibrary/setting/MyLibraryTableViewController_setting.m; sourceTree = "<group>"; };
 		5CDF81441A404C8700E79AD9 /* TimelineTableViewController_mypost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineTableViewController_mypost.h; path = Timeline/mypost/TimelineTableViewController_mypost.h; sourceTree = "<group>"; };
 		5CDF81451A404C8700E79AD9 /* TimelineTableViewController_mypost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineTableViewController_mypost.m; path = Timeline/mypost/TimelineTableViewController_mypost.m; sourceTree = "<group>"; };
 		5CDF814A1A404DBF00E79AD9 /* PostingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostingViewController.h; path = Posting/PostingViewController.h; sourceTree = "<group>"; };
@@ -358,6 +364,7 @@
 		34F8D4511A2D6228000D257B /* NEXT_Library */ = {
 			isa = PBXGroup;
 			children = (
+				5C79CBAF1A511C040037E70A /* Setting */,
 				5C79CBAC1A51030D0037E70A /* appIcon */,
 				5CDF81551A404E9D00E79AD9 /* BookDetail */,
 				5CDF81511A404E5900E79AD9 /* PostDetail */,
@@ -482,6 +489,32 @@
 				5C79CBAD1A5103180037E70A /* icon-60@2X.png */,
 			);
 			name = appIcon;
+			sourceTree = "<group>";
+		};
+		5C79CBAF1A511C040037E70A /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				5C79CBB31A512E7F0037E70A /* iconSrc */,
+				5C79CBB01A511C1F0037E70A /* SettingViewController.h */,
+				5C79CBB11A511C1F0037E70A /* SettingViewController.m */,
+				5C79CBBA1A5131440037E70A /* SettingModifyNameViewController.h */,
+				5C79CBBB1A5131440037E70A /* SettingModifyNameViewController.m */,
+				5C79CBBD1A5132860037E70A /* SettingModifyPasswordViewController.h */,
+				5C79CBBE1A5132860037E70A /* SettingModifyPasswordViewController.m */,
+				5C79CBC01A513C040037E70A /* SettingModel.m */,
+				5C79CBC21A513C110037E70A /* SettingModel.h */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		5C79CBB31A512E7F0037E70A /* iconSrc */ = {
+			isa = PBXGroup;
+			children = (
+				5C79CBB81A5130EA0037E70A /* profile_icon.png */,
+				5C79CBB41A512F230037E70A /* read.png */,
+				5C79CBB51A512F230037E70A /* wish.png */,
+			);
+			name = iconSrc;
 			sourceTree = "<group>";
 		};
 		5C8D12FF1A3855B300628527 /* MainTab */ = {
@@ -612,11 +645,6 @@
 		5CDF81221A40462800E79AD9 /* MyLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				5CDF81381A404ADF00E79AD9 /* setting */,
-				5CDF81311A404A8600E79AD9 /* wish */,
-				5CDF81301A404A7B00E79AD9 /* read */,
-				5CDF81231A40465800E79AD9 /* MyLibraryTabController.h */,
-				5CDF81241A40465800E79AD9 /* MyLibraryTabController.m */,
 			);
 			name = MyLibrary;
 			sourceTree = "<group>";
@@ -630,33 +658,6 @@
 				5CDF812E1A4048FA00E79AD9 /* SearchTableViewController.m */,
 			);
 			name = Search;
-			sourceTree = "<group>";
-		};
-		5CDF81301A404A7B00E79AD9 /* read */ = {
-			isa = PBXGroup;
-			children = (
-				5CDF81351A404AC700E79AD9 /* MyLibraryTableViewController_read.h */,
-				5CDF81361A404AC700E79AD9 /* MyLibraryTableViewController_read.m */,
-			);
-			name = read;
-			sourceTree = "<group>";
-		};
-		5CDF81311A404A8600E79AD9 /* wish */ = {
-			isa = PBXGroup;
-			children = (
-				5CDF81321A404AAB00E79AD9 /* MyLibraryTableViewController_wish.h */,
-				5CDF81331A404AAB00E79AD9 /* MyLibraryTableViewController_wish.m */,
-			);
-			name = wish;
-			sourceTree = "<group>";
-		};
-		5CDF81381A404ADF00E79AD9 /* setting */ = {
-			isa = PBXGroup;
-			children = (
-				5CDF81391A404B0200E79AD9 /* MyLibraryTableViewController_setting.h */,
-				5CDF813A1A404B0200E79AD9 /* MyLibraryTableViewController_setting.m */,
-			);
-			name = setting;
 			sourceTree = "<group>";
 		};
 		5CDF813F1A404C1B00E79AD9 /* timeline */ = {
@@ -817,6 +818,7 @@
 				5C2C2A491A44073E0040BCD9 /* like_icon.png in Resources */,
 				34F8D45E1A2D6228000D257B /* Main.storyboard in Resources */,
 				34F8D4631A2D6228000D257B /* LaunchScreen.xib in Resources */,
+				5C79CBB71A512F230037E70A /* wish.png in Resources */,
 				5CAF80651A2F927A00B114F9 /* frame-000007.png in Resources */,
 				5CAF806F1A2F927A00B114F9 /* frame-000017.png in Resources */,
 				5CAF808D1A2F927A00B114F9 /* frame-000047.png in Resources */,
@@ -842,6 +844,7 @@
 				5C2C2A4D1A4419110040BCD9 /* scrap_icon.png in Resources */,
 				5C2C2A4C1A4419110040BCD9 /* comment_icon.png in Resources */,
 				5CAF80731A2F927A00B114F9 /* frame-000021.png in Resources */,
+				5C79CBB61A512F230037E70A /* read.png in Resources */,
 				5CAF80871A2F927A00B114F9 /* frame-000041.png in Resources */,
 				5C6E3F421A2DA8C500E50A7E /* logo.png in Resources */,
 				5CAF806E1A2F927A00B114F9 /* frame-000016.png in Resources */,
@@ -870,6 +873,7 @@
 				5C2C2A531A4469380040BCD9 /* user_icon.png in Resources */,
 				5CAF80831A2F927A00B114F9 /* frame-000037.png in Resources */,
 				5CDF81211A40440700E79AD9 /* navShadow.png in Resources */,
+				5C79CBB91A5130EA0037E70A /* profile_icon.png in Resources */,
 				5CAF80701A2F927A00B114F9 /* frame-000018.png in Resources */,
 				5CAF80691A2F927A00B114F9 /* frame-000011.png in Resources */,
 				5C2C2A4F1A441F9C0040BCD9 /* bookcover_sample.jpeg in Resources */,
@@ -913,7 +917,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C8E43E91A401D8900A5AA38 /* NXBookDataModel.m in Sources */,
-				5CDF81251A40465800E79AD9 /* MyLibraryTabController.m in Sources */,
 				5C321D8B1A4F2C3F00DADD90 /* serachResultBookButton.h in Sources */,
 				34F8D47B1A2D6313000D257B /* LoginViewController.m in Sources */,
 				5C8E43E61A401D6400A5AA38 /* SetBookFirstTableViewController.m in Sources */,
@@ -921,12 +924,11 @@
 				5CDF81461A404C8700E79AD9 /* TimelineTableViewController_mypost.m in Sources */,
 				5C8D13021A38560000628527 /* MainTabViewController.m in Sources */,
 				5C7E49BB1A470B47000E53EE /* TimelineModel.h in Sources */,
+				5C79CBBF1A5132860037E70A /* SettingModifyPasswordViewController.m in Sources */,
 				5C18DAC51A4EF0F2005DDB70 /* postingModel.m in Sources */,
 				5C8E43ED1A401E1300A5AA38 /* InitProfileViewController.m in Sources */,
-				5CDF81341A404AAB00E79AD9 /* MyLibraryTableViewController_wish.m in Sources */,
 				5CDF815B1A40734300E79AD9 /* LoadScene.m in Sources */,
 				5C321D8E1A50295200DADD90 /* PostingScrollView.m in Sources */,
-				5CDF81371A404AC700E79AD9 /* MyLibraryTableViewController_read.m in Sources */,
 				5C8E43F11A40244800A5AA38 /* publicSetting.m in Sources */,
 				5C2C2A681A449ED60040BCD9 /* TimelineTableViewCell.m in Sources */,
 				5C321D8A1A4F2C1400DADD90 /* serachResultBookButton.m in Sources */,
@@ -938,11 +940,11 @@
 				5CDF812F1A4048FA00E79AD9 /* SearchTableViewController.m in Sources */,
 				34F8D45B1A2D6228000D257B /* ViewController.m in Sources */,
 				5C8E43F41A40255500A5AA38 /* publicSetting.h in Sources */,
-				5CDF813B1A404B0200E79AD9 /* MyLibraryTableViewController_setting.m in Sources */,
 				5C2C2A461A43F4F00040BCD9 /* TimelineViewController.m in Sources */,
 				34F8D4581A2D6228000D257B /* AppDelegate.m in Sources */,
 				34219F621A3F048C0040CE38 /* BookTableViewCell.m in Sources */,
 				5CDF814C1A404DBF00E79AD9 /* PostingViewController.m in Sources */,
+				5C79CBB21A511C1F0037E70A /* SettingViewController.m in Sources */,
 				5C7E49C01A470F72000E53EE /* timelineTabButton.m in Sources */,
 				5C2F51761A48873D009DA465 /* TimelineTableView.m in Sources */,
 				5CDF81501A404E2500E79AD9 /* YourLibraryTableViewController.m in Sources */,
@@ -950,6 +952,8 @@
 				5CDF815D1A4073BF00E79AD9 /* LoadScene.h in Sources */,
 				34F8D4551A2D6228000D257B /* main.m in Sources */,
 				5CEF8F191A4EAE0E00818075 /* postingBookSearch.m in Sources */,
+				5C79CBC11A513C040037E70A /* SettingModel.m in Sources */,
+				5C79CBBC1A5131440037E70A /* SettingModifyNameViewController.m in Sources */,
 				5CDF81541A404E7300E79AD9 /* PostDetailTableViewController.m in Sources */,
 				5C2C2A6A1A44A13D0040BCD9 /* TimelineModel.m in Sources */,
 				34F8D47E1A2D6393000D257B /* RegisterEmailViewController.m in Sources */,

@@ -12,6 +12,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"%@",self.navigationController.navigationBar);
     [_timelineButton registerNotiCenter];
     [_mypostButton registerNotiCenter];
     [_timelineButton setStatus:ACTIVE];
