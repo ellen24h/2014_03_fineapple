@@ -386,7 +386,7 @@
                     <navigationItem key="navigationItem" id="2oW-4R-8bM"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="6tP-2o-cn4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -396,8 +396,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="xJF-g2-HWC" kind="relationship" relationship="viewControllers" id="GHO-XC-whV"/>
-                        <segue destination="kLe-Ma-zIn" kind="relationship" relationship="viewControllers" id="oPf-dE-oqE"/>
                         <segue destination="np0-Bc-t8p" kind="relationship" relationship="viewControllers" id="FPP-0Y-p7m"/>
+                        <segue destination="7qB-wT-g2j" kind="relationship" relationship="viewControllers" id="TjA-q1-TYu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WFi-lE-BIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -407,6 +407,7 @@
         <!--Root View Controller-->
         <scene sceneID="adV-8S-4s6">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IET-b3-0KG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="0iG-lz-mSt" customClass="SearchTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lRf-vH-oRh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -428,9 +429,8 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="nVl-pT-0r4"/>
                     <nil key="simulatedTopBarMetrics"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IET-b3-0KG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-370" y="894"/>
+            <point key="canvasLocation" x="-186" y="1114"/>
         </scene>
         <!--Timeline Tab Controller-->
         <scene sceneID="Xvs-eZ-zfg">
@@ -519,6 +519,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="hQj-ra-kx8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVH-fn-GYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -699,24 +700,6 @@
             </objects>
             <point key="canvasLocation" x="961" y="1450"/>
         </scene>
-        <!--Search Nav Controller-->
-        <scene sceneID="fYQ-VL-beQ">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="kLe-Ma-zIn" customClass="SearchNavController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="search_icon_select.png" id="iLh-ur-2Mr"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="smT-fc-UMt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="0iG-lz-mSt" kind="relationship" relationship="rootViewController" id="Xe7-aI-rKX"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="54k-n2-7pY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-743" y="878"/>
-        </scene>
         <!--RegisterEmail-->
         <scene sceneID="4ot-sL-mXC">
             <objects>
@@ -857,12 +840,78 @@
             </objects>
             <point key="canvasLocation" x="-1513" y="-69"/>
         </scene>
+        <!--Search Nav Controller Scene-->
+        <scene sceneID="Qph-SE-uaN">
+            <objects>
+                <viewController title="Search Nav Controller Scene" id="7qB-wT-g2j" customClass="SearchNavController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w8K-cO-I3S"/>
+                        <viewControllerLayoutGuide type="bottom" id="yiM-CY-DQB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ggu-5b-s9T">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="43" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JE0-vw-Wpn">
+                                <rect key="frame" x="0.0" y="20" width="320" height="675"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Search Books..." id="H6A-ca-7gv">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="bookCell" textLabel="uF6-eS-VQJ" rowHeight="43" style="IBUITableViewCellStyleDefault" id="rMc-QC-D7L">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rMc-QC-D7L" id="Ie8-b1-8AR">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uF6-eS-VQJ">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ST5-0T-xdc" kind="push" id="A0M-Mr-RkE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="7qB-wT-g2j" id="yUH-rv-zFn"/>
+                                    <outlet property="delegate" destination="7qB-wT-g2j" id="s5a-gv-jOJ"/>
+                                </connections>
+                            </tableView>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="33c-Ss-wgc">
+                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items/>
+                                <color key="barTintColor" red="0.098039215690000001" green="0.74117647060000003" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tabBar>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i9n-Ul-W7y">
+                                <rect key="frame" x="0.0" y="478" width="413" height="44"/>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="vhp-Ak-jUA"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="searchBar" destination="H6A-ca-7gv" id="exz-1p-I2g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h4w-40-jcr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-864" y="806"/>
+        </scene>
     </scenes>
     <resources>
         <image name="inputBar_registerEmail.png" width="261" height="40"/>
         <image name="logo.png" width="800" height="257"/>
         <image name="myLibrary_icon.png" width="48" height="32"/>
-        <image name="search_icon_select.png" width="48" height="32"/>
         <image name="timeline_icon.png" width="48" height="32"/>
         <image name="underline.png" width="800" height="131"/>
         <image name="verticalBar_registerEamil.png" width="261" height="40"/>
