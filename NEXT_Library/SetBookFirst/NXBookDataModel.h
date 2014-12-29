@@ -34,6 +34,8 @@
 +(id)sharedTimelineModel;
 -(id) initWithURLwithPort:(NSString *)URL port:(NSString *)port;
 -(void) getBookData;
+-(void) postReadData:(NSMutableArray *)setRead;
+-(void) postWishData:(NSMutableArray *)setWish;
 - (NSUInteger)bookCount;
 - (NSMutableArray *) returnMutableArray;
 

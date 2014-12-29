@@ -46,6 +46,37 @@
     return self;
 }
 
+-(void) postReadData:(NSMutableArray *)setRead {
+    [setRead componentsJoinedByString:@","];
+    NSString *alertString = [NSString stringWithFormat:@"%@", setRead];
+    NSLog(@"%@",alertString);
+    NSData *readJsonData = [NSJSONSerialization dataWithJSONObject:setRead options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *readJsonString = [[NSString alloc] initWithData:readJsonData encoding:NSUTF8StringEncoding];
+    NSData *requestData = [alertString dataUsingEncoding:NSUTF8StringEncoding];
+    [request setURL:[url URLByAppendingPathComponent:@"/readBook"]];
+    [request setHTTPBody:requestData];
+    
+    NSHTTPURLResponse * sResponse;
+    NSError * error;
+    resultData = [NSURLConnection sendSynchronousRequest:request returningResponse:&sResponse error:&error];
+    NSLog(@"response = %ld", (long)sResponse.statusCode);
+    NSLog(@"result = %@", [NSString stringWithUTF8String:resultData.bytes]);
+}
+
+-(void) postWishData:(NSMutableArray *)setWish {
+    NSData *wishJsonData = [NSJSONSerialization dataWithJSONObject:setWish options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *wishJsonString = [[NSString alloc] initWithData:wishJsonData encoding:NSUTF8StringEncoding];
+    NSData *requestData = [wishJsonString dataUsingEncoding:NSUTF8StringEncoding];
+    [request setURL:[url URLByAppendingPathComponent:@"/wishBook"]];
+    [request setHTTPBody:requestData];
+    
+    NSHTTPURLResponse * sResponse;
+    NSError * error;
+    resultData = [NSURLConnection sendSynchronousRequest:request returningResponse:&sResponse error:&error];
+    NSLog(@"response = %ld", (long)sResponse.statusCode);
+    NSLog(@"result = %@", [NSString stringWithUTF8String:resultData.bytes]);
+}
+
 -(void) getBookData {
     
     [request setURL:[url URLByAppendingPathComponent:@"/setBookFirst"]]; // 책정보를 어디서 가지고 올 것인지...

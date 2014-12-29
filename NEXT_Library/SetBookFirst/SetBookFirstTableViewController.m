@@ -22,9 +22,8 @@
     [_tableData reloadData];
     // 데이터 모델에서 값을 전달 받음.
     myObject = [model returnMutableArray];
-    
-    setRead = [[NSMutableSet alloc] init];
-    setWish = [[NSMutableSet alloc] init];
+    setRead = [[NSMutableArray alloc] init];
+    setWish = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,9 +83,12 @@
     cell.view.backgroundColor = [UIColor whiteColor];
     cell.bookTitle.text = name;
     cell.bookWriter.text = author;
-    cell.bookImg.frame = CGRectMake(0,0,80,70);
+    cell.bookImg.frame = CGRectMake(0,0,100,130);
     cell.readBook.tag = [ISBN integerValue];
     cell.wishBook.tag = [ISBN integerValue];
+    
+    cell.readBook.selected = [setRead containsObject:@(ISBN.integerValue)];
+    cell.wishBook.selected = [setWish containsObject:@(ISBN.integerValue)];
     
     //cell.bookImg.image = img;
     //위 방식으로 이미지를 보여준다면.. 이미지 데이터를 전부 받아 오는데 까지 테이블 셀을 만들지 않음.
@@ -104,47 +106,49 @@
 
 //read button을 touch하면 나타나는 Action
 - (IBAction)action_read:(UIButton *)sender {
-    NSNumber * readTag = [NSNumber numberWithLong:[sender tag]];
     UIButton * read_Button = sender;
     NSLog(@"%@",sender);
     if (read_Button.selected == NO){
         read_Button.selected = YES;
-        NSLog(@"%@",readTag);
-        [setRead addObject:readTag];
+        [setRead addObject:@(read_Button.tag)];
     } else {
         read_Button.selected = NO;
-        [setRead removeObject:readTag];
+        [setRead removeObject:@(read_Button.tag)];
     }
 }
 
 //wish button을 touch하면 나타나는 Action
 - (IBAction)action_wish:(id)sender {
     UIButton * wish_Button = sender;
-    NSNumber * wishTag = [NSNumber numberWithLong:[wish_Button tag]];
     if (wish_Button.selected == NO) {
         wish_Button.selected = YES;
-        [setWish addObject:wishTag];
+        [setWish addObject:wish_Button];
     } else {
         wish_Button.selected = NO;
-        [setWish removeObject:wishTag];
+        [setWish removeObject:wish_Button];
     }
 }
 
 
 - (IBAction)Done:(id)sender {
-    NSError* error;
-    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:setRead options:0
-                        error:&error];
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSData *jsonSource =  [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSDictionary *jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonSource options:kNilOptions error:nil];
-    NSLog(@"%@", jsonString);
-    
+    if ([setRead count] == 0){
+        UIAlertView *alert = [[UIAlertView alloc]init];
+        alert.message = @"읽은 책 최소 1권 이상 선택해주세요.";
+        [alert addButtonWithTitle:@"확인"];
+        [alert show];
+    }else if([setWish count] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc]init];
+        alert.message = @"보고싶은 책 최소 1권 이상 선택해주세요.";
+        [alert addButtonWithTitle:@"확인"];
+        [alert show];
+    }else{
+        [model postReadData:setRead];
+        //[model postWishData:setWish];
+        [LoadScene loadSceneByPush:self loadSceneName:@"MainTab"];
+    }
 }
 
-- (IBAction)doneButtonTouch:(id)sender {
-    [LoadScene loadSceneByPush:self loadSceneName:@"MainTab"];
-}
+
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     float height = scrollView.frame.size.height;

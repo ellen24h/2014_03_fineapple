@@ -221,7 +221,6 @@
                                 </state>
                                 <connections>
                                     <action selector="Done:" destination="3E5-GQ-Mkz" eventType="touchDown" id="ipF-3T-mPJ"/>
-                                    <action selector="doneButtonTouch:" destination="3E5-GQ-Mkz" eventType="touchUpInside" id="X9E-pm-80k"/>
                                 </connections>
                             </button>
                             <connections>

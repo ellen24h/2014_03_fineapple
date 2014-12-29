@@ -18,10 +18,10 @@
     NSMutableArray * myObject;
     NSMutableArray * arrRead;
     NSMutableArray * arrWish;
-    NSMutableSet * setRead;
-    NSMutableSet * setWish;
+    
+    NSMutableArray * setRead;
+    NSMutableArray * setWish;
+    
 }
-
-@property (nonatomic, strong) NSMutableArray *letterData;
 
 @end
