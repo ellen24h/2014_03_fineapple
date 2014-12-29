@@ -19,30 +19,28 @@
     // 스크롤 설정
     [self.scroll setScrollEnabled:YES];
     [self.scroll setContentSize:CGSizeMake(320, 1030)];
-    NSString * number = @"L0001";
+    NSString * ISBN = @"9788982814471";
     //model 생성
     model = [BookDetailModel sharedTimelineModel];
-    [model getDetailData:number];
+    [model getDetailData:ISBN];
     read_Count = [model readCount:@"9788982814471"];
     wish_Count = [model wishCount:@"9788982814471"];
     
-    bookObject = [model getObject];
-    
-    NSDictionary * bookDict = [bookObject objectAtIndex:0];
+    NSDictionary * bookDict = [model.myObject objectAtIndex:0];
     self.bookName.text = [NSMutableString stringWithFormat:@"%@",
-                          [bookDict objectForKeyedSubscript:@"name"]];
+                          [bookDict objectForKey:@"name"]];
     self.bookAuthor.text = [NSMutableString stringWithFormat:@"%@",
-                          [bookDict objectForKeyedSubscript:@"author"]];
+                          [bookDict objectForKey:@"author"]];
     self.publish_year.text = [NSMutableString stringWithFormat:@"%@",
-                          [bookDict objectForKeyedSubscript:@"publish_year"]];
+                          [bookDict objectForKey:@"publish_year"]];
     self.large_ctag.text = [NSMutableString stringWithFormat:@"%@",
-                              [bookDict objectForKeyedSubscript:@"large_ctag"]];
+                              [bookDict objectForKey:@"large_ctag"]];
     self.medium_ctag.text = [NSMutableString stringWithFormat:@"%@",
-                            [bookDict objectForKeyedSubscript:@"medium_ctag"]];
+                            [bookDict objectForKey:@"medium_ctag"]];
     self.small_ctag.text = [NSMutableString stringWithFormat:@"%@",
-                             [bookDict objectForKeyedSubscript:@"small_ctag"]];
+                             [bookDict objectForKey:@"small_ctag"]];
     self.location.text = [NSMutableString stringWithFormat:@"%@",
-                            [bookDict objectForKeyedSubscript:@"location1"]];
+                            [bookDict objectForKey:@"location1"]];
     NSURL *url = [NSURL URLWithString:[bookDict objectForKey:@"cover_img"]];
     
     [self.bookImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"sample_book_img"]];

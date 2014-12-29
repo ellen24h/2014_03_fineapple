@@ -31,6 +31,7 @@
     NSString *description;
     NSString *ISBN;
 }
+@property (nonatomic, copy) NSMutableArray * myObject;
 
 +(id)sharedTimelineModel;
 -(id) initWithURLwithPort:(NSString *)URL port:(NSString *)port;

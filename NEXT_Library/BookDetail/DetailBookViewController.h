@@ -12,7 +12,6 @@
 
 @interface DetailBookViewController : UIViewController {
     BookDetailModel * model;
-    NSMutableArray * bookObject;
     NSString * read_Count;
     NSString * wish_Count;
 }

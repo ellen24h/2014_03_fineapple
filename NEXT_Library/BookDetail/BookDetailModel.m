@@ -34,18 +34,18 @@
         large_ctag = @"large_ctag";
         medium_ctag = @"medium_ctag";
         small_ctag = @"small_ctag";
-        location = @"locataion1";
+        location = @"location1";
         description = @"description";
         ISBN = @"ISBN";
-        myObject = [[NSMutableArray alloc] init];
+        _myObject = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
--(void)getDetailData:(NSString *)booknum{
+-(void)getDetailData:(NSString *)getISBN{
     [request setURL:[url URLByAppendingPathComponent:@"/bookDetail"]];
     NSLog(@"현재 연결 url : %@", request.URL);
-    NSString * bookData = [NSString stringWithFormat:@"book_num=%@",booknum];
+    NSString * bookData = [NSString stringWithFormat:@"ISBN=%@",getISBN];
     resultData = [bookData dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:resultData];
     
@@ -61,7 +61,7 @@
         NSString *large_ctag_data = [dataDict objectForKey:@"large_ctag"];
         NSString *medium_ctag_data = [dataDict objectForKey:@"medium_ctag"];
         NSString *small_ctag_data = [dataDict objectForKey:@"small_ctag"];
-        NSString *location_data = [dataDict objectForKey:@"locataion1"];
+        NSString *location_data = [dataDict objectForKey:@"location1"];
         NSString *ISBN_data = [dataDict objectForKey:@"ISBN"];
 
         NSLog(@"name: %@",name_data);
@@ -90,6 +90,7 @@
 
 -(NSString *)readCount:(NSString *)book_isbn {
     [request setURL:[url URLByAppendingPathComponent:@"/count"]];
+    
     NSString * bookISBN = [NSString stringWithFormat:@"ISBN=%@",book_isbn];
     resultData = [bookISBN dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:resultData];
@@ -105,6 +106,12 @@
 }
 
 -(NSString *)wishCount:(NSString *)book_isbn  {
+    [request setURL:[url URLByAppendingPathComponent:@"/count"]];
+    
+    NSString * bookISBN = [NSString stringWithFormat:@"ISBN=%@",book_isbn];
+    resultData = [bookISBN dataUsingEncoding:NSUTF8StringEncoding];
+    [request setHTTPBody:resultData];
+    
     NSData *count_Data =  [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *count_Objects = [NSJSONSerialization JSONObjectWithData:count_Data options:kNilOptions error:nil];
     
