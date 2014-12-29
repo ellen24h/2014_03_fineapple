@@ -58,19 +58,28 @@
         self.errormethod.text = @"이메일 주소를 입력해 주세요.";
         self.errormethod.textColor = [UIColor redColor];
         return;
-    };
+    }else{
+        self.errormethod.text = @"";
+        self.errormethod.textColor = [UIColor blackColor];
+    }
     
     if(![self NSStringIsValidEmail:email]){
         self.errormethod.text = @"메일주소의 형식이 맞지 않습니다.";
         self.errormethod.textColor = [UIColor redColor];
         self.emailField.textColor = [UIColor redColor];
         return;
+    }else{
+        self.errormethod.text = @"";
+        self.errormethod.textColor = [UIColor blackColor];
     }
     
     if (![model checkEmail:email]) {
         self.errormethod.text = @"이미 존재하는 이메일입니다.";
         self.errormethod.textColor = [UIColor redColor];
         self.emailField.textColor = [UIColor redColor];
+    }else{
+        self.errormethod.text = @"";
+        self.errormethod.textColor = [UIColor blackColor];
     }
     textField_Check_email = YES;
 }
@@ -92,6 +101,9 @@
         self.errormethod.text = @"비밀번호를 입력해 주세요.";
         self.errormethod.textColor = [UIColor redColor];
         return;
+    }else{
+        self.errormethod.text = @"";
+        self.errormethod.textColor = [UIColor blackColor];
     }
     //[self moveScreen:NO];
 }
@@ -115,13 +127,19 @@
         self.errormethod.textColor = [UIColor redColor];
         self.checkpassword.textColor = [UIColor redColor];
         return;
-    };
+    }else{
+        self.errormethod.text = @"";
+        self.errormethod.textColor = [UIColor blackColor];
+    }
     
     if(![pw isEqualToString:pwAgain]){
         self.errormethod.text = @"비밀번호가 다릅니다.";
         self.errormethod.textColor = [UIColor redColor];
         self.checkpassword.textColor = [UIColor redColor];
         return;
+    }else{
+        self.errormethod.text = @"";
+        self.errormethod.textColor = [UIColor blackColor];
     }
 }
 
@@ -144,6 +162,9 @@
         self.errormethod.text = @"이름을 입력해 주세요.";
         self.errormethod.textColor = [UIColor redColor];
         return;
+    }else{
+        self.errormethod.text = @"";
+        self.errormethod.textColor = [UIColor blackColor];
     }
     textField_Check_name = YES;
 }
