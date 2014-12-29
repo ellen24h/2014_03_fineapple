@@ -7,6 +7,7 @@
 //
 
 #import "RegisterEmailViewController.h"
+#import "LoginViewController.h"
 
 @interface RegisterEmailViewController ()
 {
@@ -29,6 +30,7 @@
 
 -(void)didTap:(UITapGestureRecognizer*)tap {
     [self.view endEditing:YES];
+    [self moveScreen:SCREEN_DOWN];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,11 +45,14 @@
         self.emailField.textColor = [UIColor blackColor];
     }
     self.emailField.textColor = [UIColor blackColor];
+    [self moveScreen:SCREEN_UP];
 }
 
 //이메일 입력 확인
 - (IBAction)EmailEnd:(UITextField *)sender {
     NSString *email = [self.emailField text];
+    [self moveScreen:SCREEN_DOWN];
+    textField_Check_email = YES;
     
     if([email isEqualToString:@""]){
         self.errormethod.text = @"이메일 주소를 입력해 주세요.";
@@ -67,7 +72,7 @@
         self.errormethod.textColor = [UIColor redColor];
         self.emailField.textColor = [UIColor redColor];
     }
-    textField_Check_name = YES;
+    textField_Check_email = YES;
 }
 
 //비밀번호 입력 시작
@@ -75,17 +80,20 @@
     self.passwordField.text = @"";
     self.passwordField.textColor = [UIColor blackColor];
     self.passwordField.secureTextEntry = TRUE; //secureTextEntry 활성화
+    [self moveScreen:YES];
 }
 
 //비밀번호 입력 확인
 - (IBAction)passwordEnd:(UITextField *)sender {
     NSString *pw = [self.passwordField text];
+    [self moveScreen:SCREEN_DOWN];
     
     if([pw isEqualToString:@""]){
         self.errormethod.text = @"비밀번호를 입력해 주세요.";
         self.errormethod.textColor = [UIColor redColor];
         return;
     }
+    //[self moveScreen:NO];
 }
 
 //비밀번호 확인 입력 시작
@@ -93,10 +101,12 @@
     self.checkpassword.text = @"";
     self.checkpassword.textColor = [UIColor blackColor];
     self.checkpassword.secureTextEntry = TRUE; //secureTextEntry 활성화
+    [self moveScreen:YES];
 }
 
 //비밀번호 확인 입력 확인
 - (IBAction)checkPwEnd:(UITextField *)sender {
+    [self moveScreen:SCREEN_DOWN];
     NSString *pw = [self.passwordField text];
     NSString *pwAgain = [self.checkpassword text];
     
@@ -122,10 +132,13 @@
         self.nameField.textColor = [UIColor blackColor];
     }
     self.nameField.textColor = [UIColor blackColor];
+    [self moveScreen:YES];
 }
 
 //이름 입력 확인
 - (IBAction)nameEnd:(UITextField *)sender {
+    textField_Check_name = YES;
+    [self moveScreen:SCREEN_DOWN];
     NSString *name = [self.nameField text];
     if([name isEqualToString:@""]){
         self.errormethod.text = @"이름을 입력해 주세요.";
@@ -204,6 +217,7 @@
     return YES;
 }
 
+
 // 활동중인 텍스트 필드 설정
 -(void)dismissKeyboard
 {
@@ -225,6 +239,37 @@
     }
     if (activeTextField) {
         [activeTextField resignFirstResponder];
+    }
+}
+
+//moveScreen
+//  Bool값을 받아서 화면을 내리거나 올린다.
+//  up : YES, down : NO
+- (void)moveScreen:(BOOL)upOrDown{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3];
+    CGRect rect = self.view.frame;
+    if(upOrDown){
+        rect.origin.y -= kOFFSET_FOR_KEYBOARD;
+        rect.size.height += kOFFSET_FOR_KEYBOARD;
+    }
+    else{
+        rect.origin.y += kOFFSET_FOR_KEYBOARD;
+        rect.size.height -= kOFFSET_FOR_KEYBOARD;
+    }
+    self.view.frame = rect;
+    [UIView commitAnimations];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if(isViewPosUp == YES){
+        [self moveScreen:SCREEN_DOWN];
+        _passwordField.backgroundColor = [UIColor clearColor];
+        _emailField.backgroundColor = [UIColor clearColor];
+        [self.view endEditing:YES];
+        isViewPosUp = NO;
+        //curFocusField = -1;
     }
 }
 

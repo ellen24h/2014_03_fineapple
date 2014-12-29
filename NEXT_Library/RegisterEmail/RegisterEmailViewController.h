@@ -15,6 +15,7 @@
 {
     BOOL textField_Check_email;
     BOOL textField_Check_name;
+    BOOL isViewPosUp;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
