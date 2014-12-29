@@ -8,12 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "publicSetting.h"
+#import "NXBookDataModel.h"
+#import "BookTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface SetBookFirstTableViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource> {
-    IBOutlet UITableView *tableData;
+    IBOutlet UITableView * _tableData;
+    NXBookDataModel * model;
+    NSMutableArray * myObject;
+    NSMutableArray * arrRead;
+    NSMutableArray * arrWish;
+    
+    NSMutableArray * setRead;
+    NSMutableArray * setWish;
+    
 }
-
-
-@property (nonatomic, strong) NSMutableArray *letterData;
 
 @end

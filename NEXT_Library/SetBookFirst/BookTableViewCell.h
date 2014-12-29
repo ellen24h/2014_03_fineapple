@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *bookWriter;
 @property (weak, nonatomic) IBOutlet UIButton *readBook;
 @property (weak, nonatomic) IBOutlet UIButton *wishBook;
+@property (weak, nonatomic) IBOutlet UIView *view;
 
 @end
  

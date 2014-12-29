@@ -9,26 +9,22 @@
 #import "RegisterEmailViewController.h"
 
 @interface RegisterEmailViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *emailField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordField;
-@property (weak, nonatomic) IBOutlet UITextField *checkpassword;
-@property (weak, nonatomic) IBOutlet UITextField *nameField;
-@property (weak, nonatomic) IBOutlet UILabel *errormethod;
-@property(nonatomic, readonly, getter=isEditing) BOOL editing;
+{
+    RegisterModel * model;
+}
+
 @end
 
 @implementation RegisterEmailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.emailField.text = @"";
-    //self.passwordField.text = @"";
-    //self.checkpassword.text = @"";
-    //self.nameField.text = @""; // 굳이 초기화 작업이 진행될 필요는 없을 것 같음.
-    // Do any additional setup after loading the view.
-    // 택스트 필드 외에 탭을 할 시에 키보드가 사라지는 기능.
+    model = [[RegisterModel alloc] initWithURLwithPort:[publicSetting getServerAddr] port:[publicSetting getPortNum]];
+    textField_Check_email = NO;
+    textField_Check_name = NO;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
+    
 }
 
 -(void)didTap:(UITapGestureRecognizer*)tap {
@@ -42,7 +38,10 @@
 
 //이메일 입력 시작
 - (IBAction)EmailBegin:(UITextField *)sender {
-    self.emailField.text = @"";
+    if (textField_Check_email == NO) {
+        self.emailField.text = @"";
+        self.emailField.textColor = [UIColor blackColor];
+    }
     self.emailField.textColor = [UIColor blackColor];
 }
 
@@ -63,11 +62,12 @@
         return;
     }
     
-    if (![self checkEmail:email]) {
+    if (![model checkEmail:email]) {
         self.errormethod.text = @"이미 존재하는 이메일입니다.";
         self.errormethod.textColor = [UIColor redColor];
         self.emailField.textColor = [UIColor redColor];
     }
+    textField_Check_name = YES;
 }
 
 //비밀번호 입력 시작
@@ -117,7 +117,10 @@
 
 //이름 입력 시작
 - (IBAction)nameBegin:(UITextField *)sender {
-    self.nameField.text = @"";
+    if (textField_Check_name == NO){
+        self.nameField.text = @"";
+        self.nameField.textColor = [UIColor blackColor];
+    }
     self.nameField.textColor = [UIColor blackColor];
 }
 
@@ -129,6 +132,7 @@
         self.errormethod.textColor = [UIColor redColor];
         return;
     }
+    textField_Check_name = YES;
 }
 
 //확인 버튼을 누름
@@ -138,22 +142,7 @@
     NSString * name = [self.nameField text];
     
     if ([self checkSuccess]) {
-        //NSURLRequest 만들기
-        NSString * URLString = [[NSString alloc]initWithFormat:@"http://%@:%@/register",[publicSetting getServerAddr],[publicSetting getPortNum]];
-        NSString * FormData = [NSString stringWithFormat:@"email=%@&password=%@&userName=%@",email,password,name];
-        NSURL * url = [NSURL URLWithString:URLString];
-        NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
-        [request setHTTPMethod:@"POST"];
-        [request setHTTPBody:[FormData dataUsingEncoding:NSUTF8StringEncoding]];
-        
-        //NSURLConnection 으로 Request 전송
-        NSHTTPURLResponse * sResponse;
-        NSError * error;
-        [publicSetting setLoadingAnimation:self];
-        NSData * resultData = [NSURLConnection sendSynchronousRequest:request returningResponse:&sResponse error:&error];
-        [publicSetting removeLoadingAnimation:self];
-        NSLog(@"response = %ld", (long)sResponse.statusCode);
-        NSLog(@"result = %@", [NSString stringWithUTF8String:resultData.bytes] );
+        [model successConnection:email :password :name];
     }
 }
 
@@ -213,31 +202,6 @@
     self.errormethod.textColor = [UIColor blueColor];
     self.errormethod.text = @"완료";
     return YES;
-}
-
-- (BOOL)checkEmail:(NSString *) email {
-   NSString * URLString = [[NSString alloc]initWithFormat:@"http://%@:%@/register",[publicSetting getServerAddr],[publicSetting getPortNum]];
-    NSString * FormData = [NSString stringWithFormat:@"email=%@",email];
-    NSURL * url = [NSURL URLWithString:URLString];
-    NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
-    
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:[FormData dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    NSHTTPURLResponse * response;
-    NSError * error;
-    [publicSetting setLoadingAnimation:self];
-    NSData * resultData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    [publicSetting removeLoadingAnimation:self];
-    NSString * result = [NSString stringWithUTF8String:resultData.bytes];
-    //result = [NSString stringWithFormat:@"%s"];
-    
-    NSLog(@"response = %ld", (long)response.statusCode);
-    NSLog(@"result = %@", result);
-    
-    if ([result isEqual: @"None"]){
-        return YES;
-    } else return NO;
 }
 
 // 활동중인 텍스트 필드 설정

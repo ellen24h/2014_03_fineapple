@@ -7,120 +7,159 @@
 //
 
 #import "SetBookFirstTableViewController.h"
-#import "NXBookDataModel.h"
-#import "BookTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
-@interface SetBookFirstTableViewController () {
-    NSMutableArray *myObject;
-    // A dictionary object
-    NSDictionary *dictionary;
-    // Define keys
-    NSString *title;
-    NSString *thumbnail;
-    NSString *author;
-    NSString *permalink;
-}
-
+@interface SetBookFirstTableViewController ()
 @end
 
 @implementation SetBookFirstTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    title = @"title";
-    thumbnail = @"thumbnail";
-    author = @"author";
-    permalink = @"permalink";
-    
-    myObject = [[NSMutableArray alloc] init];
-    
-    NSData *jsonSource = [NSData dataWithContentsOfURL:
-                          [NSURL URLWithString:@"http://gooruism.com/feed/json"]];
-    
-    id jsonObjects = [NSJSONSerialization JSONObjectWithData:
-                      jsonSource options:NSJSONReadingMutableContainers error:nil];
-    
-    for (NSDictionary *dataDict in jsonObjects) {
-        NSString *title_data = [dataDict objectForKey:@"title"];
-        NSString *thumbnail_data = [dataDict objectForKey:@"thumbnail"];
-        NSString *author_data = [dataDict objectForKey:@"author"];
-        NSString *permalink_data = [dataDict objectForKey:@"permalink"];
-        
-        NSLog(@"TITLE: %@",title_data);
-        NSLog(@"THUMBNAIL: %@",thumbnail_data);
-        NSLog(@"AUTHOR: %@",author_data);
-        NSLog(@"URL: %@",permalink_data);
-        
-        dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                      title_data, title,
-                      thumbnail_data, thumbnail,
-                      author_data,author,
-                      permalink_data,permalink,
-                      nil];
-        [myObject addObject:dictionary];
-    }
-    //self.letterData = [@[@"A",@"B",@"C",@"D",@"E"] mutableCopy];
+    // model 객체 생성
+    model = [NXBookDataModel sharedTimelineModel];
+    [model getBookData];
+    [_tableData reloadData];
+    // 데이터 모델에서 값을 전달 받음.
+    myObject = [model returnMutableArray];
+    setRead = [[NSMutableArray alloc] init];
+    setWish = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return myObject.count;
+    return [model bookCount];
 }
 
-
+// 테이블에 보여지는 것들.
 - (BookTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // 초기 cell 설정.
     static NSString *cellIdentifier = @"bookCell";
+    //BookTableViewCell *cell = [[BookTableViewCell alloc]init];
+
     BookTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
     if (cell == nil) {
         cell = [[BookTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
+    // 데이터 모델에서 값을 전달 받음.
+    //NSMutableArray * myObject = [model returnMutableArray];
     NSDictionary *tmpDict = [myObject objectAtIndex:indexPath.row];
     
-    NSMutableString *text;
-    //text = [NSString stringWithFormat:@"%@",[tmpDict objectForKey:title]];
-    text = [NSMutableString stringWithFormat:@"%@",
-            [tmpDict objectForKeyedSubscript:title]];
+    //책 이름에 대하여...
+    NSMutableString *name;
+    name = [NSMutableString stringWithFormat:@"%@",
+            [tmpDict objectForKeyedSubscript:@"name"]];
     
-    NSMutableString *detail;
-    detail = [NSMutableString stringWithFormat:@"Author: %@ ",
-              [tmpDict objectForKey:author]];
+    //책 작가에 대하여...
+    NSMutableString *author;
+    author = [NSMutableString stringWithFormat:@"%@ ",
+              [tmpDict objectForKey:@"author"]];
     
-    NSMutableString *images;
-    images = [NSMutableString stringWithFormat:@"%@ ",
-              [tmpDict objectForKey:thumbnail]];
+    //책 이미지에 대하여...
+    NSMutableString *cover_img;
+    cover_img = [NSMutableString stringWithFormat:@"%@ ",
+              [tmpDict objectForKey:@"cover_img"]];
     
-    NSURL *url = [NSURL URLWithString:[tmpDict objectForKey:thumbnail]];
+    NSMutableString *ISBN;
+    ISBN = [NSMutableString stringWithFormat:@"%@", [tmpDict objectForKey:@"ISBN"]];
+    
+/*
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *img = [[UIImage alloc]initWithData:data];
+*/
+    // 위 (주석) 코드를 보기 좋게 한 줄로.
+    // 책 이미지 경로 받은 것을 NSURL로..
+    NSURL *url = [NSURL URLWithString:[tmpDict objectForKey:@"cover_img"]];
     
-    cell.bookTitle.text = text;
-    cell.bookWriter.text = detail;
-    cell.bookImg.frame = CGRectMake(0,0,80,70);
-    cell.bookImg.image = img;
+    // cell에 뿌려주는 작업.
+    cell.view.backgroundColor = [UIColor whiteColor];
+    cell.bookTitle.text = name;
+    cell.bookWriter.text = author;
+    cell.bookImg.frame = CGRectMake(0,0,100,130);
+    cell.readBook.tag = [ISBN integerValue];
+    cell.wishBook.tag = [ISBN integerValue];
     
+    cell.readBook.selected = [setRead containsObject:@(ISBN.integerValue)];
+    cell.wishBook.selected = [setWish containsObject:@(ISBN.integerValue)];
     
+    //cell.bookImg.image = img;
+    //위 방식으로 이미지를 보여준다면.. 이미지 데이터를 전부 받아 오는데 까지 테이블 셀을 만들지 않음.
+    //SDWebImage Lib(?)을 이용.
+    
+    [cell.bookImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"Null"]];
+    cell.bookImg.contentMode = UIViewContentModeScaleAspectFit;
     return cell;
 }
 
+//테이블의 셀의 높이를 지정함.
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 151;
 }
-- (IBAction)doneButtonTouch:(id)sender {
-    [LoadScene loadSceneByPush:self loadSceneName:@"MainTab"];
+
+//read button을 touch하면 나타나는 Action
+- (IBAction)action_read:(UIButton *)sender {
+    UIButton * read_Button = sender;
+    NSLog(@"%@",sender);
+    if (read_Button.selected == NO){
+        read_Button.selected = YES;
+        [setRead addObject:@(read_Button.tag)];
+    } else {
+        read_Button.selected = NO;
+        [setRead removeObject:@(read_Button.tag)];
+    }
+}
+
+//wish button을 touch하면 나타나는 Action
+- (IBAction)action_wish:(id)sender {
+    UIButton * wish_Button = sender;
+    if (wish_Button.selected == NO) {
+        wish_Button.selected = YES;
+        [setWish addObject:wish_Button];
+    } else {
+        wish_Button.selected = NO;
+        [setWish removeObject:wish_Button];
+    }
+}
+
+
+- (IBAction)Done:(id)sender {
+    if ([setRead count] == 0){
+        UIAlertView *alert = [[UIAlertView alloc]init];
+        alert.message = @"읽은 책 최소 1권 이상 선택해주세요.";
+        [alert addButtonWithTitle:@"확인"];
+        [alert show];
+    }else if([setWish count] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc]init];
+        alert.message = @"보고싶은 책 최소 1권 이상 선택해주세요.";
+        [alert addButtonWithTitle:@"확인"];
+        [alert show];
+    }else{
+        [model postReadData:setRead];
+        [model postWishData:setWish];
+        [LoadScene loadSceneByPush:self loadSceneName:@"MainTab"];
+    }
+}
+
+
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    float height = scrollView.frame.size.height;
+    float contentsHeight = scrollView.contentSize.height;
+    float scrollSet = scrollView.contentOffset.y;
+    
+    if (scrollSet + height == contentsHeight) {
+        NXBookDataModel * remodel = [NXBookDataModel sharedTimelineModel];
+        [remodel getBookData];
+        [_tableData reloadData];
+    }
 }
 
 @end
