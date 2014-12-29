@@ -24,11 +24,21 @@
      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshTimeline) name:@"postingDone" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addCommentDone:) name:@"addCommentDone" object:nil];
     
+    UIRefreshControl * refreshControl = [[UIRefreshControl alloc]init];
+    [_timelineTableView addSubview:refreshControl];
+    [refreshControl addTarget:self action:@selector(refreshTable:) forControlEvents:UIControlEventValueChanged];
+    
     self.tabBarController.tabBar.frame = CGRectMake(0,0,0,0);
     _timelineTableView.backgroundColor = UIColorFromRGB(FINE_BEIGE);
     _timelineTableView.delegate = _timelineTableView;
     [publicSetting setLoadingAnimation:self];
     [model getJsonFromServer:@"/timeline"];
+}
+
+-(void)refreshTable:(UIRefreshControl *)sender{
+    [self refreshTimeline];
+    [sender endRefreshing];
+    [_timelineTableView reloadData];
 }
 
 -(void)addCommentDone:(NSNotification *)noti{
@@ -38,7 +48,10 @@
 -(void)refreshTimeline{
     [model setLastMypostId:-1];
     [publicSetting setLoadingAnimation:self];
-    [model getJsonFromServer:@"/timeline"];
+    if([_timelineButton getStatus] == ACTIVE)
+        [model getJsonFromServer:@"/timeline"];
+    else
+        [model getJsonFromServer:@"/mypost"];
 }
 
 -(void)timelineCommentButtonTouched:(NSNotification *)noti{
