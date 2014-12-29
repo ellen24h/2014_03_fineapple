@@ -407,7 +407,6 @@
         <!--Root View Controller-->
         <scene sceneID="adV-8S-4s6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IET-b3-0KG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="0iG-lz-mSt" customClass="SearchTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lRf-vH-oRh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -429,6 +428,7 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="nVl-pT-0r4"/>
                     <nil key="simulatedTopBarMetrics"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IET-b3-0KG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-186" y="1114"/>
         </scene>
@@ -901,6 +901,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="searchBar" destination="H6A-ca-7gv" id="exz-1p-I2g"/>
+                        <outlet property="tableView" destination="JE0-vw-Wpn" id="nYI-UW-Qfn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4w-40-jcr" sceneMemberID="firstResponder"/>

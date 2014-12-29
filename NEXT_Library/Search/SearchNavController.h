@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchNavController : UITabBarController <UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate, UISearchBarDelegate>
+@interface SearchNavController : UITabBarController <UISearchDisplayDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) NSMutableArray *array;
 @property (strong, nonatomic) NSMutableArray *searchResults;
+@property (strong, nonatomic) NSMutableArray *keys;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
 @end
