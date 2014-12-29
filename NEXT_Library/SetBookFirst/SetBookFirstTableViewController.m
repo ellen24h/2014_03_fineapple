@@ -143,7 +143,7 @@
         [alert show];
     }else{
         [model postReadData:setRead];
-        //[model postWishData:setWish];
+        [model postWishData:setWish];
         [LoadScene loadSceneByPush:self loadSceneName:@"MainTab"];
     }
 }

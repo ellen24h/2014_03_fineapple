@@ -38,7 +38,7 @@
 
 //이메일 입력 시작
 - (IBAction)EmailBegin:(UITextField *)sender {
-    if (textField_Check_name == NO) {
+    if (textField_Check_email == NO) {
         self.emailField.text = @"";
         self.emailField.textColor = [UIColor blackColor];
     }

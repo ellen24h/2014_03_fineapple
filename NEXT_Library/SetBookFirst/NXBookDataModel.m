@@ -47,12 +47,25 @@
 }
 
 -(void) postReadData:(NSMutableArray *)setRead {
-    [setRead componentsJoinedByString:@","];
-    NSString *alertString = [NSString stringWithFormat:@"%@", setRead];
-    NSLog(@"%@",alertString);
-    NSData *readJsonData = [NSJSONSerialization dataWithJSONObject:setRead options:NSJSONWritingPrettyPrinted error:nil];
-    NSString *readJsonString = [[NSString alloc] initWithData:readJsonData encoding:NSUTF8StringEncoding];
-    NSData *requestData = [alertString dataUsingEncoding:NSUTF8StringEncoding];
+    NSMutableString * readISBN = [[NSMutableString alloc] init];
+    for (int i = 0; i < [setRead count]; i++){
+        NSString *nth = [NSString stringWithFormat:@"%d",i];
+        nth = [NSString stringWithFormat:@"%d",i];
+        [readISBN appendString:nth];
+        [readISBN appendString:@"="];
+        NSString *isbn = [NSString stringWithFormat:@"%@",setRead[i]];
+        [readISBN appendString:isbn];
+        [readISBN appendString:@"&"];
+        NSLog(@"%@",readISBN);
+    }
+    
+//    NSString *alertString = [NSString stringWithFormat:@"%@",setRead];
+//    NSLog(@"%@",alertString);
+//    NSData *readJsonData = [NSJSONSerialization dataWithJSONObject:setRead options:NSJSONWritingPrettyPrinted error:nil];
+//    NSString *readJsonString = [[NSString alloc] initWithData:readJsonData encoding:NSUTF8StringEncoding];
+    
+    NSData *requestData = [readISBN dataUsingEncoding:NSUTF8StringEncoding];
+    
     [request setURL:[url URLByAppendingPathComponent:@"/readBook"]];
     [request setHTTPBody:requestData];
     
@@ -64,9 +77,25 @@
 }
 
 -(void) postWishData:(NSMutableArray *)setWish {
-    NSData *wishJsonData = [NSJSONSerialization dataWithJSONObject:setWish options:NSJSONWritingPrettyPrinted error:nil];
-    NSString *wishJsonString = [[NSString alloc] initWithData:wishJsonData encoding:NSUTF8StringEncoding];
-    NSData *requestData = [wishJsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSMutableString * wishISBN = [[NSMutableString alloc] init];
+    for (int i = 0; i < [setWish count]; i++){
+        NSString *nth = [NSString stringWithFormat:@"%d",i];
+        nth = [NSString stringWithFormat:@"%d",i];
+        [wishISBN appendString:nth];
+        [wishISBN appendString:@"="];
+        NSString *isbn = [NSString stringWithFormat:@"%@",setWish[i]];
+        [wishISBN appendString:isbn];
+        [wishISBN appendString:@"&"];
+        NSLog(@"%@",wishISBN);
+    }
+    
+    //    NSString *alertString = [NSString stringWithFormat:@"%@",setRead];
+    //    NSLog(@"%@",alertString);
+    //    NSData *readJsonData = [NSJSONSerialization dataWithJSONObject:setRead options:NSJSONWritingPrettyPrinted error:nil];
+    //    NSString *readJsonString = [[NSString alloc] initWithData:readJsonData encoding:NSUTF8StringEncoding];
+    
+    NSData *requestData = [wishISBN dataUsingEncoding:NSUTF8StringEncoding];
+    
     [request setURL:[url URLByAppendingPathComponent:@"/wishBook"]];
     [request setHTTPBody:requestData];
     
