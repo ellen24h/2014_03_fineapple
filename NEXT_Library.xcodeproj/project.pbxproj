@@ -102,6 +102,7 @@
 		5C90AFD51A51DA12002BB2E3 /* bookTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C90AFD41A51DA12002BB2E3 /* bookTitleButton.m */; };
 		5C90AFD61A51DB31002BB2E3 /* bookTitleButton.h in Sources */ = {isa = PBXBuildFile; fileRef = 5C90AFD31A51DA12002BB2E3 /* bookTitleButton.h */; };
 		5C90AFD91A51E6A2002BB2E3 /* timelineNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C90AFD81A51E6A2002BB2E3 /* timelineNavController.m */; };
+		5C90AFDB1A52055F002BB2E3 /* setting_icon_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C90AFDA1A52055F002BB2E3 /* setting_icon_select.png */; };
 		5C9F52A21A4E6A88008BCB36 /* pics.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C9F52A01A4E6A88008BCB36 /* pics.png */; };
 		5C9F52A31A4E6A88008BCB36 /* quote.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C9F52A11A4E6A88008BCB36 /* quote.png */; };
 		5CA7CD221A45EEA300BE538A /* TimelineTableViewCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C2A661A449ED60040BCD9 /* TimelineTableViewCell.h */; };
@@ -328,6 +329,7 @@
 		5C90AFD41A51DA12002BB2E3 /* bookTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bookTitleButton.m; path = Timeline/timeline/bookTitleButton.m; sourceTree = "<group>"; };
 		5C90AFD71A51E6A2002BB2E3 /* timelineNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = timelineNavController.h; path = Timeline/timelineNavController.h; sourceTree = "<group>"; };
 		5C90AFD81A51E6A2002BB2E3 /* timelineNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = timelineNavController.m; path = Timeline/timelineNavController.m; sourceTree = "<group>"; };
+		5C90AFDA1A52055F002BB2E3 /* setting_icon_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting_icon_select.png; path = MainTab/iconSource/setting_icon_select.png; sourceTree = "<group>"; };
 		5C9F52A01A4E6A88008BCB36 /* pics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pics.png; path = Posting/iconSrc/pics.png; sourceTree = "<group>"; };
 		5C9F52A11A4E6A88008BCB36 /* quote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quote.png; path = Posting/iconSrc/quote.png; sourceTree = "<group>"; };
 		5CAF802C1A2F927900B114F9 /* frame-000000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-000000.png"; sourceTree = "<group>"; };
@@ -889,6 +891,7 @@
 		5CDF81591A404F2000E79AD9 /* iconSource */ = {
 			isa = PBXGroup;
 			children = (
+				5C90AFDA1A52055F002BB2E3 /* setting_icon_select.png */,
 				5C90AFCC1A51D0AB002BB2E3 /* setting_icon.png */,
 				5CDF81661A407C5500E79AD9 /* myLibrary_icon_select.png */,
 				5CDF81671A407C5500E79AD9 /* recommand_icon_select.png */,
@@ -1062,6 +1065,7 @@
 				5CAF80691A2F927A00B114F9 /* frame-000011.png in Resources */,
 				5C2C2A4F1A441F9C0040BCD9 /* bookcover_sample.jpeg in Resources */,
 				5CAF806A1A2F927A00B114F9 /* frame-000012.png in Resources */,
+				5C90AFDB1A52055F002BB2E3 /* setting_icon_select.png in Resources */,
 				5CAF807C1A2F927A00B114F9 /* frame-000030.png in Resources */,
 				5CAF806D1A2F927A00B114F9 /* frame-000015.png in Resources */,
 				5C90AFCD1A51D0AB002BB2E3 /* setting_icon.png in Resources */,

@@ -467,7 +467,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="Timeline" id="xJF-g2-HWC" customClass="TimelineTabController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <tabBarItem key="tabBarItem" title="" image="timeline_icon.png" id="rtX-Tb-U6s"/>
+                    <tabBarItem key="tabBarItem" title="" image="timeline_icon.png" selectedImage="timeline_icon_select.png" id="rtX-Tb-U6s"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="top" id="kqM-D9-ray">
@@ -713,7 +713,7 @@
         <scene sceneID="DW3-TQ-vHN">
             <objects>
                 <navigationController id="ikW-EK-TsA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="setting_icon.png" id="Y49-sP-KK9"/>
+                    <tabBarItem key="tabBarItem" title="" image="setting_icon.png" selectedImage="setting_icon_select.png" id="Y49-sP-KK9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="miY-ZY-5ce">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -931,7 +931,7 @@
         <scene sceneID="7KL-Ol-p4W">
             <objects>
                 <navigationController navigationBarHidden="YES" id="Nxb-vb-jQD" customClass="timelineNavController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="타임라인" selectedImage="timeline_icon.png" id="c5W-tU-7rz"/>
+                    <tabBarItem key="tabBarItem" title="타임라인" image="timeline_icon.png" selectedImage="timeline_icon_select.png" id="c5W-tU-7rz"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nPg-oQ-AKT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1007,7 +1007,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.96470588239999999" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="타임라인" id="Kvn-dp-WxK"/>
+                    <tabBarItem key="tabBarItem" title="타임라인" image="timeline_icon.png" id="Kvn-dp-WxK"/>
                     <navigationItem key="navigationItem" id="N2j-fc-HLs"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -1219,7 +1219,7 @@
         <scene sceneID="fYQ-VL-beQ">
             <objects>
                 <navigationController navigationBarHidden="YES" id="kLe-Ma-zIn" customClass="SearchNavController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="search_icon_select.png" id="iLh-ur-2Mr"/>
+                    <tabBarItem key="tabBarItem" title="" image="search_icon.png" selectedImage="search_icon_select.png" id="iLh-ur-2Mr"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="smT-fc-UMt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1390,9 +1390,12 @@
         <image name="read_inactive.png" width="88" height="25"/>
         <image name="read_inactive_white.png" width="24" height="22"/>
         <image name="sample_book_img.jpg" width="510" height="680"/>
+        <image name="search_icon.png" width="48" height="32"/>
         <image name="search_icon_select.png" width="48" height="32"/>
         <image name="setting_icon.png" width="48" height="32"/>
+        <image name="setting_icon_select.png" width="48" height="32"/>
         <image name="timeline_icon.png" width="48" height="32"/>
+        <image name="timeline_icon_select.png" width="48" height="32"/>
         <image name="underline.png" width="800" height="131"/>
         <image name="verticalBar_registerEamil.png" width="261" height="40"/>
         <image name="wish.png" width="80" height="80"/>
