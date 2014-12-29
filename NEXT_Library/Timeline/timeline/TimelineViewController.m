@@ -21,9 +21,9 @@
     [notiCenter addObserver:self selector:@selector(setJsonDataAsClassVariable:) name:@"timelineJsonReceived" object:nil];
     [notiCenter addObserver:self selector:@selector(timelineLikeScrapButtonTouched:) name:@"timelineLikeScrapButtonTouched" object:nil];
     [notiCenter addObserver:self selector:@selector(timelineCommentButtonTouched:) name:@"timelineCommentButtonTouched" object:nil];
-     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshTimeline) name:@"postingDone" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addCommentDone:) name:@"addCommentDone" object:nil];
-    
+     [notiCenter addObserver:self selector:@selector(refreshTimeline) name:@"postingDone" object:nil];
+    [notiCenter addObserver:self selector:@selector(addCommentDone:) name:@"addCommentDone" object:nil];
+    [notiCenter addObserver:self selector:@selector(loadMoreTimelineData:) name:@"loadMoreTimelineData" object:nil];
     UIRefreshControl * refreshControl = [[UIRefreshControl alloc]init];
     [_timelineTableView addSubview:refreshControl];
     [refreshControl addTarget:self action:@selector(refreshTable:) forControlEvents:UIControlEventValueChanged];
@@ -45,6 +45,13 @@
     [self commentClose:nil];
     [self refreshTimeline];
 }
+
+-(void)loadMoreTimelineData:(NSNotification *)noti{
+    NSString * approute = noti.object;
+    [publicSetting setLoadingAnimation:self];
+    [model getJsonFromServer:approute];
+}
+
 -(void)refreshTimeline{
     [model setLastMypostId:-1];
     [publicSetting setLoadingAnimation:self];

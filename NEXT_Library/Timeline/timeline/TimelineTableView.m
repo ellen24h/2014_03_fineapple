@@ -19,10 +19,14 @@
         //이부분 만약 TimelineModle을 싱글톤으로 구현하면 좋을것 같다.
         TimelineModel * model = [TimelineModel sharedTimelineModel];
         NSInteger curTab = [model getCurTab];
-        if(curTab == TIMELINE_DATATYPE)
-            [model getJsonFromServer:@"/timeline"];
-        else
-            [model getJsonFromServer:@"/mypost"];
+        NSString * approute;
+        if(curTab == TIMELINE_DATATYPE){
+            approute = @"/timeline";
+        }
+        else{
+            approute = @"/mypost";
+        }
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"loadMoreTimelineData" object:approute];
     }
 }
 
