@@ -467,7 +467,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="Timeline" id="xJF-g2-HWC" customClass="TimelineTabController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <tabBarItem key="tabBarItem" title="" image="timeline_icon.png" selectedImage="timeline_icon_select.png" id="rtX-Tb-U6s"/>
+                    <tabBarItem key="tabBarItem" title="" image="timeline_icon.png" id="rtX-Tb-U6s"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="top" id="kqM-D9-ray">
@@ -713,7 +713,7 @@
         <scene sceneID="DW3-TQ-vHN">
             <objects>
                 <navigationController id="ikW-EK-TsA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="setting_icon.png" selectedImage="setting_icon_select.png" id="Y49-sP-KK9"/>
+                    <tabBarItem key="tabBarItem" title="" image="setting_icon.png" id="Y49-sP-KK9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="miY-ZY-5ce">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1393,7 +1393,6 @@
         <image name="search_icon.png" width="48" height="32"/>
         <image name="search_icon_select.png" width="48" height="32"/>
         <image name="setting_icon.png" width="48" height="32"/>
-        <image name="setting_icon_select.png" width="48" height="32"/>
         <image name="timeline_icon.png" width="48" height="32"/>
         <image name="timeline_icon_select.png" width="48" height="32"/>
         <image name="underline.png" width="800" height="131"/>
