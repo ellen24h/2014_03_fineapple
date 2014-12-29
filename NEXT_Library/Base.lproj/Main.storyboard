@@ -540,25 +540,9 @@
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ijn-x3-odX">
                                         <rect key="frame" x="8" y="7" width="304" height="786"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="M8E-8H-Xy2">
-                                                <rect key="frame" x="82" y="0.0" width="141" height="183"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sample_book_img.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="M8E-8H-Xy2">
+                                                <rect key="frame" x="82" y="5" width="141" height="183"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEm-bv-TFJ">
-                                                <rect key="frame" x="0.0" y="191" width="152" height="30"/>
-                                                <color key="backgroundColor" red="0.098039215690000001" green="0.74117647060000003" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="0">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yfy-nt-5Zj">
-                                                <rect key="frame" x="152" y="191" width="152" height="30"/>
-                                                <color key="backgroundColor" red="0.098039215690000001" green="0.74117647060000003" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="1">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="카페 사업 노하우 바로알기" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bto-Yu-qh6">
                                                 <rect key="frame" x="0.0" y="250" width="304" height="34"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
@@ -572,7 +556,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="김정" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCV-tY-dqB">
-                                                <rect key="frame" x="94" y="292" width="202" height="30"/>
+                                                <rect key="frame" x="93" y="292" width="202" height="30"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -634,8 +618,49 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="underline.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pvo-BY-Fby">
                                                 <rect key="frame" x="27" y="462" width="250" height="13"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="김정" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0m-9S-1uN">
-                                                <rect key="frame" x="27" y="513" width="250" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yfy-nt-5Zj">
+                                                <rect key="frame" x="152" y="194" width="152" height="35"/>
+                                                <color key="backgroundColor" red="0.098039215690000001" green="0.74117647060000003" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="15"/>
+                                                <state key="normal" title="보고싶어요" image="wish_inactive_white.png">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="selected" image="heart_active_2.png">
+                                                    <color key="titleColor" red="0.93725490196078431" green="0.25098039215686274" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbg-Gm-Kgl">
+                                                <rect key="frame" x="0.0" y="194" width="152" height="35"/>
+                                                <color key="backgroundColor" red="0.098039215690000001" green="0.74117647060000003" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                                <state key="normal" title=" 봤어요" image="read_inactive_white.png">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="selected" image="check_active_2.png">
+                                                    <color key="titleColor" red="0.93725490199999995" green="0.25098039220000001" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check_active.png" translatesAutoresizingMaskIntoConstraints="NO" id="e0n-W7-o8P">
+                                                <rect key="frame" x="75" y="678" width="40" height="40"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart_active.png" translatesAutoresizingMaskIntoConstraints="NO" id="ozm-G9-Rc3">
+                                                <rect key="frame" x="190" y="678" width="40" height="40"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaP-Ox-kLf">
+                                                <rect key="frame" x="68" y="726" width="54" height="24"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0k-on-7zM">
+                                                <rect key="frame" x="183" y="726" width="54" height="24"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bd-GS-GXM">
+                                                <rect key="frame" x="27" y="520" width="250" height="150"/>
+                                                <string key="text">“회사 그만두고 카페나 할까?”
+“좋지~ 내가 좋아하는 음악 틀어놓고, 직접 내린 커피 한 잔~ 캬!”
+카페 창업은 업무에 지친 직장인들이 걸핏하면 떠올리는 일종의 로망이다. 그렇지만 정말로 카페를 창업하면 그런 멋지고 여유 넘치는 아름다운 삶이 펼쳐질까?</string>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -653,12 +678,25 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1000"/>
                     <connections>
+                        <outlet property="bookAuthor" destination="uCV-tY-dqB" id="6e9-UC-nyr"/>
+                        <outlet property="bookImg" destination="M8E-8H-Xy2" id="OLs-fP-7GI"/>
+                        <outlet property="bookName" destination="bto-Yu-qh6" id="g6L-ji-CF9"/>
+                        <outlet property="book_intro" destination="6Bd-GS-GXM" id="X2C-am-TGo"/>
+                        <outlet property="count_read" destination="zaP-Ox-kLf" id="YbN-Lr-Yqi"/>
+                        <outlet property="count_wish" destination="e0k-on-7zM" id="71b-M9-QeJ"/>
+                        <outlet property="large_ctag" destination="9mX-JG-xaG" id="EOZ-ck-qNC"/>
+                        <outlet property="location" destination="lWp-Jt-hxp" id="g6U-0X-KFw"/>
+                        <outlet property="medium_ctag" destination="qSH-yA-muH" id="Gzc-4M-C5P"/>
+                        <outlet property="publish_year" destination="Ed6-8U-f9G" id="0aJ-kZ-DOp"/>
+                        <outlet property="readBook" destination="mbg-Gm-Kgl" id="Tve-1g-31S"/>
                         <outlet property="scroll" destination="vRB-6c-gxf" id="m2D-4g-ur8"/>
+                        <outlet property="small_ctag" destination="j3D-Eh-uZs" id="H50-XN-0lw"/>
+                        <outlet property="wishBook" destination="Yfy-nt-5Zj" id="Xdb-L2-Y8D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVH-fn-GYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1901" y="-79"/>
+            <point key="canvasLocation" x="1889" y="116"/>
         </scene>
         <!--Item-->
         <scene sceneID="ylL-Cl-NVj">
@@ -995,13 +1033,20 @@
         </scene>
     </scenes>
     <resources>
+        <image name="check_active.png" width="40" height="40"/>
+        <image name="check_active_2.png" width="25" height="25"/>
+        <image name="heart_active.png" width="40" height="40"/>
+        <image name="heart_active_2.png" width="25" height="25"/>
         <image name="inputBar_registerEmail.png" width="261" height="40"/>
         <image name="logo.png" width="800" height="257"/>
         <image name="myLibrary_icon.png" width="48" height="32"/>
+        <image name="read_inactive_white.png" width="24" height="22"/>
+        <image name="sample_book_img.jpg" width="510" height="680"/>
         <image name="search_icon_select.png" width="48" height="32"/>
         <image name="timeline_icon.png" width="48" height="32"/>
         <image name="underline.png" width="800" height="131"/>
         <image name="verticalBar_registerEamil.png" width="261" height="40"/>
+        <image name="wish_inactive_white.png" width="23" height="21"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
