@@ -117,12 +117,8 @@
 		5CB742C91A2DAE2A006EA127 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CB742C81A2DAE2A006EA127 /* logo.png */; };
 		5CDF811F1A403D1400E79AD9 /* nav.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDF811E1A403D1400E79AD9 /* nav.png */; };
 		5CDF81211A40440700E79AD9 /* navShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDF81201A40440700E79AD9 /* navShadow.png */; };
-		5CDF81251A40465800E79AD9 /* MyLibraryTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF81241A40465800E79AD9 /* MyLibraryTabController.m */; };
 		5CDF812C1A40484F00E79AD9 /* SearchNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF812B1A40484F00E79AD9 /* SearchNavController.m */; };
 		5CDF812F1A4048FA00E79AD9 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF812E1A4048FA00E79AD9 /* SearchTableViewController.m */; };
-		5CDF81341A404AAB00E79AD9 /* MyLibraryTableViewController_wish.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF81331A404AAB00E79AD9 /* MyLibraryTableViewController_wish.m */; };
-		5CDF81371A404AC700E79AD9 /* MyLibraryTableViewController_read.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF81361A404AC700E79AD9 /* MyLibraryTableViewController_read.m */; };
-		5CDF813B1A404B0200E79AD9 /* MyLibraryTableViewController_setting.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF813A1A404B0200E79AD9 /* MyLibraryTableViewController_setting.m */; };
 		5CDF81421A404C3800E79AD9 /* TimelineTableViewController_timeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF81411A404C3800E79AD9 /* TimelineTableViewController_timeline.m */; };
 		5CDF81461A404C8700E79AD9 /* TimelineTableViewController_mypost.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF81451A404C8700E79AD9 /* TimelineTableViewController_mypost.m */; };
 		5CDF814C1A404DBF00E79AD9 /* PostingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF814B1A404DBF00E79AD9 /* PostingViewController.m */; };
@@ -139,6 +135,9 @@
 		5CDF816B1A407C5500E79AD9 /* recommand_icon_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDF81671A407C5500E79AD9 /* recommand_icon_select.png */; };
 		5CDF816C1A407C5500E79AD9 /* search_icon_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDF81681A407C5500E79AD9 /* search_icon_select.png */; };
 		5CDF816D1A407C5500E79AD9 /* timeline_icon_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDF81691A407C5500E79AD9 /* timeline_icon_select.png */; };
+		8C2931481A51CF000026ADAB /* MyLibraryCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2931431A51CF000026ADAB /* MyLibraryCollectionViewController.m */; };
+		8C2931491A51CF000026ADAB /* MyLibraryReadBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2931451A51CF000026ADAB /* MyLibraryReadBookCell.m */; };
+		8C29314A1A51CF000026ADAB /* MyLibarayPlusButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2931471A51CF000026ADAB /* MyLibarayPlusButtonCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -297,18 +296,10 @@
 		5CB742C81A2DAE2A006EA127 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Login/imgSource/logo.png; sourceTree = "<group>"; };
 		5CDF811E1A403D1400E79AD9 /* nav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nav.png; path = NEXT_Library/FirstNavigationViewController/nav.png; sourceTree = "<group>"; };
 		5CDF81201A40440700E79AD9 /* navShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navShadow.png; path = NEXT_Library/FirstNavigationViewController/navShadow.png; sourceTree = "<group>"; };
-		5CDF81231A40465800E79AD9 /* MyLibraryTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyLibraryTabController.h; path = MyLibrary/MyLibraryTabController.h; sourceTree = "<group>"; };
-		5CDF81241A40465800E79AD9 /* MyLibraryTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyLibraryTabController.m; path = MyLibrary/MyLibraryTabController.m; sourceTree = "<group>"; };
 		5CDF812A1A40484F00E79AD9 /* SearchNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchNavController.h; path = Search/SearchNavController.h; sourceTree = "<group>"; };
 		5CDF812B1A40484F00E79AD9 /* SearchNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchNavController.m; path = Search/SearchNavController.m; sourceTree = "<group>"; };
 		5CDF812D1A4048FA00E79AD9 /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTableViewController.h; path = Search/SearchTableViewController.h; sourceTree = "<group>"; };
 		5CDF812E1A4048FA00E79AD9 /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTableViewController.m; path = Search/SearchTableViewController.m; sourceTree = "<group>"; };
-		5CDF81321A404AAB00E79AD9 /* MyLibraryTableViewController_wish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyLibraryTableViewController_wish.h; path = MyLibrary/wish/MyLibraryTableViewController_wish.h; sourceTree = "<group>"; };
-		5CDF81331A404AAB00E79AD9 /* MyLibraryTableViewController_wish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyLibraryTableViewController_wish.m; path = MyLibrary/wish/MyLibraryTableViewController_wish.m; sourceTree = "<group>"; };
-		5CDF81351A404AC700E79AD9 /* MyLibraryTableViewController_read.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyLibraryTableViewController_read.h; path = MyLibrary/read/MyLibraryTableViewController_read.h; sourceTree = "<group>"; };
-		5CDF81361A404AC700E79AD9 /* MyLibraryTableViewController_read.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyLibraryTableViewController_read.m; path = MyLibrary/read/MyLibraryTableViewController_read.m; sourceTree = "<group>"; };
-		5CDF81391A404B0200E79AD9 /* MyLibraryTableViewController_setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyLibraryTableViewController_setting.h; path = MyLibrary/setting/MyLibraryTableViewController_setting.h; sourceTree = "<group>"; };
-		5CDF813A1A404B0200E79AD9 /* MyLibraryTableViewController_setting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyLibraryTableViewController_setting.m; path = MyLibrary/setting/MyLibraryTableViewController_setting.m; sourceTree = "<group>"; };
 		5CDF81401A404C3800E79AD9 /* TimelineTableViewController_timeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineTableViewController_timeline.h; path = Timeline/timeline/TimelineTableViewController_timeline.h; sourceTree = "<group>"; };
 		5CDF81411A404C3800E79AD9 /* TimelineTableViewController_timeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineTableViewController_timeline.m; path = Timeline/timeline/TimelineTableViewController_timeline.m; sourceTree = "<group>"; };
 		5CDF81441A404C8700E79AD9 /* TimelineTableViewController_mypost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineTableViewController_mypost.h; path = Timeline/mypost/TimelineTableViewController_mypost.h; sourceTree = "<group>"; };
@@ -331,6 +322,12 @@
 		5CDF81671A407C5500E79AD9 /* recommand_icon_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = recommand_icon_select.png; path = MainTab/iconSource/recommand_icon_select.png; sourceTree = "<group>"; };
 		5CDF81681A407C5500E79AD9 /* search_icon_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search_icon_select.png; path = MainTab/iconSource/search_icon_select.png; sourceTree = "<group>"; };
 		5CDF81691A407C5500E79AD9 /* timeline_icon_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timeline_icon_select.png; path = MainTab/iconSource/timeline_icon_select.png; sourceTree = "<group>"; };
+		8C2931421A51CF000026ADAB /* MyLibraryCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLibraryCollectionViewController.h; sourceTree = "<group>"; };
+		8C2931431A51CF000026ADAB /* MyLibraryCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLibraryCollectionViewController.m; sourceTree = "<group>"; };
+		8C2931441A51CF000026ADAB /* MyLibraryReadBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLibraryReadBookCell.h; sourceTree = "<group>"; };
+		8C2931451A51CF000026ADAB /* MyLibraryReadBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLibraryReadBookCell.m; sourceTree = "<group>"; };
+		8C2931461A51CF000026ADAB /* MyLibarayPlusButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLibarayPlusButtonCell.h; sourceTree = "<group>"; };
+		8C2931471A51CF000026ADAB /* MyLibarayPlusButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLibarayPlusButtonCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -666,11 +663,12 @@
 		5CDF81221A40462800E79AD9 /* MyLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				5CDF81381A404ADF00E79AD9 /* setting */,
-				5CDF81311A404A8600E79AD9 /* wish */,
-				5CDF81301A404A7B00E79AD9 /* read */,
-				5CDF81231A40465800E79AD9 /* MyLibraryTabController.h */,
-				5CDF81241A40465800E79AD9 /* MyLibraryTabController.m */,
+				8C2931421A51CF000026ADAB /* MyLibraryCollectionViewController.h */,
+				8C2931431A51CF000026ADAB /* MyLibraryCollectionViewController.m */,
+				8C2931441A51CF000026ADAB /* MyLibraryReadBookCell.h */,
+				8C2931451A51CF000026ADAB /* MyLibraryReadBookCell.m */,
+				8C2931461A51CF000026ADAB /* MyLibarayPlusButtonCell.h */,
+				8C2931471A51CF000026ADAB /* MyLibarayPlusButtonCell.m */,
 			);
 			name = MyLibrary;
 			sourceTree = "<group>";
@@ -684,33 +682,6 @@
 				5CDF812E1A4048FA00E79AD9 /* SearchTableViewController.m */,
 			);
 			name = Search;
-			sourceTree = "<group>";
-		};
-		5CDF81301A404A7B00E79AD9 /* read */ = {
-			isa = PBXGroup;
-			children = (
-				5CDF81351A404AC700E79AD9 /* MyLibraryTableViewController_read.h */,
-				5CDF81361A404AC700E79AD9 /* MyLibraryTableViewController_read.m */,
-			);
-			name = read;
-			sourceTree = "<group>";
-		};
-		5CDF81311A404A8600E79AD9 /* wish */ = {
-			isa = PBXGroup;
-			children = (
-				5CDF81321A404AAB00E79AD9 /* MyLibraryTableViewController_wish.h */,
-				5CDF81331A404AAB00E79AD9 /* MyLibraryTableViewController_wish.m */,
-			);
-			name = wish;
-			sourceTree = "<group>";
-		};
-		5CDF81381A404ADF00E79AD9 /* setting */ = {
-			isa = PBXGroup;
-			children = (
-				5CDF81391A404B0200E79AD9 /* MyLibraryTableViewController_setting.h */,
-				5CDF813A1A404B0200E79AD9 /* MyLibraryTableViewController_setting.m */,
-			);
-			name = setting;
 			sourceTree = "<group>";
 		};
 		5CDF813F1A404C1B00E79AD9 /* timeline */ = {
@@ -961,7 +932,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C8E43E91A401D8900A5AA38 /* NXBookDataModel.m in Sources */,
-				5CDF81251A40465800E79AD9 /* MyLibraryTabController.m in Sources */,
 				34F534071A492F3400094662 /* SDWebImageManager.m in Sources */,
 				34F534081A492F3400094662 /* SDWebImagePrefetcher.m in Sources */,
 				34F8D47B1A2D6313000D257B /* LoginViewController.m in Sources */,
@@ -973,10 +943,9 @@
 				5C8D13021A38560000628527 /* MainTabViewController.m in Sources */,
 				34EC6CEF1A482DA600E5F3B1 /* RegisterModel.m in Sources */,
 				5C8E43ED1A401E1300A5AA38 /* InitProfileViewController.m in Sources */,
-				5CDF81341A404AAB00E79AD9 /* MyLibraryTableViewController_wish.m in Sources */,
 				5CDF815B1A40734300E79AD9 /* LoadScene.m in Sources */,
-				5CDF81371A404AC700E79AD9 /* MyLibraryTableViewController_read.m in Sources */,
 				5C8E43F11A40244800A5AA38 /* publicSetting.m in Sources */,
+				8C2931491A51CF000026ADAB /* MyLibraryReadBookCell.m in Sources */,
 				5CDF812C1A40484F00E79AD9 /* SearchNavController.m in Sources */,
 				5C2968331A35D3740029CBD0 /* TimelineTabController.m in Sources */,
 				34F5340A1A492F3400094662 /* UIImage+GIF.m in Sources */,
@@ -984,12 +953,12 @@
 				5CDF812F1A4048FA00E79AD9 /* SearchTableViewController.m in Sources */,
 				34F8D45B1A2D6228000D257B /* ViewController.m in Sources */,
 				34F5340E1A492F3400094662 /* UIImageView+WebCache.m in Sources */,
+				8C29314A1A51CF000026ADAB /* MyLibarayPlusButtonCell.m in Sources */,
 				5C8E43F41A40255500A5AA38 /* publicSetting.h in Sources */,
 				34F534091A492F3400094662 /* UIButton+WebCache.m in Sources */,
 				34F534051A492F3400094662 /* SDWebImageDownloader.m in Sources */,
 				34F5340C1A492F3400094662 /* UIImage+WebP.m in Sources */,
 				34F5340B1A492F3400094662 /* UIImage+MultiFormat.m in Sources */,
-				5CDF813B1A404B0200E79AD9 /* MyLibraryTableViewController_setting.m in Sources */,
 				34F8D4581A2D6228000D257B /* AppDelegate.m in Sources */,
 				34219F621A3F048C0040CE38 /* BookTableViewCell.m in Sources */,
 				3440753F1A51C6230016F5CD /* DetailBookViewController.m in Sources */,
@@ -1000,6 +969,7 @@
 				34F534001A492F3400094662 /* MKAnnotationView+WebCache.m in Sources */,
 				5CDF81501A404E2500E79AD9 /* YourLibraryTableViewController.m in Sources */,
 				5CDF815D1A4073BF00E79AD9 /* LoadScene.h in Sources */,
+				8C2931481A51CF000026ADAB /* MyLibraryCollectionViewController.m in Sources */,
 				34F8D4551A2D6228000D257B /* main.m in Sources */,
 				5CDF81421A404C3800E79AD9 /* TimelineTableViewController_timeline.m in Sources */,
 				34F534011A492F3400094662 /* NSData+ImageContentType.m in Sources */,
