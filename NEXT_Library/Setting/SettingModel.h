@@ -21,4 +21,5 @@
 -(void)modifyName:(NSString *)newName;
 -(void)modifyPassword:(NSString *)newPassword;
 -(NSDictionary *)getUserInfo;
+-(void)logout;
 @end

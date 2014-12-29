@@ -75,5 +75,13 @@
     result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
     return result;
 }
+-(void)logout{
+    NSURLResponse * response;
+    [request setURL:[url URLByAppendingPathComponent:@"/logout"]];
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    [[NSUserDefaults standardUserDefaults] setObject:NULL forKey:@"remember_token"];
+    [[NSUserDefaults standardUserDefaults] setObject:NULL forKey:@"session"];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"logout" object:nil];
+}
 
 @end

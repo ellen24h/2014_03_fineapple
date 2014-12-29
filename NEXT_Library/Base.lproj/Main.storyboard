@@ -558,10 +558,13 @@
                                 <rect key="frame" x="0.0" y="464" width="320" height="55"/>
                                 <color key="backgroundColor" red="0.094117647060000004" green="0.43921568630000002" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="공지사항">
+                                <state key="normal" title="로그아웃">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="logoutButtonTouched:" destination="cKi-SX-15t" eventType="touchUpInside" id="rgP-zR-RXK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.098039215690000001" green="0.74117647060000003" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1219,7 +1222,7 @@
         <scene sceneID="fYQ-VL-beQ">
             <objects>
                 <navigationController navigationBarHidden="YES" id="kLe-Ma-zIn" customClass="SearchNavController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="search_icon.png" selectedImage="search_icon_select.png" id="iLh-ur-2Mr"/>
+                    <tabBarItem key="tabBarItem" title="" image="search_icon.png" id="iLh-ur-2Mr"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="smT-fc-UMt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1391,7 +1394,6 @@
         <image name="read_inactive_white.png" width="24" height="22"/>
         <image name="sample_book_img.jpg" width="510" height="680"/>
         <image name="search_icon.png" width="48" height="32"/>
-        <image name="search_icon_select.png" width="48" height="32"/>
         <image name="setting_icon.png" width="48" height="32"/>
         <image name="timeline_icon.png" width="48" height="32"/>
         <image name="timeline_icon_select.png" width="48" height="32"/>

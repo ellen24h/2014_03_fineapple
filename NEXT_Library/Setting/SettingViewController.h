@@ -12,7 +12,7 @@
 @interface SettingViewController : UIViewController
 {
 @private
-
+    SettingModel * model;
 }
 @property (weak, nonatomic) IBOutlet UILabel *wishCount;
 @property (weak, nonatomic) IBOutlet UILabel *readCount;
