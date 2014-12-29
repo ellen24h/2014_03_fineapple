@@ -17,12 +17,7 @@
 //화면이 올라가고 내려가야하는데 그때 쓰는 상수값
 #define SCREEN_UP 1
 #define SCREEN_DOWN 0
-#define kOFFSET_FOR_KEYBOARD 80.0
-//RGB값으로 UIColor 객체를 생성해주는 함수메크로
-#define UIColorFromRGB(rgbValue) [UIColor \
-colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
-green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
-blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 
 
 @interface LoginViewController : UIViewController

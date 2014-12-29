@@ -46,8 +46,27 @@
     [publicSetting setLoadingAnimation:controller];
     resultData = [NSURLConnection sendSynchronousRequest:request returningResponse:&sResponse error:&error];
     [publicSetting removeLoadingAnimation:controller];
-    NSLog(@"response = %ld", (long)sResponse.statusCode);
-    NSLog(@"result = %@", [NSString stringWithUTF8String:resultData.bytes]);
+    NSLog(@"response :%@",sResponse);
+    
+    NSUserDefaults * pref = [NSUserDefaults standardUserDefaults];
+    NSDictionary * dictionary;
+    NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse*)sResponse;
+    if ([sResponse respondsToSelector:@selector(allHeaderFields)]) {
+        dictionary = [httpResponse allHeaderFields];
+    }
+    NSArray * keys = [dictionary allKeys];
+    NSString * rememberToken;
+    if([keys containsObject:@"Set-Cookie"] == YES){
+        NSString * cookie_str = [[dictionary valueForKey:@"Set-Cookie"]stringByReplacingOccurrencesOfString:@"Path=/," withString:@""];
+        NSArray * cookie_arr = [cookie_str componentsSeparatedByString:@";"];
+        rememberToken = [[[cookie_arr objectAtIndex:0] componentsSeparatedByString:@"="]objectAtIndex:1];
+        NSString * session = [[[cookie_arr objectAtIndex:2] componentsSeparatedByString:@"="]objectAtIndex:1];
+        [pref setObject:rememberToken forKey : @"remember_token"];
+        [pref setObject:session forKey : @"session"];
+        [pref synchronize];
+    }
+    [request setValue:[NSString stringWithFormat:@"remember_token=%@",rememberToken] forHTTPHeaderField:@"Cookie"];
+
 }
 
 -(BOOL)checkEmail:(NSString *) email{

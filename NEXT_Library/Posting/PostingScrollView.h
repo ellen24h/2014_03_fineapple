@@ -1,13 +1,13 @@
 //
-//  MyLibrary.h
+//  PostingScrollView.h
 //  NEXT_Library
 //
-//  Created by Ducky on 2014. 12. 16..
+//  Created by Ducky on 2014. 12. 28..
 //  Copyright (c) 2014년 FineApple. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface MyLibraryTabController : UITabBarController
+@interface PostingScrollView : UIScrollView
 
 @end

@@ -13,18 +13,25 @@
 @end
 
 @implementation DetailBookViewController
-
+-(void)viewDidLayoutSubviews{
+    [_scroll setScrollEnabled:YES];
+    [_scroll setContentSize:CGSizeMake(320, 1030)];
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 스크롤 설정
-    [self.scroll setScrollEnabled:YES];
-    [self.scroll setContentSize:CGSizeMake(320, 1030)];
-    NSString * ISBN = @"9788982814471";
+    [_scroll setScrollEnabled:YES];
+    [_scroll setContentSize:CGSizeMake(320, 1030)];
+    NSLog(@"%f",_scroll.frame.size.height);
+    NSString * ISBN = _isbnFromOtherView;
     //model 생성
     model = [BookDetailModel sharedTimelineModel];
     [model getDetailData:ISBN];
-    read_Count = [model readCount:@"9788982814471"];
-    wish_Count = [model wishCount:@"9788982814471"];
+    read_Count = [model readCount:ISBN];
+    wish_Count = [model wishCount:ISBN];
     
     NSDictionary * bookDict = [model.myObject objectAtIndex:0];
     self.bookName.text = [NSMutableString stringWithFormat:@"%@",

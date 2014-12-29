@@ -14,7 +14,9 @@
     BookDetailModel * model;
     NSString * read_Count;
     NSString * wish_Count;
+
 }
+@property (nonatomic) NSString *isbnFromOtherView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UIImageView *bookImg;
 @property (weak, nonatomic) IBOutlet UIButton *readBook;

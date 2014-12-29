@@ -30,27 +30,23 @@
 
 //UserDefaults로부터 session과 remember_token을 받아온다.
 -(NSString *)getSessionFromUserDefault{
-
-    [[NSUserDefaults standardUserDefaults] setObject:NULL forKey : @"session"];
-    return NULL;
-   
-//            return [[NSUserDefaults standardUserDefaults] objectForKey:@"session"];
+//    return NULL;
+      return [[NSUserDefaults standardUserDefaults] objectForKey:@"session"];
 }
 
 -(NSString *)getRememberTokenFromUserDefault{
-    [[NSUserDefaults standardUserDefaults] setObject:NULL forKey : @"remember_token"];
-    return NULL;
-//            return [[NSUserDefaults standardUserDefaults]objectForKey:@"remember_token"];
+//    return NULL;
+        return [[NSUserDefaults standardUserDefaults]objectForKey:@"remember_token"];
 }
 
 //getFisrtSceneNameFromServer
 //  사용자가 처음 앱을 켜면 어떤 화면을 띄워줘야 하는지 서버에 쿼리하여 화면 이름을 서버로부터 받아옴
 -(NSString *)getFirstSceneNameFromServer{
-    NSString * session = [self getSessionFromUserDefault];
     NSString * rememberToken = [self getRememberTokenFromUserDefault];
-    if(session != NULL && rememberToken != NULL){
+    NSLog(@"%@",rememberToken);
+    if(rememberToken != NULL){
         [request setURL:[serverURL URLByAppendingPathComponent:@"/veryFirstConnect"]];
-        [request setValue:[NSString stringWithFormat:@"remember_token=%@; session=%@;",rememberToken,session] forHTTPHeaderField:@"Cookie"];
+        [request setValue:[NSString stringWithFormat:@"remember_token=%@",rememberToken] forHTTPHeaderField:@"Cookie"];
         NSURLConnection * connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
         if(connection){
             NSLog(@"connection success");

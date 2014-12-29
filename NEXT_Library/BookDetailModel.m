@@ -37,21 +37,19 @@
         location = @"location1";
         description = @"description";
         ISBN = @"ISBN";
-        _myObject = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 -(void)getDetailData:(NSString *)getISBN{
     [request setURL:[url URLByAppendingPathComponent:@"/bookDetail"]];
-    NSLog(@"현재 연결 url : %@", request.URL);
     NSString * bookData = [NSString stringWithFormat:@"ISBN=%@",getISBN];
     resultData = [bookData dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:resultData];
     
     NSData *book_Data =  [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *bookObjects= [NSJSONSerialization JSONObjectWithData:book_Data options:kNilOptions error:nil];
-    
+    NSLog(@"!!!!!!!!!!!!@@@ %@",bookObjects);
     for (NSDictionary *dataDict in bookObjects) {
         NSString *name_data = [dataDict objectForKey:@"name"];
         NSString *author_data = [dataDict objectForKey:@"author"];
@@ -80,7 +78,9 @@
                       location_data, location,
                       ISBN_data, ISBN,
                       nil];
-        [myObject addObject:dictionary];
+
+        _myObject = [[NSMutableArray alloc]initWithObjects:dictionary, nil];
+ 
     }
 }
 

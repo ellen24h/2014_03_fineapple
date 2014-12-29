@@ -16,6 +16,12 @@
 +(NSString *)getPortNum{
     return SERVER_PORT;
 }
++(NSString *)getNaverBooksKey{
+    return NAVERBOOKS_KEY;
+}
++(NSString *)getNaverBooksAddrWithKey{
+    return NAVERBOOKS_ADDRWITHKEY;
+}
 //setLoadingAnimation
 //  로딩애니메이션을 띄운다.
 +(void)setLoadingAnimation:(UIViewController *) vc{
@@ -100,4 +106,19 @@
         backView = nil;
     }
 }
+
++(NSString*) sha1:(NSString*)input
+{
+    const char *cstr = [input cStringUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [NSData dataWithBytes:cstr length:input.length];
+    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+    CC_SHA1(data.bytes, data.length, digest);
+    NSMutableString* output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+    for(int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    return output;
+}
+
+
+
 @end

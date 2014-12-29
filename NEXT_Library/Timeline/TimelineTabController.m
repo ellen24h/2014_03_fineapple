@@ -9,5 +9,8 @@
 #import "TimelineTabController.h"
 
 @implementation TimelineTabController
+-(void) viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES];
+}
 
 @end

@@ -117,7 +117,17 @@
 - (IBAction)initProfileSend:(id)sender {
     //NSURLRequest 만들기
     NSString * URLString = [[NSString alloc]initWithFormat:@"http://%@:%@/initProfile",[publicSetting getServerAddr],[publicSetting getPortNum]];
-    NSString * FormData = [NSString stringWithFormat:@"attendOrNot=%@&semesterNum=%@&majorFirst=%@&majorSecond=%@", _attendOrNot,_semesterNum,_majorFirst,_majorSecond];
+    NSString * majorSecond = _majorSecond.text;
+    NSString * FormData;
+    if([majorSecond isEqualToString:@"널 값"] == YES){
+        majorSecond = @"\\N";
+         FormData = [NSString stringWithFormat:@"attendOrNot=%d&semesterNum=%d&majorFirst=%d&majorSecond=%@",[self.attendOrNotArray indexOfObject:_attendOrNot.text],[self.semesterNumArray indexOfObject:_semesterNum.text],[self.majorArray indexOfObject:_majorFirst.text],majorSecond];
+    }
+    else{
+        FormData = [NSString stringWithFormat:@"attendOrNot=%d&semesterNum=%d&majorFirst=%d&majorSecond=%d",[self.attendOrNotArray indexOfObject:_attendOrNot.text],[self.semesterNumArray indexOfObject:_semesterNum.text],[self.majorArray indexOfObject:_majorFirst.text],[self.majorArray indexOfObject:majorSecond]];
+    }
+    
+    NSLog(@"%@",majorSecond);
     NSURL * url = [NSURL URLWithString:URLString];
     NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"POST"];

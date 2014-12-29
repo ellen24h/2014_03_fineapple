@@ -16,6 +16,7 @@
     [super viewDidLoad];
 
     @autoreleasepool {
+         self.navigationController.navigationBar.frame = CGRectMake(0, 0, 0, 0);
         model = [[LoginModel alloc]initWithURLwithPort:[publicSetting getServerAddr] port:[publicSetting getPortNum]];
         NSNotificationCenter * notiCenter = [NSNotificationCenter defaultCenter];
         NSString * firstScene;
@@ -163,6 +164,7 @@
     }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController * controller = [storyboard instantiateViewControllerWithIdentifier:sceneName];
+    self.navigationController.navigationBar.frame = CGRectMake(0, 0, 0, 0);
     [self.navigationController pushViewController:controller animated:YES];
     [publicSetting removeLoadingAnimation:self];
 }
