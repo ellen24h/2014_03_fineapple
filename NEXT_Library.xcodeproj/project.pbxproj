@@ -20,6 +20,7 @@
 		344075391A51C60F0016F5CD /* wish_inactive_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3440752F1A51C60F0016F5CD /* wish_inactive_white.png */; };
 		3440753E1A51C6230016F5CD /* BookDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3440753B1A51C6230016F5CD /* BookDetailModel.m */; };
 		3440753F1A51C6230016F5CD /* DetailBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3440753D1A51C6230016F5CD /* DetailBookViewController.m */; };
+		344075411A51C78D0016F5CD /* read_inactive_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 344075401A51C78D0016F5CD /* read_inactive_white.png */; };
 		34EC6CEF1A482DA600E5F3B1 /* RegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EC6CEE1A482DA600E5F3B1 /* RegisterModel.m */; };
 		34F534001A492F3400094662 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F533E01A492F3400094662 /* MKAnnotationView+WebCache.m */; };
 		34F534011A492F3400094662 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F533E21A492F3400094662 /* NSData+ImageContentType.m */; };
@@ -167,6 +168,7 @@
 		3440753B1A51C6230016F5CD /* BookDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailModel.m; sourceTree = "<group>"; };
 		3440753C1A51C6230016F5CD /* DetailBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailBookViewController.h; sourceTree = "<group>"; };
 		3440753D1A51C6230016F5CD /* DetailBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailBookViewController.m; sourceTree = "<group>"; };
+		344075401A51C78D0016F5CD /* read_inactive_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = read_inactive_white.png; sourceTree = "<group>"; };
 		34EC6CED1A482DA600E5F3B1 /* RegisterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterModel.h; path = RegisterEmail/RegisterModel.h; sourceTree = "<group>"; };
 		34EC6CEE1A482DA600E5F3B1 /* RegisterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterModel.m; path = RegisterEmail/RegisterModel.m; sourceTree = "<group>"; };
 		34F533DF1A492F3400094662 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				344075281A51C60F0016F5CD /* check_inactive_2.png */,
 				344075291A51C60F0016F5CD /* check_inactive.png */,
 				3440752A1A51C60F0016F5CD /* heart_active_2.png */,
+				344075401A51C78D0016F5CD /* read_inactive_white.png */,
 				3440752B1A51C60F0016F5CD /* heart_active.png */,
 				3440752C1A51C60F0016F5CD /* heart_inactive_2.png */,
 				3440752D1A51C60F0016F5CD /* heart_inactive.png */,
@@ -896,6 +899,7 @@
 				5CAF806C1A2F927A00B114F9 /* frame-000014.png in Resources */,
 				5CAF807E1A2F927A00B114F9 /* frame-000032.png in Resources */,
 				5CAF80851A2F927A00B114F9 /* frame-000039.png in Resources */,
+				344075411A51C78D0016F5CD /* read_inactive_white.png in Resources */,
 				34F534191A49392800094662 /* read_inactive.png in Resources */,
 				5CB742C91A2DAE2A006EA127 /* logo.png in Resources */,
 				5CAF80841A2F927A00B114F9 /* frame-000038.png in Resources */,
