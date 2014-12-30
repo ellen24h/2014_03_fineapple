@@ -27,7 +27,7 @@
 
 - (void) setImage: (UIImage*) img
 {
-    [imageView setImage: [UIImage imageNamed:@"frame-000000.png"]];
+    [imageView setImage: img];
 }
 
 

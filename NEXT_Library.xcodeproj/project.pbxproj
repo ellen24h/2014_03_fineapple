@@ -21,6 +21,7 @@
 		3440753E1A51C6230016F5CD /* BookDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3440753B1A51C6230016F5CD /* BookDetailModel.m */; };
 		3440753F1A51C6230016F5CD /* DetailBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3440753D1A51C6230016F5CD /* DetailBookViewController.m */; };
 		344075411A51C78D0016F5CD /* read_inactive_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 344075401A51C78D0016F5CD /* read_inactive_white.png */; };
+		344075871A51DBCC0016F5CD /* MyLibDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 344075861A51DBCC0016F5CD /* MyLibDataModel.m */; };
 		34EC6CEF1A482DA600E5F3B1 /* RegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EC6CEE1A482DA600E5F3B1 /* RegisterModel.m */; };
 		34F534001A492F3400094662 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F533E01A492F3400094662 /* MKAnnotationView+WebCache.m */; };
 		34F534011A492F3400094662 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F533E21A492F3400094662 /* NSData+ImageContentType.m */; };
@@ -168,6 +169,8 @@
 		3440753C1A51C6230016F5CD /* DetailBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailBookViewController.h; sourceTree = "<group>"; };
 		3440753D1A51C6230016F5CD /* DetailBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailBookViewController.m; sourceTree = "<group>"; };
 		344075401A51C78D0016F5CD /* read_inactive_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = read_inactive_white.png; sourceTree = "<group>"; };
+		344075851A51DBCC0016F5CD /* MyLibDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyLibDataModel.h; path = MyLibrary/MyLibDataModel.h; sourceTree = "<group>"; };
+		344075861A51DBCC0016F5CD /* MyLibDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyLibDataModel.m; path = MyLibrary/MyLibDataModel.m; sourceTree = "<group>"; };
 		34EC6CED1A482DA600E5F3B1 /* RegisterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterModel.h; path = RegisterEmail/RegisterModel.h; sourceTree = "<group>"; };
 		34EC6CEE1A482DA600E5F3B1 /* RegisterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterModel.m; path = RegisterEmail/RegisterModel.m; sourceTree = "<group>"; };
 		34F533DF1A492F3400094662 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -669,6 +672,8 @@
 				8C2931451A51CF000026ADAB /* MyLibraryReadBookCell.m */,
 				8C2931461A51CF000026ADAB /* MyLibarayPlusButtonCell.h */,
 				8C2931471A51CF000026ADAB /* MyLibarayPlusButtonCell.m */,
+				344075851A51DBCC0016F5CD /* MyLibDataModel.h */,
+				344075861A51DBCC0016F5CD /* MyLibDataModel.m */,
 			);
 			name = MyLibrary;
 			sourceTree = "<group>";
@@ -976,6 +981,7 @@
 				34F5340D1A492F3400094662 /* UIImageView+HighlightedWebCache.m in Sources */,
 				5CDF81541A404E7300E79AD9 /* PostDetailTableViewController.m in Sources */,
 				34F8D47E1A2D6393000D257B /* RegisterEmailViewController.m in Sources */,
+				344075871A51DBCC0016F5CD /* MyLibDataModel.m in Sources */,
 				3440753E1A51C6230016F5CD /* BookDetailModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

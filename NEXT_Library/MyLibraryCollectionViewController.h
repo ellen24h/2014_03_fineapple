@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "publicSetting.h"
+#import "MyLibDataModel.h"
 
 @interface MyLibraryCollectionViewController : UICollectionViewController
 {
@@ -16,6 +17,13 @@
     BOOL wishSelected;
     UIButton *readButton;
     UIButton *wishButton;
+    
+    MyLibDataModel * model;
+    NSMutableArray * my_Object;
+    NSDictionary * bookDataDic;
+    NSArray * bookDataArr;
 }
+
+- (NSDictionary *)parseJsonResponse:(NSString *)searchText;
 
 @end

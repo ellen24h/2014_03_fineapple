@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7ak-lY-KlV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rmn-ch-ovb">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -434,7 +434,7 @@
                     <connections>
                         <segue destination="xJF-g2-HWC" kind="relationship" relationship="viewControllers" id="GHO-XC-whV"/>
                         <segue destination="kLe-Ma-zIn" kind="relationship" relationship="viewControllers" id="oPf-dE-oqE"/>
-                        <segue destination="np0-Bc-t8p" kind="relationship" relationship="viewControllers" id="FPP-0Y-p7m"/>
+                        <segue destination="wai-hQ-BUh" kind="relationship" relationship="viewControllers" id="Ecu-gV-4Sr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WFi-lE-BIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -468,6 +468,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IET-b3-0KG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-370" y="894"/>
+        </scene>
+        <!--My Library Collection View Controller-->
+        <scene sceneID="hGl-x8-tfg">
+            <objects>
+                <collectionViewController id="wai-hQ-BUh" customClass="MyLibraryCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="J46-qv-VF9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.96470588239999999" blue="0.93333333330000001" alpha="1" colorSpace="deviceRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CNY-se-gK2">
+                            <size key="itemSize" width="150" height="190"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ANu-K7-dIa" customClass="MyLibraryReadBookCell">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="190"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Lel-GT-3wc">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="wai-hQ-BUh" id="9NY-Cf-JTL"/>
+                            <outlet property="delegate" destination="wai-hQ-BUh" id="LvY-fm-cBd"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" image="myLibrary_icon_select.png" id="eMq-oQ-eAc"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oAU-se-4Lh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="69" y="613"/>
         </scene>
         <!--Timeline Tab Controller-->
         <scene sceneID="Xvs-eZ-zfg">
@@ -773,110 +813,6 @@
             </objects>
             <point key="canvasLocation" x="1107" y="-699"/>
         </scene>
-        <!--My Library Tab Controller-->
-        <scene sceneID="gft-o8-b7d">
-            <objects>
-                <tabBarController id="np0-Bc-t8p" customClass="MyLibraryTabController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="myLibrary_icon.png" id="4S0-WI-V4D"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="E3f-CS-HbS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="s6A-Bx-IWA" kind="relationship" relationship="viewControllers" id="dzn-sY-byc"/>
-                        <segue destination="87x-QP-K8C" kind="relationship" relationship="viewControllers" id="A4z-PR-FZm"/>
-                        <segue destination="OqI-KX-JCt" kind="relationship" relationship="viewControllers" id="yqf-Fq-xeg"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4JA-xK-sOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="513" y="715"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="EGS-SZ-MjZ">
-            <objects>
-                <tableViewController id="s6A-Bx-IWA" customClass="MyLibraryTableViewController_read" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xCj-Pn-byM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="3jS-5c-N1j">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3jS-5c-N1j" id="uYe-Bh-rxd">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="s6A-Bx-IWA" id="Xwk-z7-xlv"/>
-                            <outlet property="delegate" destination="s6A-Bx-IWA" id="MfL-ks-qmA"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="PQ8-yu-s86"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OMU-Tp-XC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1075" y="644"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="AzD-bU-h7b">
-            <objects>
-                <tableViewController id="OqI-KX-JCt" customClass="MyLibraryTableViewController_setting" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="S8l-bf-1Ks">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="soq-Yc-mLC">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="soq-Yc-mLC" id="Fdf-tg-Yt4">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="OqI-KX-JCt" id="fg9-Qm-koB"/>
-                            <outlet property="delegate" destination="OqI-KX-JCt" id="Yvd-WA-d3y"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="1EU-12-Hn0"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JcK-q4-tSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="397" y="1532"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="YUs-Kl-S0L">
-            <objects>
-                <tableViewController id="87x-QP-K8C" customClass="MyLibraryTableViewController_wish" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="AqI-ea-tec">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6nj-iB-Spk">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6nj-iB-Spk" id="vex-gT-i5B">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="87x-QP-K8C" id="O9O-jd-8ff"/>
-                            <outlet property="delegate" destination="87x-QP-K8C" id="dFy-Nf-mK9"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="Zbi-Ek-coQ"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3BS-er-MGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="961" y="1450"/>
-        </scene>
         <!--Search Nav Controller-->
         <scene sceneID="fYQ-VL-beQ">
             <objects>
@@ -1043,7 +979,7 @@
         <image name="heart_active_2.png" width="25" height="25"/>
         <image name="inputBar_registerEmail.png" width="261" height="40"/>
         <image name="logo.png" width="800" height="257"/>
-        <image name="myLibrary_icon.png" width="48" height="32"/>
+        <image name="myLibrary_icon_select.png" width="48" height="32"/>
         <image name="read_active.png" width="88" height="25"/>
         <image name="read_inactive.png" width="88" height="25"/>
         <image name="read_inactive_white.png" width="24" height="22"/>

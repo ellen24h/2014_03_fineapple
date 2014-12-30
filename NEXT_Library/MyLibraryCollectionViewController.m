@@ -9,6 +9,8 @@
 #import "MyLibraryCollectionViewController.h"
 #import "MyLibraryReadBookCell.h"
 #import "MyLibarayPlusButtonCell.h"
+#import "MyLibDataModel.h"
+#import "UIImageView+WebCache.h"
 
 @interface MyLibraryCollectionViewController ()
 
@@ -25,19 +27,26 @@ static NSString * const header = @"header";
 
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad{
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
+    model = [MyLibDataModel sharedTimelineModel];
+    
+        //[model getReadBook];
+    
+        [model getWishBook];
+    
+    my_Object = [model returnMutableArray];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(bookDataLoadDone:) name:@"bookDataLoadDone" object:nil];
     
     // Register cell classes
     [self.collectionView registerClass:[MyLibraryReadBookCell class] forCellWithReuseIdentifier:bookImg];
     [self.collectionView registerClass:[MyLibarayPushButtonCell class] forCellWithReuseIdentifier:pushButton];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:header];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(myLibrary_tabtouched:) name:@"myLibrary_tabtouched" object:nil];
-
-
+    
     
     // Do any additional setup after loading the view.
 }
@@ -82,7 +91,17 @@ static NSString * const header = @"header";
 
 // 셀의 개수: 책 권 수
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 30;
+    return [model bookCount];
+}
+
+-(void)bookDataLoadDone:(NSNotification *)noti{
+    NSDictionary * data = noti.object;
+    if (data != nil){
+        bookDataDic = data;
+        bookDataArr = [[NSArray alloc] initWithArray:[[bookDataDic objectForKey:@"channel"]objectForKey:@"item"]];
+    }else{
+        bookDataArr = nil;
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -93,13 +112,47 @@ static NSString * const header = @"header";
         [cell addTarget:self action:@selector(PlusButtonTouch:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }else{
-          MyLibraryReadBookCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:bookImg forIndexPath:indexPath];
-        [cell setImage: [UIImage imageNamed:@"frame-000000.png"]];
+        
+        NSDictionary *tmpDict = [my_Object objectAtIndex:indexPath.row];
+        
+        //책 이미지에 대하여...
+        
+        NSMutableString *ISBN;
+        ISBN = [NSMutableString stringWithFormat:@"%@", [tmpDict objectForKey:@"bookISBN"]];
+        NSDictionary *dic = [self parseJsonResponse:ISBN];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"bookDataLoadDone" object:dic];
+        UIImage *img;
+    @try{
+        if (bookDataArr != nil){
+            NSString * path = [[bookDataArr objectAtIndex:0] objectForKey:@"cover_l_url"];
+            NSLog(@"%@", path);
+        
+            NSURL *url = [NSURL URLWithString:path];
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            img = [[UIImage alloc]initWithData:data];
+        }else{
+            img = [[UIImage alloc] init];
+            img = [UIImage imageNamed:@"frame-000000.png"];
+        }
+        MyLibraryReadBookCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:bookImg forIndexPath:indexPath];
+        [cell setImage:img];
          return cell;
     }
+    @catch(NSException * e){
+        NSLog(@"%@",e);
+        img = [[UIImage alloc] init];
+        img = [UIImage imageNamed:@"frame-000000.png"];
+        MyLibraryReadBookCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:bookImg forIndexPath:indexPath];
+        [cell setImage:img];
+        return cell;
+    }
+    @finally {
+        MyLibraryReadBookCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:bookImg forIndexPath:indexPath];
+        [cell setImage:img];
+        return cell;
+    }
+    }
     // Configure the cell
-    
-   
 }
 
 // PlusButtonTouch EventHandler
@@ -145,6 +198,18 @@ static NSString * const header = @"header";
     
 }
 
+- (NSDictionary *)parseJsonResponse:(NSString *)searchText {
+    NSURLResponse *response;
+    NSData * data;
+    NSString *urlString = [NSString stringWithFormat:@"http://apis.daum.net/search/book?q=%@&apikey=ae04be3ff84bfb7d678768b3270dbd5d63741b41&output=json", searchText];
+    NSLog(@"%@", urlString);
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    NSError *error;
+    NSDictionary *dic;
+    dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    return dic;
+}
 
 #pragma mark <UICollectionViewDelegate>
 
