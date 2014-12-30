@@ -34,9 +34,9 @@ static NSString * const header = @"header";
     // self.clearsSelectionOnViewWillAppear = NO;
     model = [MyLibDataModel sharedTimelineModel];
     
-        //[model getReadBook];
+        [model getReadBook];
     
-        [model getWishBook];
+//        [model getWishBook];
     
     my_Object = [model returnMutableArray];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(bookDataLoadDone:) name:@"bookDataLoadDone" object:nil];
