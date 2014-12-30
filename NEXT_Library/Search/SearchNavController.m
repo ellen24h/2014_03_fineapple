@@ -13,7 +13,9 @@
 @end
 
 @implementation SearchNavController
-
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES];
+}
 - (NSMutableArray *) array {
     if(!_array) {
         _array = [[NSMutableArray alloc] init];
@@ -130,8 +132,7 @@
         NSLog(@"sender : %@",sender);
         DetailBookViewController *vc = [segue destinationViewController];
         UITableViewCell * cell = sender;
-        NSLog(@"%@",cell.detailTextLabel.text);
-        vc.isbnFromOtherView =cell.detailTextLabel.text;
+        vc.isbnFromOtherView =[cell.detailTextLabel.text stringByReplacingOccurrencesOfString:@"ISBN : " withString:@""];
     }
 }
 
