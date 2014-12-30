@@ -21,6 +21,10 @@
 		3440753E1A51C6230016F5CD /* BookDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3440753B1A51C6230016F5CD /* BookDetailModel.m */; };
 		3440753F1A51C6230016F5CD /* DetailBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3440753D1A51C6230016F5CD /* DetailBookViewController.m */; };
 		344075411A51C78D0016F5CD /* read_inactive_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 344075401A51C78D0016F5CD /* read_inactive_white.png */; };
+		3440759E1A5237120016F5CD /* MyLibraryCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344075971A5237120016F5CD /* MyLibraryCollectionViewController.m */; };
+		3440759F1A5237120016F5CD /* MyLibraryReadBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 344075991A5237120016F5CD /* MyLibraryReadBookCell.m */; };
+		344075A01A5237120016F5CD /* MyLibarayPlusButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3440759B1A5237120016F5CD /* MyLibarayPlusButtonCell.m */; };
+		344075A11A5237120016F5CD /* MyLibDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3440759D1A5237120016F5CD /* MyLibDataModel.m */; };
 		34EC6CEF1A482DA600E5F3B1 /* RegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EC6CEE1A482DA600E5F3B1 /* RegisterModel.m */; };
 		34F534001A492F3400094662 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F533E01A492F3400094662 /* MKAnnotationView+WebCache.m */; };
 		34F534011A492F3400094662 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F533E21A492F3400094662 /* NSData+ImageContentType.m */; };
@@ -206,6 +210,14 @@
 		3440753C1A51C6230016F5CD /* DetailBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailBookViewController.h; sourceTree = "<group>"; };
 		3440753D1A51C6230016F5CD /* DetailBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailBookViewController.m; sourceTree = "<group>"; };
 		344075401A51C78D0016F5CD /* read_inactive_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = read_inactive_white.png; sourceTree = "<group>"; };
+		344075961A5237120016F5CD /* MyLibraryCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLibraryCollectionViewController.h; sourceTree = "<group>"; };
+		344075971A5237120016F5CD /* MyLibraryCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLibraryCollectionViewController.m; sourceTree = "<group>"; };
+		344075981A5237120016F5CD /* MyLibraryReadBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLibraryReadBookCell.h; sourceTree = "<group>"; };
+		344075991A5237120016F5CD /* MyLibraryReadBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLibraryReadBookCell.m; sourceTree = "<group>"; };
+		3440759A1A5237120016F5CD /* MyLibarayPlusButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLibarayPlusButtonCell.h; sourceTree = "<group>"; };
+		3440759B1A5237120016F5CD /* MyLibarayPlusButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLibarayPlusButtonCell.m; sourceTree = "<group>"; };
+		3440759C1A5237120016F5CD /* MyLibDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLibDataModel.h; sourceTree = "<group>"; };
+		3440759D1A5237120016F5CD /* MyLibDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLibDataModel.m; sourceTree = "<group>"; };
 		34EC6CED1A482DA600E5F3B1 /* RegisterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterModel.h; path = RegisterEmail/RegisterModel.h; sourceTree = "<group>"; };
 		34EC6CEE1A482DA600E5F3B1 /* RegisterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterModel.m; path = RegisterEmail/RegisterModel.m; sourceTree = "<group>"; };
 		34F533DF1A492F3400094662 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -817,6 +829,14 @@
 		5CDF81221A40462800E79AD9 /* MyLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				344075961A5237120016F5CD /* MyLibraryCollectionViewController.h */,
+				344075971A5237120016F5CD /* MyLibraryCollectionViewController.m */,
+				344075981A5237120016F5CD /* MyLibraryReadBookCell.h */,
+				344075991A5237120016F5CD /* MyLibraryReadBookCell.m */,
+				3440759A1A5237120016F5CD /* MyLibarayPlusButtonCell.h */,
+				3440759B1A5237120016F5CD /* MyLibarayPlusButtonCell.m */,
+				3440759C1A5237120016F5CD /* MyLibDataModel.h */,
+				3440759D1A5237120016F5CD /* MyLibDataModel.m */,
 			);
 			name = MyLibrary;
 			sourceTree = "<group>";
@@ -1112,6 +1132,7 @@
 				34F534071A492F3400094662 /* SDWebImageManager.m in Sources */,
 				34F534081A492F3400094662 /* SDWebImagePrefetcher.m in Sources */,
 				5C321D8B1A4F2C3F00DADD90 /* serachResultBookButton.h in Sources */,
+				3440759E1A5237120016F5CD /* MyLibraryCollectionViewController.m in Sources */,
 				34F8D47B1A2D6313000D257B /* LoginViewController.m in Sources */,
 				5C8E43E61A401D6400A5AA38 /* SetBookFirstTableViewController.m in Sources */,
 				5CDF81581A404EE800E79AD9 /* BookDetailViewController.m in Sources */,
@@ -1119,8 +1140,10 @@
 				34F534061A492F3400094662 /* SDWebImageDownloaderOperation.m in Sources */,
 				5C8D13021A38560000628527 /* MainTabViewController.m in Sources */,
 				34EC6CEF1A482DA600E5F3B1 /* RegisterModel.m in Sources */,
+				344075A01A5237120016F5CD /* MyLibarayPlusButtonCell.m in Sources */,
 				5C7E49BB1A470B47000E53EE /* TimelineModel.h in Sources */,
 				5C79CBBF1A5132860037E70A /* SettingModifyPasswordViewController.m in Sources */,
+				344075A11A5237120016F5CD /* MyLibDataModel.m in Sources */,
 				5C18DAC51A4EF0F2005DDB70 /* postingModel.m in Sources */,
 				5C8E43ED1A401E1300A5AA38 /* InitProfileViewController.m in Sources */,
 				5CDF815B1A40734300E79AD9 /* LoadScene.m in Sources */,
@@ -1171,6 +1194,7 @@
 				5C2C2A6A1A44A13D0040BCD9 /* TimelineModel.m in Sources */,
 				34F8D47E1A2D6393000D257B /* RegisterEmailViewController.m in Sources */,
 				3440753E1A51C6230016F5CD /* BookDetailModel.m in Sources */,
+				3440759F1A5237120016F5CD /* MyLibraryReadBookCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
